@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /book-trial
+Allow: /login
+Allow: /signup
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /parent
+Disallow: /parent/*
+Disallow: /tutor
+Disallow: /tutor/*
+
+Sitemap: https://selam-tutoring-803875179116.europe-west2.run.app/sitemap.xml
