@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_10_fidel_flex_l1",
+  "unit_title": "ምዕራፍ ፲ — Meraf 10: Foundations of ገ and ጠ",
+  "module": "10.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ገ and ጠ!",
+    "headline_am": "በጣም ድንቅ ነው! የገ እና የጠ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g10_shape_match_ge",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ገ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ገ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ገ",
+      "options": ["ገ", "ጉ", "ሀ"],
+      "correct_answer": "ገ",
+      "pronunciation_label": "Ge",
+      "success_audio": "audio/pronunciation/ge.mp3"
+    },
+    {
+      "game_id": "g10_bubble_pop_gie_ge",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ጌ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ጌ'!",
+      "target_symbol": "ጌ",
+      "target_pronunciation": "Gie",
+      "target_audio": "audio/pronunciation/gie.mp3",
+      "floating_options": ["ገ", "ጉ", "ጊ", "ጌ"],
+      "correct_answer": "ጌ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g10_sequence_next_ge",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ገ ➔ ጉ ➔ [ ? ]",
+      "options": ["ጋ", "ጊ", "ጌ"],
+      "correct_answer": "ጊ",
+      "target_pronunciation": "Gi",
+      "success_audio": "audio/pronunciation/gi.mp3"
+    },
+    {
+      "game_id": "g10_word_to_image_gari",
+      "game_type": "word_to_image",
+      "title": "Word Match: ጋሪ",
+      "instructions_en": "Associate the illustrated cart with the correct Amharic word: 'ጋሪ'",
+      "tips_en": "Tip: ጋሪ (pronounced 'Gari') means Cart.",
+      "image_url": "images/vocabulary/gari.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ጋሪ",
+          "phonetic": "Gari (Ga-ri)"
+        },
+        {
+          "word": "ጀልባ",
+          "phonetic": "Jelba (Jel-ba)"
+        }
+      ],
+      "correct_answer": "ጋሪ",
+      "success_audio": "audio/vocabulary/gari_full.mp3"
+    },
+    {
+      "game_id": "g10_shape_match_t_e",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ጠ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ጠ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ጠ",
+      "options": ["ጠ", "ጡ", "የ"],
+      "correct_answer": "ጠ",
+      "pronunciation_label": "Te (Emphatic)",
+      "success_audio": "audio/pronunciation/te_emphatic.mp3"
+    },
+    {
+      "game_id": "g10_bubble_pop_t_ie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ጤ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ጤ'!",
+      "target_symbol": "ጤ",
+      "target_pronunciation": "T'ie",
+      "target_audio": "audio/pronunciation/tie_emphatic.mp3",
+      "floating_options": ["ጠ", "ጡ", "ጢ", "ጤ"],
+      "correct_answer": "ጤ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g10_sequence_next_t_e",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ጣ ➔ ጤ ➔ [ ? ]",
+      "options": ["ጥ", "ጦ", "ጠ"],
+      "correct_answer": "ጥ",
+      "target_pronunciation": "T' (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/t_sixth_ex.mp3"
+    },
+    {
+      "game_id": "g10_word_to_image_turumba",
+      "game_type": "word_to_image",
+      "title": "Word Match: ጡሩምባ",
+      "instructions_en": "Associate the illustrated trumpet with the correct Amharic word: 'ጡሩምባ'",
+      "tips_en": "Tip: ጡሩምባ (pronounced 'Turumba') means Trumpet.",
+      "image_url": "images/vocabulary/trumpet.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ጡሩምባ",
+          "phonetic": "Turumba (Tu-rum-ba)"
+        },
+        {
+          "word": "ደብተር",
+          "phonetic": "Debter (Deb-ter)"
+        }
+      ],
+      "correct_answer": "ጡሩምባ",
+      "success_audio": "audio/vocabulary/turumba_full.mp3"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "unit_id": "unit_13_fidel_finale_pe_l2",
+  "unit_title": "ምዕራፍ ፲፫ — Meraf 13: Grand Finale Mastery of ፐ",
+  "module": "13.2",
+  "success_screen": {
+    "headline_en": "Glorious! You have fully mastered the Level 2 Amharic Alphabet curriculum!",
+    "headline_am": "ታላቅ ድል! የደረጃ ፪ የአማርኛ ፊደላት ትምህርትን ሙሉ በሙሉ በድል አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/alphabet_mastery_grand.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g13_assembly_posta",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Assembly: ፖስታ",
+      "instructions_en": "Assemble the letters to build the word for Mail Envelope!",
+      "scrambled_letters": [
+        "ስ",
+        "ፖ",
+        "ታ"
+      ],
+      "correct_answer": "ፖስታ",
+      "english_translation": "Envelope [Posta]",
+      "tips_en": "Tip: Select 'ፖ' (7th form), followed by 'ስ' (6th form), and end with 'ታ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_fill_blank_papaya",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ፓፓያ",
+      "instructions_en": "Find the missing letter to complete the fruit name 'Papaya': ፓ[ ? ]ያ.",
+      "word_display_with_blank": "ፓ __ ያ",
+      "tips_en": "The full word is ፓፓያ (pronounced Pa-pa-ya).",
+      "image_url": "images/vocabulary/papaya.png",
+      "options": [
+        "ፓ",
+        "ፑ",
+        "ፒ",
+        "ፔ"
+      ],
+      "correct_answer": "ፓ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g13_blend_pe",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Blend: ፐ",
+      "instructions_en": "Listen closely to the audio. Which symbol represents the 'Pe' sound?",
+      "target_audio": "audio/blends/pe_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Pe'",
+      "options": [
+        "ፐ",
+        "ፑ",
+        "ፒ",
+        " ፓ"
+      ],
+      "correct_answer": "ፐ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g13_assembly_papaya",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Assembly: ፓፓያ",
+      "instructions_en": "Form the full word for 'Papaya'!",
+      "scrambled_letters": [
+        "ፓ",
+        "ያ",
+        "ፓ"
+      ],
+      "correct_answer": "ፓፓያ",
+      "english_translation": "Papaya [Papaya]",
+      "tips_en": "Tip: Start with fourth form 'ፓ', repeat 'ፓ', and end with fourth form 'ያ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_fill_blank_posta",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ፖስታ",
+      "instructions_en": "Complete the word for 'Envelope': [ ? ]ስታ.",
+      "word_display_with_blank": "__ สታ",
+      "tips_en": "The full word is ፖስታ (pronounced Po-ska/Po-s-ta).",
+      "image_url": "images/vocabulary/envelope.png",
+      "options": [
+        "ፖ",
+        "ፑ",
+        "ፒ",
+        "ፔ"
+      ],
+      "correct_answer": "ፖ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g13_blend_pi",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Blend: ፒ",
+      "instructions_en": "Listen carefully. Which symbol represents the 'Pi' sound?",
+      "target_audio": "audio/blends/pi_sample.mp3",
+      "target_phonetic_description": "The 3rd form ('I' vowel sound): 'Pi'",
+      "options": [
+        "ፐ",
+        "ፑ",
+        "ፒ",
+        "ፓ"
+      ],
+      "correct_answer": "ፒ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g13_assembly_polis",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Assembly: ፖሊስ",
+      "instructions_en": "Form the word for 'Police' (Polis)!",
+      "scrambled_letters": [
+        "ስ",
+        "ፖ",
+        "ሊ"
+      ],
+      "correct_answer": "ፖሊስ",
+      "english_translation": "Police [Polis]",
+      "tips_en": "Tip: Select 'ፖ', then 'ሊ', and end with sixth form 'ስ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_fill_blank_polis",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ፖሊስ",
+      "instructions_en": "Complete the word for 'Police': ፖ[ ? ]ስ.",
+      "word_display_with_blank": "ፖ __ ስ",
+      "tips_en": "The full word is ፖሊስ (pronounced Po-li-s).",
+      "image_url": "images/vocabulary/police.png",
+      "options": [
+        "ሊ",
+        "ሉ",
+        "ላ",
+        "ሌ"
+      ],
+      "correct_answer": "ሊ",
+      "points_reward": 25
+    }
+  ]
+}

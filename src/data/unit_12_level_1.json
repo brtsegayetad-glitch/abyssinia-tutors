@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_12_fidel_flex_l1",
+  "unit_title": "ምዕራፍ ፲፪ — Meraf 12: Foundations of ፀ and ፈ",
+  "module": "12.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ፀ and ፈ!",
+    "headline_am": "በጣም ድንቅ ነው! የፀ እና የፈ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g12_shape_match_ts_e_round",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ፀ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ፀ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ፀ",
+      "options": ["ፀ", "ፁ", "በ"],
+      "correct_answer": "ፀ",
+      "pronunciation_label": "Ts'e",
+      "success_audio": "audio/pronunciation/tse_round.mp3"
+    },
+    {
+      "game_id": "g12_bubble_pop_ts_ie_round",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ፄ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ፄ'!",
+      "target_symbol": "ፄ",
+      "target_pronunciation": "Ts'ie",
+      "target_audio": "audio/pronunciation/tsie_round.mp3",
+      "floating_options": ["ፀ", "ፁ", "ፂ", "ፄ"],
+      "correct_answer": "ፄ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g12_sequence_next_ts_e_round",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ፀ ➔ ፁ ➔ [ ? ]",
+      "options": ["ፃ", "ፂ", "ፄ"],
+      "correct_answer": "ፂ",
+      "target_pronunciation": "Ts'i",
+      "success_audio": "audio/pronunciation/tsi_round.mp3"
+    },
+    {
+      "game_id": "g12_word_to_image_tsehay",
+      "game_type": "word_to_image",
+      "title": "Word Match: ፀሐይ",
+      "instructions_en": "Associate the illustrated sun with the correct Amharic word: 'ፀሐይ'",
+      "tips_en": "Tip: ፀሐይ (pronounced 'Tsehay') means Sun.",
+      "image_url": "images/vocabulary/sun.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ፀሐይ",
+          "phonetic": "Tsehay (Tse-ha-y)"
+        },
+        {
+          "word": "ጨረቃ",
+          "phonetic": "Chereqa (Che-re-qa)"
+        }
+      ],
+      "correct_answer": "ፀሐይ",
+      "success_audio": "audio/vocabulary/tsehay_full.mp3"
+    },
+    {
+      "game_id": "g12_shape_match_fe",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ፈ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ፈ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ፈ",
+      "options": ["ፈ", "ፉ", "ሃ"],
+      "correct_answer": "ፈ",
+      "pronunciation_label": "Fe",
+      "success_audio": "audio/pronunciation/fe.mp3"
+    },
+    {
+      "game_id": "g12_bubble_pop_fie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ፌ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ፌ'!",
+      "target_symbol": "ፌ",
+      "target_pronunciation": "Fie",
+      "target_audio": "audio/pronunciation/fie.mp3",
+      "floating_options": ["ፈ", "ፉ", "ፊ", "ፌ"],
+      "correct_answer": "ፌ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g12_sequence_next_fe",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ፋ ➔ ፌ ➔ [ ? ]",
+      "options": ["ፍ", "ፎ", "ፈ"],
+      "correct_answer": "ፍ",
+      "target_pronunciation": "F (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/f_sixth.mp3"
+    },
+    {
+      "game_id": "g12_word_to_image_feres",
+      "game_type": "word_to_image",
+      "title": "Word Match: ፈረስ",
+      "instructions_en": "Associate the illustrated horse with the correct Amharic word: 'ፈረስ'",
+      "tips_en": "Tip: ፈረስ (pronounced 'Feres') means Horse.",
+      "image_url": "images/vocabulary/horse.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ፈረስ",
+          "phonetic": "Feres (Fe-re-s)"
+        },
+        {
+          "word": "ፀሐይ",
+          "phonetic": "Tsehay (Tse-ha-y)"
+        }
+      ],
+      "correct_answer": "ፈረስ",
+      "success_audio": "audio/vocabulary/feres_full.mp3"
+    }
+  ]
+}

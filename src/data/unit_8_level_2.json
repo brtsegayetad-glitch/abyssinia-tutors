@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_8_fidel_flex_l2",
+  "unit_title": "ምዕራፍ ፰ — Meraf 8: Advanced Mastery of ዠ and የ",
+  "module": "8.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ዠ and የ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የዠ እና የየ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g8_assembly_yene",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: የኔ",
+      "instructions_en": "Assemble the letters to build the word for 'Mine'!",
+      "scrambled_letters": [
+        "ኔ",
+        "የ"
+      ],
+      "correct_answer": "የኔ",
+      "english_translation": "Mine [Yene]",
+      "tips_en": "Tip: Select 'የ', followed by 'ኔ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g8_fill_blank_zhentila",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ዠንጥላ",
+      "instructions_en": "Look at the incomplete word for 'Umbrella': ዠ[ ? ]ጥላ. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ዠ __ ጥ ላ",
+      "tips_en": "The full word is ዠንጥላ (pronounced Zhen-ti-la).",
+      "image_url": "images/vocabulary/umbrella.png",
+      "options": [
+        "ን",
+        "ነ",
+        "ኑ",
+        "ኒ"
+      ],
+      "correct_answer": "ን",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g8_blend_ye",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: የ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Ye' sound?",
+      "target_audio": "audio/blends/ye_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Ye'",
+      "options": [
+        "የ",
+        "ዩ",
+        "ዪ",
+        "ያ"
+      ],
+      "correct_answer": "የ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g8_assembly_zhentila",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ዠንጥላ",
+      "instructions_en": "Form the word for 'Umbrella' (Zhentila)!",
+      "scrambled_letters": [
+        "ጥ",
+        "ን",
+        "ዠ",
+        "ላ"
+      ],
+      "correct_answer": "ዠንጥላ",
+      "english_translation": "Umbrella [Zhentila]",
+      "tips_en": "Tip: Start with first form 'ዠ', followed by 'ን', then 'ጥ', and end with 'ላ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_fill_blank_yene",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: የኔ",
+      "instructions_en": "Find the missing letter to complete the word for 'Mine': የ[ ? ].",
+      "word_display_with_blank": "የ __",
+      "tips_en": "The full word is የኔ (pronounced Yene).",
+      "image_url": "images/vocabulary/mine.png",
+      "options": [
+        "ኔ",
+        "ነ",
+        "ኑ",
+        "ኒ"
+      ],
+      "correct_answer": "ኔ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g8_blend_zhe",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ዠ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Zhe' sound?",
+      "target_audio": "audio/blends/zhe_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Zhe'",
+      "options": [
+        "ዠ",
+        "ዡ",
+        "ዢ",
+        "ዣ"
+      ],
+      "correct_answer": "ዠ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g8_assembly_ye_ej_seat",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: የእጅ ሰዓት",
+      "instructions_en": "Form the word for 'Wristwatch' (Ye'eje Se'at)!",
+      "scrambled_letters": [
+        "ሰዓት",
+        "የእጅ"
+      ],
+      "correct_answer": "የእጅ ሰዓት",
+      "english_translation": "Wristwatch [Ye'eje Se'at]",
+      "tips_en": "Tip: Select 'የእጅ' first, then 'ሰዓት'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_fill_blank_wristwatch",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: የእጅ ሰዓት",
+      "instructions_en": "Complete the word for 'Wristwatch': የእጅ [ ? ]ዓት.",
+      "word_display_with_blank": "የእጅ __ ዓት",
+      "tips_en": "The full word is የእጅ ሰዓት (pronounced Ye'eje Se'at).",
+      "image_url": "images/vocabulary/wristwatch.png",
+      "options": [
+        "ሰ",
+        "ሱ",
+        "ሲ",
+        "ሳ"
+      ],
+      "correct_answer": "ሰ",
+      "points_reward": 30
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_1_fidel_fundamentals_l1",
+  "unit_title": "ምዕራፍ ፩ — Meraf 1: Foundations of ሀ and ለ",
+  "module": "1.1",
+  "success_screen": {
+    "headline_en": "Phenomenal! You Mastered the Level 1 Basics of ሀ and ለ!",
+    "headline_am": "እንኳን ደስ አለዎት! የሀ እና ለ መሠረታዊ ደረጃን አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g1_shape_match_ha",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ሀ",
+      "instructions_en": "Find the symbol that is exactly like the target shape",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ሀ",
+      "options": ["ሀ", "ሁ", "ለ"],
+      "correct_answer": "ሀ",
+      "pronunciation_label": "Ha",
+      "success_audio": "audio/pronunciation/ha_latin.mp3"
+    },
+    {
+      "game_id": "g2_bubble_pop_hu",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ሁ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches!",
+      "target_symbol": "ሁ",
+      "target_pronunciation": "Hu",
+      "target_audio": "audio/pronunciation/hu_latin.mp3",
+      "floating_options": ["ሀ", "ሁ", "ሂ", "ሃ"],
+      "correct_answer": "ሁ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g3_sequence_ha",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ሀ ➔ ሁ ➔ [ ? ]",
+      "options": ["ሂ", "ሃ", "ሄ"],
+      "correct_answer": "ሂ",
+      "target_pronunciation": "Hi",
+      "success_audio": "audio/pronunciation/hi_latin.mp3"
+    },
+    {
+      "game_id": "g4_word_to_image_hahu",
+      "game_type": "word_to_image",
+      "title": "Word Match: ሀሁ",
+      "instructions_en": "Associate the illustrated Amharic Alphabet book with its proper Amharic writing.",
+      "tips_en": "Tip: ሀሁ (pronounced 'Hahu') means Alphabet.",
+      "image_url": "images/vocabulary/alphabet_book.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ሀሁ",
+          "phonetic": "Hahu"
+        },
+        {
+          "word": "ላም",
+          "phonetic": "Lam"
+        }
+      ],
+      "correct_answer": "ሀሁ",
+      "success_audio": "audio/vocabulary/hahu_full.mp3"
+    },
+    {
+      "game_id": "g5_shape_match_le",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ለ",
+      "instructions_en": "Find the symbol that is exactly like the target shape",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ለ",
+      "options": ["ለ", "ሉ", "ሀ"],
+      "correct_answer": "ለ",
+      "pronunciation_label": "Le",
+      "success_audio": "audio/pronunciation/le_latin.mp3"
+    },
+    {
+      "game_id": "g6_bubble_pop_lu",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ሉ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches!",
+      "target_symbol": "ሉ",
+      "target_pronunciation": "Lu",
+      "target_audio": "audio/pronunciation/lu_latin.mp3",
+      "floating_options": ["ለ", "ሉ", "ሊ", "ላ"],
+      "correct_answer": "ሉ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g7_sequence_le",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ለ ➔ ሉ ➔ [ ? ]",
+      "options": ["ሊ", "ላ", "ሌ"],
+      "correct_answer": "ሊ",
+      "target_pronunciation": "Li",
+      "success_audio": "audio/pronunciation/li_latin.mp3"
+    },
+    {
+      "game_id": "g8_word_to_image_lomi",
+      "game_type": "word_to_image",
+      "title": "Word Match: ሎሚ",
+      "instructions_en": "Associate the illustrated lemon fruit with its proper Amharic writing.",
+      "tips_en": "Tip: ሎሚ (pronounced 'Lomi') means Lemon.",
+      "image_url": "images/vocabulary/lemon.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ሎሚ",
+          "phonetic": "Lomi"
+        },
+        {
+          "word": "ሙዝ",
+          "phonetic": "Muz"
+        }
+      ],
+      "correct_answer": "ሎሚ",
+      "success_audio": "audio/vocabulary/lomi_full.mp3"
+    }
+  ]
+}

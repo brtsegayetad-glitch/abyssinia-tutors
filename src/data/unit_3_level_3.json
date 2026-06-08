@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_3_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፫ — Meraf 3: Grand Master of ሠ and ረ",
+  "module": "3.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ሠ and ረ!",
+    "headline_am": "ግሩም ድንቅ ነው! የሠ እና የረ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g3_decode_seregela",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: SEREGELA",
+      "instructions_en": "Match the native English phonetic spelling 'SEREGELA' (Chariot) with the correct Amharic word.",
+      "target_phonetic_label": "SE-RE-GE-LA",
+      "options": [
+        "ሠረገላ",
+        "ረግረግ",
+        "ረቡዕ",
+        "ራስ"
+      ],
+      "correct_answer": "ሠረገላ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_fill_blank_seregela",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ሠረገላ",
+      "instructions_en": "Look closely at the word 'Chariot' (Seregela). Find the correct missing first letter: [ ? ]ረገላ.",
+      "word_display_with_blank": "__ ረገላ",
+      "tips_en": "The full word is ሠረገላ (pronounced Se-re-ge-la).",
+      "image_url": "images/vocabulary/chariot.png",
+      "options": [
+        "ሠ",
+        "ሡ",
+        "ሢ",
+        "ሣ"
+      ],
+      "correct_answer": "ሠ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_sequence_re_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 1st form ➔ 3rd form ➔ 5th form ➔ [ ? ] (7th form). What goes next?",
+      "sequence_display": "ረ (1st) ➔ ሪ (3rd) ➔ ሬ (5th) ➔ [ ? ] (7th)",
+      "options": [
+        "ራ",
+        "ሩ",
+        "ሮ",
+        "ር"
+      ],
+      "correct_answer": "ሮ",
+      "target_pronunciation": "Ro (7th Form)",
+      "success_audio": "audio/pronunciation/ro_latin.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g3_assembly_regreg",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ረግረግ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Wetland (Regreg)!",
+      "scrambled_letters": [
+        "ረ",
+        "ረ",
+        "ግ",
+        "ግ"
+      ],
+      "correct_answer": "ረግረግ",
+      "english_translation": "Wetland [Regreg]",
+      "tips_en": "Tip: Alternating first-form 'ረ' and sixth-form 'ግ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_decode_regreg",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: REGREG",
+      "instructions_en": "Match the phonetic spelling 'REGREG' (Wetland) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "REG-REG",
+      "options": [
+        "ረግረግ",
+        "ሠረገላ",
+        "ረቡዕ",
+        "ራስ"
+      ],
+      "correct_answer": "ረግረግ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_blend_sse_sixth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ሥ",
+      "instructions_en": "Listen closely to the native 6th form 'Ss' sound of the ሠ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/se_sixth_sample.mp3",
+      "target_phonetic_description": "The 6th form native consonant sound: 'Ss'",
+      "options": [
+        "ሠ",
+        "ሡ",
+        "ሢ",
+        "ሥ"
+      ],
+      "correct_answer": "ሥ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_assembly_ras",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ራስ",
+      "instructions_en": "Form the full Amharic word for Head or Self (Ras)!",
+      "scrambled_letters": [
+        "ስ",
+        "ራ"
+      ],
+      "correct_answer": "ራስ",
+      "english_translation": "Head [Ras]",
+      "tips_en": "Tip: Select 4th form 'ራ', followed by 6th form 'ስ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_decode_ras",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: RAS",
+      "instructions_en": "Match the native English phonetic spelling 'RAS' (Head) with the correct Amharic word.",
+      "target_phonetic_label": "RAS",
+      "options": [
+        "ራስ",
+        "ሠረገላ",
+        "ረግረግ",
+        "ረቡዕ"
+      ],
+      "correct_answer": "ራስ",
+      "points_reward": 30
+    }
+  ]
+}

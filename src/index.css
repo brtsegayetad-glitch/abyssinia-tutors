@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+
+  --color-primary: #0f172a; /* slate-900 */
+  --color-primary-light: #1e293b; /* slate-800 */
+  --color-primary-dark: #020617; /* slate-950 */
+  
+  --color-secondary: #ea580c; /* orange-600 */
+  --color-secondary-light: #fb923c; /* orange-400 */
+  --color-secondary-dark: #9a3412; /* orange-900 */
+
+  --color-accent: #3b82f6; /* blue-500 */
+  
+  --color-surface: #f8fafc; /* slate-50 */
+  --color-card: #ffffff;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-slate-900 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight; /* Moving away from serif for titles in minimalism unless it's hero */
+  }
+}
+
+.glass-card {
+  @apply bg-white border border-slate-100 shadow-sm rounded-xl transition-shadow hover:shadow-md;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-5 py-2.5 rounded-lg font-medium transition-all hover:bg-primary-light active:scale-[0.98] shadow-sm flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-white border border-slate-200 text-slate-700 px-5 py-2.5 rounded-lg font-medium transition-all hover:bg-slate-50 active:scale-[0.98] shadow-sm flex items-center justify-center gap-2;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/5 focus:border-primary transition-all text-sm;
+}
+
+.section-padding {
+  @apply py-16 md:py-24 px-6 md:px-12;
+}
+
+/* Custom Table Styles */
+.data-table {
+  @apply w-full text-left border-collapse;
+}
+
+.data-table thead th {
+  @apply bg-slate-50 text-slate-500 text-[10px] uppercase font-bold tracking-wider px-6 py-4 border-b border-slate-100;
+}
+
+.data-table tbody tr {
+  @apply border-b border-slate-50 hover:bg-slate-50/50 transition-colors;
+}
+
+.data-table tbody td {
+  @apply px-6 py-4 text-sm;
+}

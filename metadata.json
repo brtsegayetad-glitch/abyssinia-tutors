@@ -1,0 +1,8 @@
+{
+  "name": "Abyssinia Tutors",
+  "description": "Professional Amharic & Ge’ez tutoring platform for the Ethiopian diaspora, featuring admin-controlled tutor matching, automated lead management, and student progress tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

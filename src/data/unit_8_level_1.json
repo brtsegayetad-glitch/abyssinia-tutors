@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_8_fidel_flex_l1",
+  "unit_title": "ምዕራፍ ፰ — Meraf 8: Foundations of ዠ and የ",
+  "module": "8.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ዠ and የ!",
+    "headline_am": "በጣም ድንቅ ነው! የዠ እና የየ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g8_shape_match_zhe",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ዠ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ዠ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ዠ",
+      "options": ["ዠ", "ዢ", "ዘ"],
+      "correct_answer": "ዠ",
+      "pronunciation_label": "Zhe",
+      "success_audio": "audio/pronunciation/zhe.mp3"
+    },
+    {
+      "game_id": "g8_bubble_pop_zhie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ዤ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ዤ'!",
+      "target_symbol": "ዤ",
+      "target_pronunciation": "Zhie",
+      "target_audio": "audio/pronunciation/zhie.mp3",
+      "floating_options": ["ዠ", "ዡ", "ዢ", "ዤ"],
+      "correct_answer": "ዤ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g8_sequence_next_zhe",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ዠ ➔ ዡ ➔ [ ? ]",
+      "options": ["ዣ", "ዢ", "ዤ"],
+      "correct_answer": "ዢ",
+      "target_pronunciation": "Zhi",
+      "success_audio": "audio/pronunciation/zhi.mp3"
+    },
+    {
+      "game_id": "g8_word_to_image_zhentila",
+      "game_type": "word_to_image",
+      "title": "Word Match: ዠንጥላ",
+      "instructions_en": "Associate the illustrated umbrella with the correct Amharic word: 'ዠንጥላ'",
+      "tips_en": "Tip: ዠንጥላ (pronounced 'Zhentila') means Umbrella.",
+      "image_url": "images/vocabulary/umbrella.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ዠንጥላ",
+          "phonetic": "Zhentila (Zhen-ti-la)"
+        },
+        {
+          "word": "ኮከብ",
+          "phonetic": "Kokeb (Ko-keb)"
+        }
+      ],
+      "correct_answer": "ዠንጥላ",
+      "success_audio": "audio/vocabulary/zhentila_full.mp3"
+    },
+    {
+      "game_id": "g8_shape_match_ye",
+      "game_type": "shape_matching",
+      "title": "Shape Match: የ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'የ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "የ",
+      "options": ["የ", "ዩ", "ጋ"],
+      "correct_answer": "የ",
+      "pronunciation_label": "Ye",
+      "success_audio": "audio/pronunciation/ye.mp3"
+    },
+    {
+      "game_id": "g8_bubble_pop_yie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ዬ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ዬ'!",
+      "target_symbol": "ዬ",
+      "target_pronunciation": "Yie",
+      "target_audio": "audio/pronunciation/yie.mp3",
+      "floating_options": ["የ", "ዩ", "ዪ", "ዬ"],
+      "correct_answer": "ዬ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g8_sequence_next_ye",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ያ ➔ ዬ ➔ [ ? ]",
+      "options": ["ይ", "ዮ", "የ"],
+      "correct_answer": "ይ",
+      "target_pronunciation": "Y (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/y_sixth.mp3"
+    },
+    {
+      "game_id": "g8_word_to_image_ye_ej_seat",
+      "game_type": "word_to_image",
+      "title": "Word Match: የእጅ ሰዓት",
+      "instructions_en": "Associate the illustrated wristwatch with the correct Amharic word: 'የእጅ ሰዓት'",
+      "tips_en": "Tip: የእጅ ሰዓት (pronounced 'Ye'eje Se'at') means Wristwatch.",
+      "image_url": "images/vocabulary/wristwatch.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "የእጅ ሰዓት",
+          "phonetic": "Ye'eje Se'at"
+        },
+        {
+          "word": "ነብር",
+          "phonetic": "Nebr (Ne-b-r)"
+        }
+      ],
+      "correct_answer": "የእጅ ሰዓት",
+      "success_audio": "audio/vocabulary/ye_ej_seat_full.mp3"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_3_fidel_mastery_l1",
+  "unit_title": "ምዕራፍ ፫ — Meraf 3: Foundations of በ",
+  "module": "3.1",
+  "success_screen": {
+    "headline_en": "Glorious! You Mastered Level 1 Basics of በ!",
+    "headline_am": "በጣም ድንቅ ነው! የበ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g3_shape_match_be",
+      "game_type": "shape_matching",
+      "title": "Shape Match: በ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'በ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "በ",
+      "options": ["በ", "ቡ", "ሰ"],
+      "correct_answer": "በ",
+      "pronunciation_label": "Be",
+      "success_audio": "audio/pronunciation/be_latin.mp3"
+    },
+    {
+      "game_id": "g3_bubble_pop_bu",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ቡ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ቡ'!",
+      "target_symbol": "ቡ",
+      "target_pronunciation": "Bu",
+      "target_audio": "audio/pronunciation/bu_latin.mp3",
+      "floating_options": ["በ", "ቡ", "ቢ", "ባ"],
+      "correct_answer": "ቡ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g3_sequence_be",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "በ ➔ ቡ ➔ [ ? ]",
+      "options": ["ቢ", "ባ", "ቤ"],
+      "correct_answer": "ቢ",
+      "target_pronunciation": "Bi",
+      "success_audio": "audio/pronunciation/bi_latin.mp3"
+    },
+    {
+      "game_id": "g3_word_to_image_birabiro",
+      "game_type": "word_to_image",
+      "title": "Word Match: ቢራቢሮ",
+      "instructions_en": "Associate the illustrated butterfly with the correct Amharic word: 'ቢራቢሮ'",
+      "tips_en": "Tip: ቢራቢሮ (pronounced 'Birabiro') means Butterfly.",
+      "image_url": "images/vocabulary/butterfly.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ቢራቢሮ",
+          "phonetic": "Birabiro"
+        },
+        {
+          "word": "ላም",
+          "phonetic": "Lam"
+        }
+      ],
+      "correct_answer": "ቢራቢሮ",
+      "success_audio": "audio/vocabulary/birabiro_full.mp3"
+    },
+    {
+      "game_id": "g3_shape_match_ba",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ባ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ባ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ባ",
+      "options": ["ባ", "ቤ", "በ"],
+      "correct_answer": "ባ",
+      "pronunciation_label": "Ba",
+      "success_audio": "audio/pronunciation/ba_latin.mp3"
+    },
+    {
+      "game_id": "g3_bubble_pop_be",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ቤ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ቤ'!",
+      "target_symbol": "ቤ",
+      "target_pronunciation": "Be",
+      "target_audio": "audio/pronunciation/be_fifth_latin.mp3",
+      "floating_options": ["በ", "ቡ", "ቢ", "ቤ"],
+      "correct_answer": "ቤ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g3_sequence_ba",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ባ ➔ ቤ ➔ [ ? ]",
+      "options": ["ብ", "ቦ", "በ"],
+      "correct_answer": "ብ",
+      "target_pronunciation": "B- sixth form",
+      "success_audio": "audio/pronunciation/b_six_latin.mp3"
+    },
+    {
+      "game_id": "g3_word_to_image_babur",
+      "game_type": "word_to_image",
+      "title": "Word Match: ባቡር",
+      "instructions_en": "Associate the illustrated train with the correct Amharic word: 'ባቡር'",
+      "tips_en": "Tip: ባቡር (pronounced 'Babur') means Train.",
+      "image_url": "images/vocabulary/train.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ባቡር",
+          "phonetic": "Babur"
+        },
+        {
+          "word": "ሎሚ",
+          "phonetic": "Lomi"
+        }
+      ],
+      "correct_answer": "ባቡር",
+      "success_audio": "audio/vocabulary/babur_full.mp3"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "unit_id": "unit_2_fidel_fundamentals_l2",
+  "unit_title": "ምዕራፍ ፪ — Meraf 2: Advanced Foundations of ሐ and መ",
+  "module": "2.2",
+  "success_screen": {
+    "headline_en": "Superb! You mastered the advanced levels of ሐ and መ!",
+    "headline_am": "በጣም ግሩም! የላቀውን የሐ እና የመ ፈተናዎች በባለሙያ ደረጃ አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g2_assembly_hamer",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ሐመር",
+      "instructions_en": "Assemble the letters to build the word for Ark / ship!",
+      "scrambled_letters": [
+        "ር",
+        "ሐ",
+        "መ"
+      ],
+      "correct_answer": "ሐመር",
+      "english_translation": "Ark / Ship [Hamer]",
+      "tips_en": "Tip: Select the first form 'ሐ', then 'መ', and end with the sixth form 'ር'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g2_fill_blank_mekina",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: መኪና",
+      "instructions_en": "Look at the incomplete word for 'Car/Vehicle': መ[ ? ]ና. Choose the correct missing middle letter!",
+      "word_display_with_blank": "መ __ ና",
+      "tips_en": "The full word is መኪና (pronounced Me-ki-na).",
+      "image_url": "images/vocabulary/car.png",
+      "options": [
+        "ኪ",
+        "ኩ",
+        "ኮ",
+        "ካ"
+      ],
+      "correct_answer": "ኪ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g2_blend_mi",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ሚ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Mie' sound you hear?",
+      "target_audio": "audio/blends/mi_sample.mp3",
+      "target_phonetic_description": "The 3rd form ('Ie' vowel sound): 'Mie' as in 'Miz' (Banana)",
+      "options": [
+        "መ",
+        "ሙ",
+        "ሚ",
+        "ማ"
+      ],
+      "correct_answer": "ሚ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g2_assembly_hamus",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ሐሙስ",
+      "instructions_en": "Form the word for 'Thursday' (Hamus)!",
+      "scrambled_letters": [
+        "ሙ",
+        "ስ",
+        "ሐ"
+      ],
+      "correct_answer": "ሐሙስ",
+      "english_translation": "Thursday [Hamus]",
+      "tips_en": "Tip: Start with first form 'ሐ', second form 'ሙ', and end with sixth form 'ስ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g2_fill_blank_mesob",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: መሶብ",
+      "instructions_en": "Find the missing letter to complete the word for traditional food-basket: መ[ ? ]ብ.",
+      "word_display_with_blank": "መ __ ብ",
+      "tips_en": "The full word is መሶብ (pronounced Me-sob).",
+      "image_url": "images/vocabulary/mesob.png",
+      "options": [
+        "ሶ",
+        "ሱ",
+        "ሲ",
+        "ሳ"
+      ],
+      "correct_answer": "ሶ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_blend_hu",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ሑ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Hu' sound with a loop on the middle-right leg?",
+      "target_audio": "audio/blends/hu_second.mp3",
+      "target_phonetic_description": "The 2nd form ('U' vowel sound): 'Hu'",
+      "options": [
+        "ሐ",
+        "ሑ",
+        "ሒ",
+        "ሓ"
+      ],
+      "correct_answer": "ሑ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g2_assembly_hakim",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ሐኪም",
+      "instructions_en": "Form the word for 'Doctor' (Hakim)!",
+      "scrambled_letters": [
+        "ኪ",
+        "ም",
+        "ሐ"
+      ],
+      "correct_answer": "ሐኪም",
+      "english_translation": "Doctor [Hakim]",
+      "tips_en": "Tip: Start with first form 'ሐ', third form 'ኪ', and end with sixth form 'ም'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_fill_blank_merfe",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: መርፌ",
+      "instructions_en": "Complete the word for 'Needle/Syringe': መ[ ? ]ፌ.",
+      "word_display_with_blank": "መ __ ፌ",
+      "tips_en": "The full word is መርፌ (pronounced Mer-fe).",
+      "image_url": "images/vocabulary/needle.png",
+      "options": [
+        "ር",
+        "ሩ",
+        "ሪ",
+        "ራ"
+      ],
+      "correct_answer": "ር",
+      "points_reward": 30
+    }
+  ]
+}

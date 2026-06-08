@@ -1,0 +1,138 @@
+{
+  "unit_id": "unit_6_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፮ — Meraf 6: Grand Master of ቸ and ነ",
+  "module": "6.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ቸ and ነ!",
+    "headline_am": "ግሩም ድንቅ ነው! የቸ እና የነ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g6_decode_nebr",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: NEBR",
+      "instructions_en": "Match the native English phonetic spelling 'NEBR' (Leopard) with the correct Amharic word.",
+      "target_phonetic_label": "NEBR",
+      "options": [
+        "ነብር",
+        "ቺኮሌት",
+        "ጫማ",
+        "እናት"
+      ],
+      "correct_answer": "ነብር",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g6_fill_blank_chikolet_last",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ቺኮሌት",
+      "instructions_en": "Look closely at the word 'Chocolate' (Chikolet). Find the correct missing last letter: ቺኮሌ[ ? ].",
+      "word_display_with_blank": "ቺኮሌ __",
+      "tips_en": "The full word is ቺኮሌት (pronounced Chi-ko-laet).",
+      "image_url": "images/vocabulary/chocolate.png",
+      "options": [
+        "ት",
+        "ተ",
+        "ቱ",
+        "ቲ"
+      ],
+      "correct_answer": "ት",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g6_sequence_ne_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 2nd form ➔ 4th form ➔ [ ? ] (6th form). What goes next?",
+      "sequence_display": "ኑ (2nd) ➔ ና (4th) ➔ [ ? ] (6th)",
+      "options": [
+        "ኒ",
+        "ነ",
+        "ን",
+        "ኖ"
+      ],
+      "correct_answer": "ን",
+      "target_pronunciation": "N (6th Form)",
+      "success_audio": "audio/pronunciation/n_sixth.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g6_assembly_chikolet",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ቺኮሌት",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Chocolate (Chikolet)!",
+      "scrambled_letters": [
+        "ሌ",
+        "ኮ",
+        "ቺ",
+        "ት"
+      ],
+      "correct_answer": "ቺኮሌት",
+      "english_translation": "Chocolate [Chikolet]",
+      "tips_en": "Tip: Select 3rd form 'ቺ', 1st form 'ኮ', 5th form 'ሌ', and end in 6th form 'ት'!",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g6_decode_chikolet",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: CHIKOLET",
+      "instructions_en": "Match the phonetic spelling 'CHIKOLET' (Chocolate) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "CHI-KO-LET",
+      "options": [
+        "ቺኮሌት",
+        "ነብር",
+        "ጫማ",
+        "እናት"
+      ],
+      "correct_answer": "ቺኮሌት",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g6_blend_ne_sixth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ን",
+      "instructions_en": "Listen closely to the native 6th form 'N' sound of the ነ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/ne_sixth_sample.mp3",
+      "target_phonetic_description": "The 6th form native consonant sound: 'N'",
+      "options": [
+        "ነ",
+        "ኑ",
+        "ኒ",
+        "ን"
+      ],
+      "correct_answer": "ን",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g6_assembly_enat_complete",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: እናት",
+      "instructions_en": "Form the full Amharic word for Mother (Enat)!",
+      "scrambled_letters": [
+        "እ",
+        "ት",
+        "ና"
+      ],
+      "correct_answer": "እናት",
+      "english_translation": "Mother [Enat]",
+      "tips_en": "Tip: Select 6th form 'እ', followed by 4th form 'ና', and end in 6th form 'ት'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g6_decode_chama",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: CHAMA",
+      "instructions_en": "Match the native English phonetic spelling 'CHAMA' (Shoes) with the correct Amharic word.",
+      "target_phonetic_label": "CHA-MA",
+      "options": [
+        "ጫማ",
+        "እናት",
+        "ነብር",
+        "ቺኮሌት"
+      ],
+      "correct_answer": "ጫማ",
+      "points_reward": 30
+    }
+  ]
+}

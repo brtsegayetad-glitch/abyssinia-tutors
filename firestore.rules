@@ -1,0 +1,88 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ---------------------------------------------------------
+    // HELPERS
+    // ---------------------------------------------------------
+    function isSignedIn() { return request.auth != null; }
+    function isVirtual(uid) { return uid is string && uid.matches('^virtual_.*'); }
+    function isOwner(uid) { return (isSignedIn() && request.auth.uid == uid) || isVirtual(uid); }
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'brtsegayetad@gmail.com' ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+      );
+    }
+    
+    function isValidId(id) { return id is string && id.size() <= 64 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+
+    // ---------------------------------------------------------
+    // COLLECTIONS
+    // ---------------------------------------------------------
+
+    // System probe (testing) - MUST BE FIRST OR ACCESSIBLE
+    match /system/connection-test {
+      allow read: if true;
+    }
+
+    // Users
+    match /users/{userId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Leads
+    match /leads/{leadId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Sessions
+    match /sessions/{sessionId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Students
+    match /students/{studentId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Subscriptions
+    match /subscriptions/{subId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Messages
+    match /messages/{messageId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Tutors
+    match /tutors/{tutorId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Tutor Applications
+    match /tutor_applications/{appId} {
+      allow read, list, create, update: if true;
+      allow delete: if true;
+    }
+
+    // Settings
+    match /settings/{settingsId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidId(settingsId);
+      allow update: if isAdmin();
+      allow delete: if isAdmin() && isValidId(settingsId);
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_4_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፬ — Meraf 4: Grand Master of ሰ and ሸ",
+  "module": "4.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ሰ and ሸ!",
+    "headline_am": "ግሩም ድንቅ ነው! የሰ እና የሸ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g4_decode_senselat",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: SENSELAT",
+      "instructions_en": "Match the native English phonetic spelling 'SENSELAT' (Chain) with the correct Amharic word.",
+      "target_phonetic_label": "SEN-SE-LAT",
+      "options": [
+        "ሰንሰለት",
+        "ሸረሪት",
+        "ሰዓት",
+        "ሻይ"
+      ],
+      "correct_answer": "ሰንሰለት",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g4_fill_blank_shererit",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ሸረሪት",
+      "instructions_en": "Look closely at the word 'Spider' (Shererit). Find the correct missing last letter: ሸረሪ[ ? ].",
+      "word_display_with_blank": "ሸረሪ __",
+      "tips_en": "The full word is ሸረሪት (pronounced She-re-ri-t).",
+      "image_url": "images/vocabulary/spider.png",
+      "options": [
+        "ት",
+        "ተ",
+        "ቱ",
+        "ቲ"
+      ],
+      "correct_answer": "ት",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g4_sequence_she_skip",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 2nd form ➔ 4th form ➔ [ ? ] (6th form). What goes next?",
+      "sequence_display": "ሹ (2nd) ➔ ሻ (4th) ➔ [ ? ] (6th)",
+      "options": [
+        "ሺ",
+        "ሽን",
+        "ሽ",
+        "ሾ"
+      ],
+      "correct_answer": "ሽ",
+      "target_pronunciation": "Sh (6th Form)",
+      "success_audio": "audio/pronunciation/sh_sixth.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g4_assembly_senselat",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ሰንሰለት",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Chain (Senselat)!",
+      "scrambled_letters": [
+        "ለ",
+        "ን",
+        "ሰ",
+        "ት",
+        "ሰ"
+      ],
+      "correct_answer": "ሰንሰለት",
+      "english_translation": "Chain [Senselat]",
+      "tips_en": "Tip: Start with first-form 'ሰ', then sixth-form 'ን', followed by 'ሰ', first-form 'ለ', and end with sixth-form 'ት'!",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g4_decode_shererit",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: SHERERIT",
+      "instructions_en": "Match the phonetic spelling 'SHERERIT' (Spider) with the correct Amharic word.",
+      "target_phonetic_label": "SHE-RE-RIT",
+      "options": [
+        "ሸረሪት",
+        "ሰንሰለት",
+        "ሰዓት",
+        "ሻይ"
+      ],
+      "correct_answer": "ሸረሪት",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g4_blend_se_sixth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ስ",
+      "instructions_en": "Listen closely to the native 6th form 'S' sound of the ሰ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/se_sixth_sample.mp3",
+      "target_phonetic_description": "The 6th form native consonant sound: 'S'",
+      "options": [
+        "ሰ",
+        "ሱ",
+        "ሲ",
+        "ስ"
+      ],
+      "correct_answer": "ስ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g4_assembly_seat",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ሰዓት",
+      "instructions_en": "Form the Amharic word for Clock or Hour (Seat)!",
+      "scrambled_letters": [
+        "ት",
+        "ሰ",
+        "ዓ"
+      ],
+      "correct_answer": "ሰዓት",
+      "english_translation": "Clock [Seat]",
+      "tips_en": "Tip: Select 1st form 'ሰ', followed by throat 4th form 'ዓ', and end in 6th form 'ት'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g4_decode_seat",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: SEAT",
+      "instructions_en": "Match the native English phonetic spelling 'SE'AT' (Clock/Hour) with the correct Amharic word.",
+      "target_phonetic_label": "SE'AT",
+      "options": [
+        "ሰዓት",
+        "ሰንሰለት",
+        "ሸረሪት",
+        "ሻይ"
+      ],
+      "correct_answer": "ሰዓት",
+      "points_reward": 30
+    }
+  ]
+}

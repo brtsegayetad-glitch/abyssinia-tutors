@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_6_fidel_flex_l2",
+  "unit_title": "ምዕራፍ ፮ — Meraf 6: Advanced Mastery of ቸ and ነ",
+  "module": "6.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ቸ and ነ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የቸ እና የነ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g6_assembly_chama",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ጫማ",
+      "instructions_en": "Assemble the letters to build the word for Shoe!",
+      "scrambled_letters": [
+        "ማ",
+        "ጫ"
+      ],
+      "correct_answer": "ጫማ",
+      "english_translation": "Shoe [Chama]",
+      "tips_en": "Tip: Select 'ጫ', followed by 'ማ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g6_fill_blank_nebr",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ነብር",
+      "instructions_en": "Look at the incomplete word for 'Leopard': ነ[ ? ]ር. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ነ __ ር",
+      "tips_en": "The full word is ነብር (pronounced Ne-b-r).",
+      "image_url": "images/vocabulary/leopard.png",
+      "options": [
+        "ብ",
+        "በ",
+        "ቡ",
+        "ቢ"
+      ],
+      "correct_answer": "ብ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g6_blend_chu",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ቹ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Chu' sound?",
+      "target_audio": "audio/blends/chu_sample.mp3",
+      "target_phonetic_description": "The 2nd form ('U' vowel sound): 'Chu'",
+      "options": [
+        "ቸ",
+        "ቹ",
+        "ቺ",
+        "ቻ"
+      ],
+      "correct_answer": "ቹ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g6_assembly_nebr",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ነብር",
+      "instructions_en": "Form the word for 'Leopard' (Nebr)!",
+      "scrambled_letters": [
+        "ር",
+        "ነ",
+        "ብ"
+      ],
+      "correct_answer": "ነብር",
+      "english_translation": "Leopard [Nebr]",
+      "tips_en": "Tip: Start with 'ነ', follow with sixth form 'ብ', and end with 'ር'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g6_fill_blank_chama",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ጫማ",
+      "instructions_en": "Find the missing letter to complete the word for 'Shoe': [ ? ]ማ.",
+      "word_display_with_blank": "__ ማ",
+      "tips_en": "The full word is ጫማ (pronounced Cha-ma).",
+      "image_url": "images/vocabulary/shoes.png",
+      "options": [
+        "ጫ",
+        "ቸ",
+        "ቺ",
+        "ቼ"
+      ],
+      "correct_answer": "ጫ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g6_blend_ni",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ኒ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Ni' sound?",
+      "target_audio": "audio/blends/ni_sample.mp3",
+      "target_phonetic_description": "The 3rd form ('I' vowel sound): 'Ni'",
+      "options": [
+        "ነ",
+        "ኑ",
+        "ኒ",
+        "ና"
+      ],
+      "correct_answer": "ኒ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g6_assembly_enat",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: እናት",
+      "instructions_en": "Form the word for 'Mother' (Enat)!",
+      "scrambled_letters": [
+        "እ",
+        "ት",
+        "ና"
+      ],
+      "correct_answer": "እናት",
+      "english_translation": "Mother [Enat]",
+      "tips_en": "Tip: Start with sixth form 'እ', middle fourth form 'ና', and end with 'ት'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g6_fill_blank_chikolet",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ቺኮሌት",
+      "instructions_en": "Complete the word for 'Chocolate': ቺኮሌ[ ? ].",
+      "word_display_with_blank": "ቺኮሌ __",
+      "tips_en": "The full word is ቺኮሌት (pronounced Chi-ko-laet).",
+      "image_url": "images/vocabulary/chocolate.png",
+      "options": [
+        "ት",
+        "ተ",
+        "ቱ",
+        "ቲ"
+      ],
+      "correct_answer": "ት",
+      "points_reward": 30
+    }
+  ]
+}

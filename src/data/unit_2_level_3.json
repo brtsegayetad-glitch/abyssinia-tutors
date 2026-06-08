@@ -1,0 +1,136 @@
+{
+  "unit_id": "unit_2_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፪ — Meraf 2: Grand Master of ሐ and መ",
+  "module": "2.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ሐ and መ!",
+    "headline_am": "ግሩም ድንቅ ነው! የሐ እና የመ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g2_decode_hisab",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: HISAB",
+      "instructions_en": "Match the native English phonetic spelling 'HISAB' (Math) with the correct Amharic word.",
+      "target_phonetic_label": "HI-SAB",
+      "options": [
+        "ሒሳብ",
+        "መጽሐፍ",
+        "ማር",
+        "ሐመልማል"
+      ],
+      "correct_answer": "ሒሳብ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_fill_blank_metshaf",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: መጽሐፍ",
+      "instructions_en": "Find the missing breathy letter 'ሐ' to complete the Amharic word for 'Book': መጽ[ ? ]ፍ.",
+      "word_display_with_blank": "መጽ __ ፍ",
+      "tips_en": "The full word is መጽሐፍ (pronounced Met-shaf).",
+      "image_url": "images/vocabulary/book.png",
+      "options": [
+        "ሐ",
+        "ሁ",
+        "ሂ",
+        "ሃ"
+      ],
+      "correct_answer": "ሐ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_sequence_me_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Look at the pattern: 2nd form ➔ 4th form ➔ [ ? ] (6th form). What goes in the blank?",
+      "sequence_display": "ሙ (2nd) ➔ ማ (4th) ➔ [ ? ] (6th)",
+      "options": [
+        "ሚ",
+        "ምን",
+        "ም",
+        "ሞ"
+      ],
+      "correct_answer": "ም",
+      "target_pronunciation": "M (6th Form)",
+      "success_audio": "audio/pronunciation/m_sixth.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g2_assembly_mar",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ማር",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Honey (Mar)!",
+      "scrambled_letters": [
+        "ር",
+        "ማ"
+      ],
+      "correct_answer": "ማር",
+      "english_translation": "Honey [Mar]",
+      "tips_en": "Tip: Select 4th form 'ማ', followed by 6th form 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_decode_metshaf",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: METSHAF",
+      "instructions_en": "Match the phonetic spelling 'METSHAF' (Book) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "MET-SHAF",
+      "options": [
+        "መጽሐፍ",
+        "ሒሳብ",
+        "ማር",
+        "ሐኪም"
+      ],
+      "correct_answer": "መጽሐፍ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_blend_he_sixth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ሕ",
+      "instructions_en": "Listen closely to the light, breathy native 6th form 'H' sound of the ሐ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/he_sixth_sample.mp3",
+      "target_phonetic_description": "The breathy 6th form native consonant sound: 'H'",
+      "options": [
+        "ሐ",
+        "ሑ",
+        "ሒ",
+        "ሕ"
+      ],
+      "correct_answer": "ሕ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_assembly_hakim",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ሐኪም",
+      "instructions_en": "Form the full Amharic word for Doctor (Hakim)!",
+      "scrambled_letters": [
+        "ኪ",
+        "ም",
+        "ሐ"
+      ],
+      "correct_answer": "ሐኪም",
+      "english_translation": "Doctor [Hakim]",
+      "tips_en": "Tip: Select 'ሐ' (1st form), then 'ኪ' (3rd form), and end with 'ም' (6th form)!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g2_decode_hakim",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: HAKIM",
+      "instructions_en": "Match the native English phonetic spelling 'HAKIM' (Doctor) with the correct Amharic word.",
+      "target_phonetic_label": "HA-KIM",
+      "options": [
+        "ሐኪም",
+        "መጽሐፍ",
+        "ሒሳብ",
+        "ማር"
+      ],
+      "correct_answer": "ሐኪም",
+      "points_reward": 30
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "unit_id": "unit_12_fidel_flex_l2",
+  "unit_title": "ምዕራፍ ፲፪ — Meraf 12: Advanced Mastery of ፀ and ፈ",
+  "module": "12.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ፀ and ፈ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የፀ እና የፈ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g12_assembly_feres",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ፈረስ",
+      "instructions_en": "Assemble the letters to build the word for Horse!",
+      "scrambled_letters": [
+        "ፈ",
+        "ስ",
+        "ረ"
+      ],
+      "correct_answer": "ፈረስ",
+      "english_translation": "Horse [Feres]",
+      "tips_en": "Tip: Select first form 'ፈ', followed by first form 'ረ', and end with sixth form 'ስ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g12_fill_blank_tsehay",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ፀሐይ",
+      "instructions_en": "Look at the incomplete word for 'Sun': ፀ[ ? ]ይ. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ፀ __ ይ",
+      "tips_en": "The full word is ፀሐይ (pronounced Tse-ha-y).",
+      "image_url": "images/vocabulary/sun.png",
+      "options": [
+        "ሐ",
+        "ሁ",
+        "ሂ",
+        "ሃ"
+      ],
+      "correct_answer": "ሐ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g12_blend_ts_e",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ፀ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Ts'e' sound?",
+      "target_audio": "audio/blends/tse_round_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Ts'e'",
+      "options": [
+        "ፀ",
+        "ፁ",
+        "ፂ",
+        "ፃ"
+      ],
+      "correct_answer": "ፀ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g12_assembly_tsehay",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ፀሐይ",
+      "instructions_en": "Form the word for 'Sun' (Tsehay)!",
+      "scrambled_letters": [
+        "ይ",
+        "ፀ",
+        "ሐ"
+      ],
+      "correct_answer": "ፀሐይ",
+      "english_translation": "Sun [Tsehay]",
+      "tips_en": "Tip: Start with 'ፀ', follow with 'ሐ', and end with sixth form 'ይ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_fill_blank_feres",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ፈረስ",
+      "instructions_en": "Find the missing letter to complete the word for 'Horse': [ ? ]ረስ.",
+      "word_display_with_blank": "__ ረስ",
+      "tips_en": "The full word is ፈረስ (pronounced Fe-re-s).",
+      "image_url": "images/vocabulary/horse.png",
+      "options": [
+        "ፈ",
+        "ፉ",
+        "ፊ",
+        "ፋ"
+      ],
+      "correct_answer": "ፈ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g12_blend_fe",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ፈ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Fe' sound?",
+      "target_audio": "audio/blends/fe_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Fe'",
+      "options": [
+        "ፈ",
+        "ፉ",
+        "ፊ",
+        "ፋ"
+      ],
+      "correct_answer": "ፈ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g12_assembly_fiyel",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ፍየል",
+      "instructions_en": "Form the word for 'Goat' (Fiyel)!",
+      "scrambled_letters": [
+        "ፍ",
+        "ል",
+        "የ"
+      ],
+      "correct_answer": "ፍየል",
+      "english_translation": "Goat [Fiyel]",
+      "tips_en": "Tip: Select sixth form 'ፍ' followed by first form 'የ' and end with sixth form 'ል'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_fill_blank_fiyel",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ፍየል",
+      "instructions_en": "Complete the word for 'Goat': ፍ[ ? ]ል.",
+      "word_display_with_blank": "ፍ __ ል",
+      "tips_en": "The full word is ፍየል (pronounced Fi-ye-l).",
+      "image_url": "images/vocabulary/goat.png",
+      "options": [
+        "የ",
+        "ዩ",
+        "ዪ",
+        "ያ"
+      ],
+      "correct_answer": "የ",
+      "points_reward": 25
+    }
+  ]
+}

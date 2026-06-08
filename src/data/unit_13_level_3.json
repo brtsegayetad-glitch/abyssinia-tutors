@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_13_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፲፫ — Meraf 13: Grand Master of ፐ (Latin Pe)",
+  "module": "13.3",
+  "success_screen": {
+    "headline_en": "Glorious! You are the Grand Master of some of the rarest characters!",
+    "headline_am": "ግሩም ድንቅ ነው! ብርቅዬ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g13_decode_polis",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: POLIS",
+      "instructions_en": "Match the native English phonetic spelling 'POLIS' (Police) with the correct Amharic word.",
+      "target_phonetic_label": "PO-LIS",
+      "options": [
+        "ፖሊስ",
+        "ፓፓያ",
+        "ፒያኖ",
+        "ፓርክ"
+      ],
+      "correct_answer": "ፖሊስ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_fill_blank_papaya_l3",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ፓፓያ",
+      "instructions_en": "Look closely at the word 'Papaya' (Papaya). Find the correct missing first letter: [ ? ]ፓያ.",
+      "word_display_with_blank": "__ ፓያ",
+      "tips_en": "The full word is ፓፓያ (pronounced Pa-pa-ya).",
+      "image_url": "images/vocabulary/papaya.png",
+      "options": [
+        "ፓ",
+        "ፑ",
+        "ፒ",
+        "ፔ"
+      ],
+      "correct_answer": "ፓ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_sequence_pe_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 1st form ➔ 3rd form ➔ 5th form ➔ [ ? ] (7th form). What goes next?",
+      "sequence_display": "ፐ (1st) ➔ ፒ (3rd) ➔ ፔ (5th) ➔ [ ? ] (7th)",
+      "options": [
+        "ፓ",
+        "ፑ",
+        "ፖ",
+        "ፕ"
+      ],
+      "correct_answer": "ፖ",
+      "target_pronunciation": "Po (7th Form)",
+      "success_audio": "audio/pronunciation/po_latin.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g13_assembly_papaya_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ፓፓያ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Papaya (Papaya)!",
+      "scrambled_letters": [
+        "ፓ",
+        "ያ",
+        "ፓ"
+      ],
+      "correct_answer": "ፓፓያ",
+      "english_translation": "Papaya [Papaya]",
+      "tips_en": "Tip: Select 4th form 'ፓ', followed by another 'ፓ', and end in 'ያ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_decode_papaya",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: PAPAYA",
+      "instructions_en": "Match the phonetic spelling 'PAPAYA' (Papaya) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "PA-PA-YA",
+      "options": [
+        "ፓፓያ",
+        "ፖሊስ",
+        "ፒያኖ",
+        "ፓስፖርት"
+      ],
+      "correct_answer": "ፓፓያ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_blend_pe_sixth_form",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ፕ",
+      "instructions_en": "Listen closely to the native 6th form 'P' sound of the ፐ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/pe_sixth_sample.mp3",
+      "target_phonetic_description": "The 6th form native sound: 'P'",
+      "options": [
+        "ፐ",
+        "ፑ",
+        "ፒ",
+        "ፕ"
+      ],
+      "correct_answer": "ፕ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_assembly_piano_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ፒያኖ",
+      "instructions_en": "Form the full Amharic word for Piano (Piano)!",
+      "scrambled_letters": [
+        "ኖ",
+        "ፒ",
+        "ያ"
+      ],
+      "correct_answer": "ፒያኖ",
+      "english_translation": "Piano [Piano]",
+      "tips_en": "Tip: Select 3rd form 'ፒ', then 4th form 'ያ', and end in 7th form 'ኖ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g13_decode_piano",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: PIANO",
+      "instructions_en": "Match the native English phonetic spelling 'PIANO' with the correct Amharic word.",
+      "target_phonetic_label": "PI-A-NO",
+      "options": [
+        "ፒያኖ",
+        "ፖሊስ",
+        "ፓፓያ",
+        "ፓስፖርት"
+      ],
+      "correct_answer": "ፒያኖ",
+      "points_reward": 30
+    }
+  ]
+}

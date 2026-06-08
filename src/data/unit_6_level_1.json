@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_6_fidel_flex_l1",
+  "unit_title": "ምዕራፍ ፮ — Meraf 6: Foundations of ቸ and ነ",
+  "module": "6.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ቸ and ነ!",
+    "headline_am": "በጣም ድንቅ ነው! የቸ እና የነ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g6_shape_match_che",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ቸ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ቸ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ቸ",
+      "options": ["ቸ", "ቹ", "ተ"],
+      "correct_answer": "ቸ",
+      "pronunciation_label": "Che",
+      "success_audio": "audio/pronunciation/che.mp3"
+    },
+    {
+      "game_id": "g6_bubble_pop_chie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ቼ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ቼ'!",
+      "target_symbol": "ቼ",
+      "target_pronunciation": "Chie",
+      "target_audio": "audio/pronunciation/chie.mp3",
+      "floating_options": ["ቸ", "ቹ", "ቺ", "ቼ"],
+      "correct_answer": "ቼ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g6_sequence_next_che",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ቸ ➔ ቹ ➔ [ ? ]",
+      "options": ["ቻ", "ቺ", "ቼ"],
+      "correct_answer": "ቺ",
+      "target_pronunciation": "Chi",
+      "success_audio": "audio/pronunciation/chi.mp3"
+    },
+    {
+      "game_id": "g6_word_to_image_chikolet",
+      "game_type": "word_to_image",
+      "title": "Word Match: ቺኮሌት",
+      "instructions_en": "Associate the illustrated chocolate with the correct Amharic word: 'ቺኮሌት'",
+      "tips_en": "Tip: ቺኮሌት (pronounced 'Chikolet') means Chocolate.",
+      "image_url": "images/vocabulary/chocolate.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ቺኮሌት",
+          "phonetic": "Chikolet (Chi-ko-laet)"
+        },
+        {
+          "word": "ደብተር",
+          "phonetic": "Debter (Deb-ter)"
+        }
+      ],
+      "correct_answer": "ቺኮሌት",
+      "success_audio": "audio/vocabulary/chikolet_full.mp3"
+    },
+    {
+      "game_id": "g6_shape_match_ne",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ነ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ነ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ነ",
+      "options": ["ነ", "ኑ", "ኘ"],
+      "correct_answer": "ነ",
+      "pronunciation_label": "Ne",
+      "success_audio": "audio/pronunciation/ne.mp3"
+    },
+    {
+      "game_id": "g6_bubble_pop_nie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ኔ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ኔ'!",
+      "target_symbol": "ኔ",
+      "target_pronunciation": "Nie",
+      "target_audio": "audio/pronunciation/nie.mp3",
+      "floating_options": ["ነ", "ኑ", "ኒ", "ኔ"],
+      "correct_answer": "ኔ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g6_sequence_next_ne",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ና ➔ ኔ ➔ [ ? ]",
+      "options": ["ን", "ኖ", "ነ"],
+      "correct_answer": "ን",
+      "target_pronunciation": "N (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/n_sixth.mp3"
+    },
+    {
+      "game_id": "g6_word_to_image_nebr",
+      "game_type": "word_to_image",
+      "title": "Word Match: ነብር",
+      "instructions_en": "Associate the illustrated leopard with the correct Amharic word: 'ነብር'",
+      "tips_en": "Tip: ነብር (pronounced 'Nebr') means Leopard.",
+      "image_url": "images/vocabulary/leopard.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ነብር",
+          "phonetic": "Nebr (Ne-b-r)"
+        },
+        {
+          "word": "ቢራቢሮ",
+          "phonetic": "Birabiro (Bi-ra-bi-ro)"
+        }
+      ],
+      "correct_answer": "ነብር",
+      "success_audio": "audio/vocabulary/nebr_full.mp3"
+    }
+  ]
+}

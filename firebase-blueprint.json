@@ -1,0 +1,162 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Core user profile data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "fullName": { "type": "string" },
+        "role": { "type": "string", "enum": ["parent", "tutor", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "A potential student session (Trial Booking)",
+      "type": "object",
+      "properties": {
+        "parentId": { "type": "string" },
+        "parentName": { "type": "string" },
+        "childName": { "type": "string" },
+        "childAge": { "type": "number" },
+        "country": { "type": "string" },
+        "timezone": { "type": "string" },
+        "preferredTime": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "email": { "type": "string" },
+        "learningGoal": { "type": "string" },
+        "status": { "type": "string", "enum": ["new", "contacted", "scheduled", "trial_completed", "converted", "lost", "trial_pending"] },
+        "assignedTutorId": { "type": "string" },
+        "trialScheduledAt": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Subscription": {
+      "title": "Subscription",
+      "description": "Student recurring payment plan",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "parentId": { "type": "string" },
+        "planType": { "type": "string", "enum": ["starter", "standard", "intensive"] },
+        "sessionsPerWeek": { "type": "number" },
+        "status": { "type": "string", "enum": ["active", "paused", "cancelled", "pending"] },
+        "nextPaymentDate": { "type": "string", "format": "date-time" },
+        "price": { "type": "number" }
+      }
+    },
+    "Session": {
+      "title": "Session",
+      "description": "A scheduled tutoring session",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "tutorId": { "type": "string" },
+        "startTime": { "type": "string", "format": "date-time" },
+        "endTime": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["scheduled", "completed", "cancelled", "missed"] },
+        "notes": { "type": "string" },
+        "attendance": { "type": "boolean" },
+        "type": { "type": "string", "enum": ["trial", "recurring"] }
+      }
+    },
+    "Student": {
+      "title": "Student",
+      "description": "A student registered in the system",
+      "type": "object",
+      "properties": {
+        "parentId": { "type": "string" },
+        "tutorId": { "type": "string" },
+        "name": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "paused", "inactive"] },
+        "plan": { "type": "string" },
+        "progress": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Real-time chat messages",
+      "type": "object",
+      "properties": {
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "senderRole": { "type": "string" },
+        "recipientId": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["senderId", "senderName", "senderRole", "recipientId", "text"]
+    },
+    "Tutor": {
+      "title": "Tutor",
+      "description": "Permanent tutor record",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "specialized syllabus": { "type": "string" },
+        "specializedSyllabus": { "type": "string" },
+        "bio": { "type": "string" },
+        "languages_taught": { "type": "array", "items": { "type": "string" } },
+        "years_of_experience": { "type": "number" },
+        "role": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "role"]
+    },
+    "GlobalSettings": {
+      "title": "GlobalSettings",
+      "description": "Global settings configuration",
+      "type": "object",
+      "properties": {
+        "standardPrice": { "type": "number" },
+        "proPrice": { "type": "number" },
+        "masteryPrice": { "type": "number" },
+        "academyName": { "type": "string" },
+        "supportEmail": { "type": "string" },
+        "supportPhone": { "type": "string" },
+        "welcomeMotto": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Trial bookings and leads"
+    },
+    "/subscriptions/{subId}": {
+      "schema": "Subscription",
+      "description": "Student subscriptions"
+    },
+    "/sessions/{sessionId}": {
+      "schema": "Session",
+      "description": "Tutoring sessions"
+    },
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Student records"
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Real-time chat messages"
+    },
+    "/tutors/{tutorId}": {
+      "schema": "Tutor",
+      "description": "Dedicated tutors record collection"
+    },
+    "/settings/{settingsId}": {
+      "schema": "GlobalSettings",
+      "description": "Global settings and platform variables"
+    }
+  }
+}

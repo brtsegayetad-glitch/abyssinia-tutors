@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_11_fidel_flex_l2",
+  "unit_title": "ምዕራፍ ፲፩ — Meraf 11: Advanced Mastery of ጨ and ጰ",
+  "module": "11.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ጨ and ጰ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የጨ እና የጰ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g11_assembly_chereqa",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ጨረቃ",
+      "instructions_en": "Assemble the letters to build the word for Moon!",
+      "scrambled_letters": [
+        "ረ",
+        "ጨ",
+        "ቃ"
+      ],
+      "correct_answer": "ጨረቃ",
+      "english_translation": "Moon [Chereqa]",
+      "tips_en": "Tip: Select first form 'ጨ', followed by first form 'ረ', and end with fourth form 'ቃ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g11_fill_blank_papas",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ጳጳስ",
+      "instructions_en": "Look at the incomplete word for 'Bishop': ጳ[ ? ]ስ. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ጳ __ ስ",
+      "tips_en": "The full word is ጳጳስ (pronounced Pa-pas).",
+      "image_url": "images/vocabulary/papas.png",
+      "options": [
+        "ጳ",
+        "ጰ",
+        "ጲ",
+        "ጴ"
+      ],
+      "correct_answer": "ጳ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g11_blend_ch_e",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ጨ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Ch'e' sound?",
+      "target_audio": "audio/blends/che_emphatic_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Ch'e' (Emphatic)",
+      "options": [
+        "ጨ",
+        "ጩ",
+        "ጪ",
+        "ጫ"
+      ],
+      "correct_answer": "ጨ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g11_assembly_papas",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ጳጳስ",
+      "instructions_en": "Form the word for 'Bishop/Pope' (Papas)!",
+      "scrambled_letters": [
+        "ጳ",
+        "ስ",
+        "ጳ"
+      ],
+      "correct_answer": "ጳጳስ",
+      "english_translation": "Bishop [Papas]",
+      "tips_en": "Tip: Start with fourth form 'ጳ', another 'ጳ', and end with sixth form 'ስ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g11_fill_blank_chereqa",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ጨረቃ",
+      "instructions_en": "Find the missing letter to complete the word for 'Moon': ጨ[ ? ]ቃ.",
+      "word_display_with_blank": "ጨ __ ቃ",
+      "tips_en": "The full word is ጨረቃ (pronounced Che-re-qa).",
+      "image_url": "images/vocabulary/moon.png",
+      "options": [
+        "ረ",
+        "ሩ",
+        "ሪ",
+        "ራ"
+      ],
+      "correct_answer": "ረ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g11_blend_p_e",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ጰ",
+      "instructions_en": "Listen closely. Which symbol represents the 'P'e' sound?",
+      "target_audio": "audio/blends/pe_emphatic_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'P'e' (Emphatic)",
+      "options": [
+        "ጰ",
+        "ጱ",
+        "ጲ",
+        "ጳ"
+      ],
+      "correct_answer": "ጰ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g11_assembly_chew",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ጨው",
+      "instructions_en": "Form the word for 'Salt' (Chew)!",
+      "scrambled_letters": [
+        "ው",
+        "ጨ"
+      ],
+      "correct_answer": "ጨው",
+      "english_translation": "Salt [Chew]",
+      "tips_en": "Tip: Select first form 'ጨ' followed by sixth form 'ው'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g11_fill_blank_chew",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ጨው",
+      "instructions_en": "Complete the word for 'Salt': [ ? ]ው.",
+      "word_display_with_blank": "__ ው",
+      "tips_en": "The full word is ጨው (pronounced Chew).",
+      "image_url": "images/vocabulary/salt.png",
+      "options": [
+        "ጨ",
+        "ጫ",
+        "ጪ",
+        "ጮ"
+      ],
+      "correct_answer": "ጨ",
+      "points_reward": 25
+    }
+  ]
+}

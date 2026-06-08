@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_4_fidel_advancement_l2",
+  "unit_title": "ምዕራፍ ፬ — Meraf 4: Advanced Mastery of ወ and ተ",
+  "module": "4.2",
+  "success_screen": {
+    "headline_en": "Stellar! You solved the advanced ወ and ተ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የወ እና የተ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g4_assembly_wef",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ወፍ",
+      "instructions_en": "Assemble the letters to build the word for Bird!",
+      "scrambled_letters": [
+        "ፍ",
+        "ወ"
+      ],
+      "correct_answer": "ወፍ",
+      "english_translation": "Bird [Wef]",
+      "tips_en": "Tip: Select the first form 'ወ' first, then end with 'ፍ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g4_fill_blank_temari",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ተማሪ",
+      "instructions_en": "Look at the incomplete word for 'Student': ተ[ ? ]ሪ. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ተ __ ሪ",
+      "tips_en": "The full word is ተማሪ (pronounced Te-ma-ri).",
+      "image_url": "images/vocabulary/student.png",
+      "options": [
+        "ሙ",
+        "ሚ",
+        "ማ",
+        "መ"
+      ],
+      "correct_answer": "ማ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g4_blend_wi",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ዊ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Wi' sound you hear?",
+      "target_audio": "audio/blends/wi_sample.mp3",
+      "target_phonetic_description": "The 3rd form ('I' vowel sound): 'Wi' as in 'Window'",
+      "options": [
+        "ወ",
+        "ዉ",
+        "ዊ",
+        "ዋ"
+      ],
+      "correct_answer": "ዊ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g4_assembly_terara",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ተራራ",
+      "instructions_en": "Form the word for 'Mountain' (Terara)!",
+      "scrambled_letters": [
+        "ራ",
+        "ተ",
+        "ራ"
+      ],
+      "correct_answer": "ተራራ",
+      "english_translation": "Mountain [Terara]",
+      "tips_en": "Tip: Start with first form 'ተ', followed by 'ራ', and end with the second 'ራ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g4_fill_blank_wusha",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ውሻ",
+      "instructions_en": "Find the missing letter to complete the word for 'Dog': ው[ ? ].",
+      "word_display_with_blank": "ው __",
+      "tips_en": "The full word is ውሻ (pronounced Wu-sha).",
+      "image_url": "images/vocabulary/dog.png",
+      "options": [
+        "ሻ",
+        "ሹ",
+        "ሺ",
+        "ሼ"
+      ],
+      "correct_answer": "ሻ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g4_blend_tu",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ቱ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Tu' sound?",
+      "target_audio": "audio/blends/tu_sample.mp3",
+      "target_phonetic_description": "The 2nd form ('U' vowel sound): 'Tu'",
+      "options": [
+        "ተ",
+        "ቱ",
+        "ቲ",
+        "ታ"
+      ],
+      "correct_answer": "ቱ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g4_assembly_wancha",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ዋንጫ",
+      "instructions_en": "Form the word for 'Trophy/Cup' (Wancha)!",
+      "scrambled_letters": [
+        "ን",
+        "ጫ",
+        "ዋ"
+      ],
+      "correct_answer": "ዋንጫ",
+      "english_translation": "Trophy [Wancha]",
+      "tips_en": "Tip: Start with fourth form 'ዋ', middle 'ን', and end with 'ጫ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g4_fill_blank_wenber",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ወንበር",
+      "instructions_en": "Complete the word for 'Chair': ወ[ ? ]በር.",
+      "word_display_with_blank": "ወ __ በር",
+      "tips_en": "The full word is ወንበር (pronounced Wen-ber).",
+      "image_url": "images/vocabulary/chair.png",
+      "options": [
+        "ን",
+        "ና",
+        "ኑ",
+        "ኒ"
+      ],
+      "correct_answer": "ን",
+      "points_reward": 30
+    }
+  ]
+}

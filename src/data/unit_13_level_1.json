@@ -1,0 +1,115 @@
+{
+  "unit_id": "unit_13_fidel_finale_pe_l1",
+  "unit_title": "ምዕራፍ ፲፫ — Meraf 13: Foundations of ፐ and the Finale",
+  "module": "13.1",
+  "success_screen": {
+    "headline_en": "Congratulations! You Mastered the Alphabet!",
+    "headline_am": "እንኳን ደስ አለዎት! ፊደላትን ጨረሱ!",
+    "audio_feedback": "audio/feedback/alphabet_mastery_grand.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g13_shape_match_pe_base",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ፐ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ፐ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ፐ",
+      "options": ["ፐ", "ፑ", "ለ"],
+      "correct_answer": "ፐ",
+      "pronunciation_label": "Pe",
+      "success_audio": "audio/pronunciation/pe_latin.mp3"
+    },
+    {
+      "game_id": "g13_bubble_pop_pie_base",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ፔ",
+      "instructions_en": "Click the golden sound button below, listen carefully, then pop the bubble that matches 'ፔ'!",
+      "target_symbol": "ፔ",
+      "target_pronunciation": "Pie",
+      "target_audio": "audio/pronunciation/pie_latin.mp3",
+      "floating_options": ["ፐ", "ፑ", "ፒ", "ፔ"],
+      "correct_answer": "ፔ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g13_sequence_next_pe_base",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ፐ ➔ ፑ ➔ [ ? ]",
+      "options": ["ፓ", "ፒ", "ፔ"],
+      "correct_answer": "ፒ",
+      "target_pronunciation": "Pi",
+      "success_audio": "audio/pronunciation/pi_latin.mp3"
+    },
+    {
+      "game_id": "g13_word_to_image_posta",
+      "game_type": "word_to_image",
+      "title": "Word Match: ፖስታ",
+      "instructions_en": "Associate the illustrated mail envelope with the correct Amharic word: 'ፖስታ'",
+      "tips_en": "Tip: ፖስታ (pronounced 'Posta') means Envelope or Mail.",
+      "image_url": "images/vocabulary/envelope.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ፖስታ",
+          "phonetic": "Posta (Po-s-ta)"
+        },
+        {
+          "word": "ፈረስ",
+          "phonetic": "Feres (Fe-re-s)"
+        }
+      ],
+      "correct_answer": "ፖስታ",
+      "success_audio": "audio/vocabulary/posta_full.mp3"
+    },
+    {
+      "game_id": "g13_high_difficulty_sequence_skip",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Challenge: Multi-Form Skip",
+      "instructions_en": "High Level Challenge! Look closely at the pattern. We are skipping forms! What goes in the missing space?",
+      "sequence_display": "ፑ (2nd) ➔ ፓ (4th) ➔ [ ? ] (6th)",
+      "options": ["ፒ", "ፕ", "ፖ"],
+      "correct_answer": "ፕ",
+      "target_pronunciation": "P (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/p_sixth_latin.mp3",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g13_high_difficulty_sound_blend",
+      "game_type": "phonetic_audio_blend",
+      "title": "Master Challenge: Listen and Spell",
+      "instructions_en": "Listen closely to the complex pronunciation blend. Which symbol represents the exact sound you hear?",
+      "target_audio": "audio/blends/po_fifth_form_sample.mp3",
+      "target_phonetic_description": "The 7th form round vowel sound: 'Po'",
+      "options": ["ፓ", "ፔ", "ፕ", "ፖ"],
+      "correct_answer": "ፖ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g13_high_difficulty_missing_fidel",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Master Challenge: Word Finish",
+      "instructions_en": "Look at the incomplete word for 'Papaya' fruit: ፓ[ ? ]ያ. What is the missing middle letter?",
+      "word_display_with_blank": "ፓ __ ያ",
+      "tips_en": "The full word is ፓፓያ (pronounced Pa-pa-ya).",
+      "image_url": "images/vocabulary/papaya.png",
+      "options": ["ፓ", "ፑ", "ፒ", "ፔ"],
+      "correct_answer": "ፓ",
+      "success_audio": "audio/vocabulary/papaya_full.mp3",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g13_high_difficulty_reverse_match",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Master Challenge: Shape Decoder",
+      "instructions_en": "Final Boss Question! Match the native English phonetic spelling 'PIE' with its correct Amharic 5th form character counterpart.",
+      "target_phonetic_label": "Pie (P-ae)",
+      "options": ["ፓ", "ፒ", "ፔ", "ፖ"],
+      "correct_answer": "ፔ",
+      "success_audio": "audio/pronunciation/pie_latin.mp3",
+      "points_reward": 30
+    }
+  ]
+}

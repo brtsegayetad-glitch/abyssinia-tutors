@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_5_fidel_progression_l2",
+  "unit_title": "ምዕራፍ ፭ — Meraf 5: Advanced Mastery of ዐ and ዘ",
+  "module": "5.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ዐ and ዘ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የዐ እና የዘ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g5_assembly_ayin",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ዓይን",
+      "instructions_en": "Assemble the letters to build the word for Eye!",
+      "scrambled_letters": [
+        "ይ",
+        "ን",
+        "ዓ"
+      ],
+      "correct_answer": "ዓይን",
+      "english_translation": "Eye [Ayin]",
+      "tips_en": "Tip: Select 'ዓ', then 'ይ' (6th form), and end with 'ን'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g5_fill_blank_zebra",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ዜብራ",
+      "instructions_en": "Look at the incomplete word for 'Zebra': ዜ[ ? ]ራ. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ዜ __ ራ",
+      "tips_en": "The full word is ዜብራ (pronounced Ze-b-ra).",
+      "image_url": "images/vocabulary/zebra.png",
+      "options": [
+        "ብ",
+        "በ",
+        "ቡ",
+        "ቢ"
+      ],
+      "correct_answer": "ብ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g5_blend_i_ain",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ዒ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Ee' (3rd form) sound for Ain?",
+      "target_audio": "audio/blends/i_ain_sample.mp3",
+      "target_phonetic_description": "The 3rd form ('I' vowel sound): 'Ii' as in 'Ayin'",
+      "options": [
+        "ዐ",
+        "ዑ",
+        "ዒ",
+        "ዓ"
+      ],
+      "correct_answer": "ዒ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g5_assembly_zaf",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ዛፍ",
+      "instructions_en": "Form the word for 'Tree' (Zaf)!",
+      "scrambled_letters": [
+        "ፍ",
+        "ዛ"
+      ],
+      "correct_answer": "ዛፍ",
+      "english_translation": "Tree [Zaf]",
+      "tips_en": "Tip: Start with fourth form 'ዛ', followed by sixth form 'ፍ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g5_fill_blank_asa",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ዓሳ",
+      "instructions_en": "Find the missing letter to complete the word for 'Fish': ዓ[ ? ].",
+      "word_display_with_blank": "ዓ __",
+      "tips_en": "The full word is ዓሳ (pronounced A-sa).",
+      "image_url": "images/vocabulary/fish.png",
+      "options": [
+        "ሳ",
+        "ሱ",
+        "ሲ",
+        "ሶ"
+      ],
+      "correct_answer": "ሳ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g5_blend_zu",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ዙ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Zu' sound?",
+      "target_audio": "audio/blends/zu_sample.mp3",
+      "target_phonetic_description": "The 2nd form ('U' vowel sound): 'Zu'",
+      "options": [
+        "ዘ",
+        "ዙ",
+        "ዚ",
+        "ዛ"
+      ],
+      "correct_answer": "ዙ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g5_assembly_zewd",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ዘውድ",
+      "instructions_en": "Form the word for 'Crown' (Zewd)!",
+      "scrambled_letters": [
+        "ድ",
+        "ዘ",
+        "ው"
+      ],
+      "correct_answer": "ዘውድ",
+      "english_translation": "Crown [Zewd]",
+      "tips_en": "Tip: Start with first form 'ዘ', middle sixth form 'ው', and end with 'ድ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g5_fill_blank_amet",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ዓመት",
+      "instructions_en": "Complete the word for 'Year': ዓ[ ? ]ት.",
+      "word_display_with_blank": "ዓ __ ት",
+      "tips_en": "The full word is ዓመት (pronounced A-met).",
+      "image_url": "images/vocabulary/calendar.png",
+      "options": [
+        "መ",
+        "ሙ",
+        "ሚ",
+        "ማ"
+      ],
+      "correct_answer": "መ",
+      "points_reward": 30
+    }
+  ]
+}

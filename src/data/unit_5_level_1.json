@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_5_fidel_progression_l1",
+  "unit_title": "ምዕራፍ ፭ — Meraf 5: Foundations of ዐ and ዘ",
+  "module": "5.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ዐ and ዘ!",
+    "headline_am": "በጣም ድንቅ ነው! የዐ እና የዘ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g5_shape_match_a",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ዐ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ዐ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ዐ",
+      "options": ["ዐ", "ዑ", "ሀ"],
+      "correct_answer": "ዐ",
+      "pronunciation_label": "Ah",
+      "success_audio": "audio/pronunciation/ah_ain.mp3"
+    },
+    {
+      "game_id": "g5_bubble_pop_u_ain",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ዑ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ዑ'!",
+      "target_symbol": "ዑ",
+      "target_pronunciation": "U (Ain)",
+      "target_audio": "audio/pronunciation/u_ain.mp3",
+      "floating_options": ["ዐ", "ዑ", "ዒ", "ዓ"],
+      "correct_answer": "ዑ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g5_sequence_next_ain",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ዐ ➔ ዑ ➔ [ ? ]",
+      "options": ["ዒ", "ዓ", "ዔ"],
+      "correct_answer": "ዒ",
+      "target_pronunciation": "I (Ain)",
+      "success_audio": "audio/pronunciation/i_ain.mp3"
+    },
+    {
+      "game_id": "g5_word_to_image_ayin",
+      "game_type": "word_to_image",
+      "title": "Word Match: ዓይን",
+      "instructions_en": "Associate the illustrated eye with the correct Amharic word: 'ዓይን'",
+      "tips_en": "Tip: ዓይን (pronounced 'Ayin') means Eye.",
+      "image_url": "images/vocabulary/eye.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ዓይን",
+          "phonetic": "Ayin"
+        },
+        {
+          "word": "ዛፍ",
+          "phonetic": "Zaf"
+        }
+      ],
+      "correct_answer": "ዓይን",
+      "success_audio": "audio/vocabulary/ayin_full.mp3"
+    },
+    {
+      "game_id": "g5_shape_match_ze",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ዘ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ዘ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ዘ",
+      "options": ["ዘ", "ዙ", "ዠ"],
+      "correct_answer": "ዘ",
+      "pronunciation_label": "Ze",
+      "success_audio": "audio/pronunciation/ze.mp3"
+    },
+    {
+      "game_id": "g5_bubble_pop_zi",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ዚ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ዚ'!",
+      "target_symbol": "ዚ",
+      "target_pronunciation": "Zi",
+      "target_audio": "audio/pronunciation/zi.mp3",
+      "floating_options": ["ዘ", "ዙ", "ዚ", "ዛ"],
+      "correct_answer": "ዚ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g5_sequence_next_ze",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ዛ ➔ ዜ ➔ [ ? ]",
+      "options": ["ዝ", "ዞ", "ዘ"],
+      "correct_answer": "ዝ",
+      "target_pronunciation": "Z - 6th form",
+      "success_audio": "audio/pronunciation/z_sixth.mp3"
+    },
+    {
+      "game_id": "g5_word_to_image_zebra",
+      "game_type": "word_to_image",
+      "title": "Word Match: ዜብራ",
+      "instructions_en": "Associate the illustrated zebra with the correct Amharic word: 'ዜብራ'",
+      "tips_en": "Tip: ዜብራ (pronounced 'Zebra') means Zebra.",
+      "image_url": "images/vocabulary/zebra.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ዜብራ",
+          "phonetic": "Zebra"
+        },
+        {
+          "word": "ዓይን",
+          "phonetic": "Ayin"
+        }
+      ],
+      "correct_answer": "ዜብራ",
+      "success_audio": "audio/vocabulary/zebra_full.mp3"
+    }
+  ]
+}

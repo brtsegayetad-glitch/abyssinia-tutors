@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_7_fidel_flex_l2",
+  "unit_title": "ምዕራፍ ፯ — Meraf 7: Advanced Mastery of ከ and ኸ",
+  "module": "7.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ከ and ኸ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የከ እና የኸ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g7_assembly_kek",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ኬክ",
+      "instructions_en": "Assemble the letters to build the word for Cake!",
+      "scrambled_letters": [
+        "ክ",
+        "ኬ"
+      ],
+      "correct_answer": "ኬክ",
+      "english_translation": "Cake [Kek]",
+      "tips_en": "Tip: Select 'ኬ', followed by 'ክ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g7_fill_blank_kokeb",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ኮከብ",
+      "instructions_en": "Look at the incomplete word for 'Star': ኮ[ ? ]ብ. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ኮ __ ብ",
+      "tips_en": "The full word is ኮከብ (pronounced Ko-ke-b).",
+      "image_url": "images/vocabulary/star.png",
+      "options": [
+        "ከ",
+        "ኩ",
+        "ኪ",
+        "ኬ"
+      ],
+      "correct_answer": "ከ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g7_blend_ki",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ኪ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Ki' sound?",
+      "target_audio": "audio/blends/ki_sample.mp3",
+      "target_phonetic_description": "The 3rd form ('I' vowel sound): 'Ki'",
+      "options": [
+        "ከ",
+        "ኩ",
+        "ኪ",
+        "ካ"
+      ],
+      "correct_answer": "ኪ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g7_assembly_kokeb",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: コケブ",
+      "instructions_en": "Form the word for 'Star' (Kokeb)!",
+      "scrambled_letters": [
+        "ከ",
+        "ኮ",
+        "ብ"
+      ],
+      "correct_answer": "ኮከብ",
+      "english_translation": "Star [Kokeb]",
+      "tips_en": "Tip: Start with first-form-related 'ኮ', follow with first form 'ከ', and end with sixth form 'ብ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g7_fill_blank_kek",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ኬክ",
+      "instructions_en": "Find the missing letter to complete the word for 'Cake': [ ? ]ክ.",
+      "word_display_with_blank": "__ ክ",
+      "tips_en": "The full word is ኬክ (pronounced Kek).",
+      "image_url": "images/vocabulary/cake.png",
+      "options": [
+        "ኬ",
+        "ኮ",
+        "ኪ",
+        "ካ"
+      ],
+      "correct_answer": "ኬ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g7_blend_xh",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ኼ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Xhie' sound?",
+      "target_audio": "audio/blends/xhie_sample.mp3",
+      "target_phonetic_description": "The 5th form ('Ie' vowel sound): 'Xhie'",
+      "options": [
+        "ኸ",
+        "ኹ",
+        "ኺ",
+        "ኼ"
+      ],
+      "correct_answer": "ኼ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g7_assembly_xhemr",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ኸምር",
+      "instructions_en": "Form the word for 'Grapes/Wine Jar' (Xhemr)!",
+      "scrambled_letters": [
+        "ር",
+        "ኸ",
+        "ም"
+      ],
+      "correct_answer": "ኸምር",
+      "english_translation": "Grapes/Wine Jar [Xhemr]",
+      "tips_en": "Tip: Start with first form 'ኸ', middle sixth form 'ም', and end with 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g7_fill_blank_xhemr",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ኸምር",
+      "instructions_en": "Complete the word for 'Xhemr': ኸ__[ ? ]ር.",
+      "word_display_with_blank": "ኸ __ ር",
+      "tips_en": "The full word is ኸምር (pronounced Xhe-m-r).",
+      "image_url": "images/vocabulary/grapes_jar.png",
+      "options": [
+        "ም",
+        "ማ",
+        "ሙ",
+        "ሜ"
+      ],
+      "correct_answer": "ም",
+      "points_reward": 30
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "unit_id": "unit_3_fidel_mastery_l2",
+  "unit_title": "ምዕራፍ ፫ — Meraf 3: Advanced Mastery of በ",
+  "module": "3.2",
+  "success_screen": {
+    "headline_en": "Spectacular! You have mastered the advanced levels of በ!",
+    "headline_am": "ድንቅ ነው! የላቀውን የበ ቤተሰብ ደረጃን በጥሩ ሁኔታ አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g3_assembly_bet",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ቤት",
+      "instructions_en": "Assemble the letters to build the word for House / Home!",
+      "scrambled_letters": [
+        "ት",
+        "ቤ"
+      ],
+      "correct_answer": "ቤት",
+      "english_translation": "House [Bet]",
+      "tips_en": "Tip: Select the fifth form 'ቤ' first, then end with 'ት'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g3_fill_blank_buna",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ቡና",
+      "instructions_en": "Look at the incomplete word for 'Coffee': ቡ[ ? ]. Select the correct missing Amharic letter!",
+      "word_display_with_blank": "ቡ __",
+      "tips_en": "Coffee is pronounced Bu-na.",
+      "image_url": "images/vocabulary/coffee.png",
+      "options": [
+        "ና",
+        "ኑ",
+        "ኒ",
+        "ኖ"
+      ],
+      "correct_answer": "ና",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g3_blend_bi",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ቢ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Bi' sound you hear?",
+      "target_audio": "audio/blends/bi_sample.mp3",
+      "target_phonetic_description": "The 3rd form ('I' vowel sound): 'Bi' as in 'Birabiro'",
+      "options": [
+        "በ",
+        "ቡ",
+        "ቢ",
+        "ባ"
+      ],
+      "correct_answer": "ቢ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g3_assembly_babur",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ባቡር",
+      "instructions_en": "Form the word for 'Train' (Babur)!",
+      "scrambled_letters": [
+        "ቡ",
+        "ባ",
+        "ር"
+      ],
+      "correct_answer": "ባቡር",
+      "english_translation": "Train [Babur]",
+      "tips_en": "Tip: Start with fourth form 'ባ', then second form 'ቡ', and finish with sixth form 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_fill_blank_birtukan",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ብርቱካን",
+      "instructions_en": "Find the missing letter to complete the word for orange fruit: ብ[ ? ]ቱካን.",
+      "word_display_with_blank": "ብ __ ቱካን",
+      "tips_en": "The full word is ብርቱካን (pronounced Bir-tu-kan).",
+      "image_url": "images/vocabulary/orange.png",
+      "options": [
+        "ር",
+        "ሩ",
+        "ሪ",
+        "ራ"
+      ],
+      "correct_answer": "ር",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_blend_bo",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ቦ",
+      "instructions_en": "Listen closely. Which symbol represents the 7th form 'Bo' sound with the small ring added to the top-right corner?",
+      "target_audio": "audio/blends/bo_sample.mp3",
+      "target_phonetic_description": "The 7th form ('O' vowel sound): 'Bo'",
+      "options": [
+        "ባ",
+        "ቤ",
+        "ብ",
+        "ቦ"
+      ],
+      "correct_answer": "ቦ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g3_assembly_borsa",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ቦርሳ",
+      "instructions_en": "Form the word for 'Bag / Backpack' (Borsa)!",
+      "scrambled_letters": [
+        "ቦ",
+        "ሳ",
+        "ር"
+      ],
+      "correct_answer": "ቦርሳ",
+      "english_translation": "Bag [Borsa]",
+      "tips_en": "Tip: Start with seventh form 'ቦ', middle sixth form 'ር', and end with 'ሳ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g3_fill_blank_debter",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ደብተር",
+      "instructions_en": "Complete the word for 'Notebook / Exercise book': ደ[ ? ]ተር.",
+      "word_display_with_blank": "ደ __ ተር",
+      "tips_en": "The full word is ደብተር (pronounced Deb-ter).",
+      "image_url": "images/vocabulary/notebook.png",
+      "options": [
+        "ብ",
+        "በ",
+        "ቡ",
+        "ቢ"
+      ],
+      "correct_answer": "ብ",
+      "points_reward": 30
+    }
+  ]
+}

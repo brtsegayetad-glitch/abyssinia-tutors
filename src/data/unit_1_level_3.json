@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_1_fidel_fundamentals_l3",
+  "unit_title": "ምዕራፍ ፩ — Meraf 1: Grand Master of ሀ and ለ",
+  "module": "1.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ሀ and ለ!",
+    "headline_am": "ግሩም ድንቅ ነው! የሀ እና ለ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g1_decode_hahu",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: HAHU",
+      "instructions_en": "Match the native English phonetic spelling 'HAHU' (Amharic Alphabet) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "HA-HU",
+      "options": [
+        "ሀሁ",
+        "ሂሳብ",
+        "ሌሊት",
+        "ሎሚ"
+      ],
+      "correct_answer": "ሀሁ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g1_fill_blank_lomi_triple",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ሎሚ",
+      "instructions_en": "Look closely at the word 'Lemon' (Lomi). Find the correct missing first-form related letter: [ ? ]ሚ.",
+      "word_display_with_blank": "__ ሚ",
+      "tips_en": "The full word is ሎሚ (pronounced Lo-mi).",
+      "image_url": "images/vocabulary/lemon.png",
+      "options": [
+        "ሎ",
+        "ሉ",
+        "ሊ",
+        "ላ"
+      ],
+      "correct_answer": "ሎ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g1_sequence_ha_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 1st form ➔ 3rd form ➔ 5th form ➔ [ ? ] (7th form). What goes next?",
+      "sequence_display": "ሀ (1st) ➔ ሂ (3rd) ➔ ሄ (5th) ➔ [ ? ] (7th)",
+      "options": [
+        "ሃ",
+        "ሁ",
+        "ሆ",
+        "ሕ"
+      ],
+      "correct_answer": "ሆ",
+      "target_pronunciation": "Ho (7th Form)",
+      "success_audio": "audio/pronunciation/ho_latin.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g1_assembly_lelit",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ሌሊት",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Night (Lelit) without clues!",
+      "scrambled_letters": [
+        "ሊ",
+        "ሌ",
+        "ት"
+      ],
+      "correct_answer": "ሌሊት",
+      "english_translation": "Night [Lelit]",
+      "tips_en": "Tip: Start with 5th form 'ሌ', follow with 3rd form 'ሊ', and end in 6th form 'ት'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g1_decode_lomi",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: LOMI",
+      "instructions_en": "Match the native English phonetic spelling 'LOMI' (Lemon) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "LO-MI",
+      "options": [
+        "ሎሚ",
+        "ላም",
+        "ሌሊት",
+        "ሉል"
+      ],
+      "correct_answer": "ሎሚ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g1_blend_le_sixth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ል",
+      "instructions_en": "Listen closely in your head to the light, breathy native 6th form 'L' sound. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/le_sixth_sample.mp3",
+      "target_phonetic_description": "The 6th form native consonant sound: 'L'",
+      "options": [
+        "ለ",
+        "ሉ",
+        "ሊ",
+        "ል"
+      ],
+      "correct_answer": "ል",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g1_assembly_hager",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ሀገር",
+      "instructions_en": "Form the full Amharic word for Country or Nation (Hager)!",
+      "scrambled_letters": [
+        "ሀ",
+        "ር",
+        "ገ"
+      ],
+      "correct_answer": "ሀገር",
+      "english_translation": "Country [Hager]",
+      "tips_en": "Tip: Select 1st form 'ሀ', then 1st form 'ገ', and end with 6th form 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g1_decode_hager",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: HAGER",
+      "instructions_en": "Match the native English phonetic spelling 'HAGER' (Country/Nation) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "HA-GER",
+      "options": [
+        "ሀገር",
+        "ሂሳብ",
+        "ሀሁ",
+        "ሌሊት"
+      ],
+      "correct_answer": "ሀገር",
+      "points_reward": 30
+    }
+  ]
+}

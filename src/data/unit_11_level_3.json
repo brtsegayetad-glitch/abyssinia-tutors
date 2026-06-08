@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_11_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፲፩ — Meraf 11: Grand Master of ጨ and ጰ",
+  "module": "11.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ጨ and ጰ!",
+    "headline_am": "ግሩም ድንቅ ነው! የጨ እና የጰ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g11_decode_paphas",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: PAPHAS",
+      "instructions_en": "Match the native English phonetic spelling 'PAPHAS' (Pope) with the correct Amharic word.",
+      "target_phonetic_label": "PA-PHAS",
+      "options": [
+        "ጳጳስ",
+        "ጨው",
+        "ጨረቃ",
+        "ጨዋታ"
+      ],
+      "correct_answer": "ጳጳስ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g11_fill_blank_paphas_l3",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ጳጳስ",
+      "instructions_en": "Look closely at the word 'Pope' (Paphas). Find the correct missing first/second letter: ጳ[ ? ]ስ.",
+      "word_display_with_blank": "ጳ __ ስ",
+      "tips_en": "The full word is ጳጳስ (pronounced Pa-pa-s).",
+      "image_url": "images/vocabulary/pope.png",
+      "options": [
+        "ጳ",
+        "ጱ",
+        "ጲ",
+        "ጴ"
+      ],
+      "correct_answer": "ጳ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g11_sequence_che_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 1st form ➔ 3rd form ➔ 5th form ➔ [ ? ] (7th form). What goes next?",
+      "sequence_display": "ጨ (1st) ➔ ጪ (3rd) ➔ ጬ (5th) ➔ [ ? ] (7th)",
+      "options": [
+        "ጫ",
+        "ጩ",
+        "ጮ",
+        "ጭ"
+      ],
+      "correct_answer": "ጮ",
+      "target_pronunciation": "Cho (7th Form)",
+      "success_audio": "audio/pronunciation/cho_latin.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g11_assembly_paphas_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ጳጳስ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Pope (Paphas)!",
+      "scrambled_letters": [
+        "ጳ",
+        "ስ",
+        "ጳ"
+      ],
+      "correct_answer": "ጳጳስ",
+      "english_translation": "Pope [Paphas]",
+      "tips_en": "Tip: Select 4th form 'ጳ', another 'ጳ', followed by 6th form 'ስ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g11_decode_chew",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: CHEW",
+      "instructions_en": "Match the phonetic spelling 'CHEW' (Salt) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "CHEW",
+      "options": [
+        "ጨው",
+        "ጳጳስ",
+        "ጨረቃ",
+        "ጨዋታ"
+      ],
+      "correct_answer": "ጨው",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g11_blend_che_sixth_form",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ጭ",
+      "instructions_en": "Listen closely to the emphatic native 6th form 'Ch' sound of the ጨ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/che_sixth_sample.mp3",
+      "target_phonetic_description": "The emphatic 6th form native sound: 'Ch'",
+      "options": [
+        "ጨ",
+        "ጩ",
+        "ጪ",
+        "ጭ"
+      ],
+      "correct_answer": "ጭ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g11_assembly_chereqa_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ጨረቃ",
+      "instructions_en": "Form the full Amharic word for Moon (Chereqa)!",
+      "scrambled_letters": [
+        "ቃ",
+        "ጨ",
+        "ረ"
+      ],
+      "correct_answer": "ጨረቃ",
+      "english_translation": "Moon [Chereqa]",
+      "tips_en": "Tip: Select 'ጨ', then 'ረ', and end in 'ቃ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g11_decode_chereqa",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: CHEREQA",
+      "instructions_en": "Match the native English phonetic spelling 'CHEREQA' (Moon) with the correct Amharic word.",
+      "target_phonetic_label": "CHE-RE-QA",
+      "options": [
+        "ጨረቃ",
+        "ጳጳስ",
+        "ጨው",
+        "ቅቤ"
+      ],
+      "correct_answer": "ጨረቃ",
+      "points_reward": 30
+    }
+  ]
+}

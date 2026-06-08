@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_9_fidel_flex_l1",
+  "unit_title": "ምዕራፍ ፱ — Meraf 9: Foundations of ደ and ጀ",
+  "module": "9.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ደ and ጀ!",
+    "headline_am": "በጣም ድንቅ ነው! የደ እና የጀ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g9_shape_match_de",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ደ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ደ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ደ",
+      "options": ["ደ", "ዱ", "የ"],
+      "correct_answer": "ደ",
+      "pronunciation_label": "De",
+      "success_audio": "audio/pronunciation/de.mp3"
+    },
+    {
+      "game_id": "g9_bubble_pop_die",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ዴ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ዴ'!",
+      "target_symbol": "ዴ",
+      "target_pronunciation": "Die",
+      "target_audio": "audio/pronunciation/die.mp3",
+      "floating_options": ["ደ", "ዱ", "ዲ", "ዴ"],
+      "correct_answer": "ዴ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g9_sequence_next_de",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ደ ➔ ዱ ➔ [ ? ]",
+      "options": ["ዳ", "ዲ", "ዴ"],
+      "correct_answer": "ዲ",
+      "target_pronunciation": "Di",
+      "success_audio": "audio/pronunciation/di.mp3"
+    },
+    {
+      "game_id": "g9_word_to_image_debter",
+      "game_type": "word_to_image",
+      "title": "Word Match: ደብተር",
+      "instructions_en": "Associate the illustrated notebook with the correct Amharic word: 'ደብተር'",
+      "tips_en": "Tip: ደብተር (pronounced 'Debter') means Notebook.",
+      "image_url": "images/vocabulary/notebook.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ደብተር",
+          "phonetic": "Debter (Deb-ter)"
+        },
+        {
+          "word": "ጀልባ",
+          "phonetic": "Jelba (Jel-ba)"
+        }
+      ],
+      "correct_answer": "ደብተር",
+      "success_audio": "audio/vocabulary/debter_full.mp3"
+    },
+    {
+      "game_id": "g9_shape_match_je",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ጀ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ጀ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ጀ",
+      "options": ["ጀ", "ጁ", "ደ"],
+      "correct_answer": "ጀ",
+      "pronunciation_label": "Je",
+      "success_audio": "audio/pronunciation/je.mp3"
+    },
+    {
+      "game_id": "g9_bubble_pop_jie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ጄ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ጄ'!",
+      "target_symbol": "ጄ",
+      "target_pronunciation": "Jie",
+      "target_audio": "audio/pronunciation/jie.mp3",
+      "floating_options": ["ጀ", "ጁ", "ጂ", "ጄ"],
+      "correct_answer": "ጄ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g9_sequence_next_je",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ጃ ➔ ጄ ➔ [ ? ]",
+      "options": ["ጅ", "ጆ", "ጀ"],
+      "correct_answer": "ጅ",
+      "target_pronunciation": "J (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/j_sixth.mp3"
+    },
+    {
+      "game_id": "g9_word_to_image_jelba",
+      "game_type": "word_to_image",
+      "title": "Word Match: ጀልባ",
+      "instructions_en": "Associate the illustrated boat with the correct Amharic word: 'ጀልባ'",
+      "tips_en": "Tip: ጀልባ (pronounced 'Jelba') means Boat.",
+      "image_url": "images/vocabulary/boat.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ጀልባ",
+          "phonetic": "Jelba (Jel-ba)"
+        },
+        {
+          "word": "ደብተር",
+          "phonetic": "Debter (Deb-ter)"
+        }
+      ],
+      "correct_answer": "ጀልባ",
+      "success_audio": "audio/vocabulary/jelba_full.mp3"
+    }
+  ]
+}

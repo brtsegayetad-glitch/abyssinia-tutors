@@ -1,0 +1,140 @@
+{
+  "unit_id": "unit_10_fidel_flex_l2",
+  "unit_title": "ምዕራፍ ፲ — Meraf 10: Advanced Mastery of ገ and ጠ",
+  "module": "10.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ገ and ጠ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የገ እና የጠ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g10_assembly_gari",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ጋሪ",
+      "instructions_en": "Assemble the letters to build the word for Cart!",
+      "scrambled_letters": [
+        "ሪ",
+        "ጋ"
+      ],
+      "correct_answer": "ጋሪ",
+      "english_translation": "Cart [Gari]",
+      "tips_en": "Tip: Select fourth form 'ጋ', followed by 'ሪ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g10_fill_blank_turumba",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ጡሩምባ",
+      "instructions_en": "Look at the incomplete word for 'Trumpet': ጡሩ[ ? ]ባ. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ጡሩ __ ባ",
+      "tips_en": "The full word is ጡሩምባ (pronounced Tu-rum-ba).",
+      "image_url": "images/vocabulary/trumpet.png",
+      "options": [
+        "ም",
+        "ማ",
+        "ሙ",
+        "ሜ"
+      ],
+      "correct_answer": "ም",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g10_blend_ge",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ገ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Ge' sound?",
+      "target_audio": "audio/blends/ge_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Ge'",
+      "options": [
+        "ገ",
+        "ጉ",
+        "ጊ",
+        "ጋ"
+      ],
+      "correct_answer": "ገ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g10_assembly_turumba",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ጡሩምባ",
+      "instructions_en": "Form the word for 'Trumpet' (Turumba)!",
+      "scrambled_letters": [
+        "ጡ",
+        "ም",
+        "ሩ",
+        "ባ"
+      ],
+      "correct_answer": "ጡሩምባ",
+      "english_translation": "Trumpet [Turumba]",
+      "tips_en": "Tip: Start with 'ጡ', then 'ሩ', then sixth form 'ም', and end with 'ባ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_fill_blank_gari",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ጋሪ",
+      "instructions_en": "Find the missing letter to complete the word for 'Cart': [ ? ]ሪ.",
+      "word_display_with_blank": "__ ሪ",
+      "tips_en": "The full word is ጋሪ (pronounced Ga-ri).",
+      "image_url": "images/vocabulary/gari.png",
+      "options": [
+        "ጋ",
+        "ገ",
+        "ጉ",
+        "ጌ"
+      ],
+      "correct_answer": "ጋ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g10_blend_te_emphatic",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ጠ",
+      "instructions_en": "Listen closely. Which symbol represents the 'T'e' sound?",
+      "target_audio": "audio/blends/te_emphatic_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'T'e' (Emphatic)",
+      "options": [
+        "ጠ",
+        "ጡ",
+        "ጢ",
+        "ጣ"
+      ],
+      "correct_answer": "ጠ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g10_assembly_gebeta",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ገበታ",
+      "instructions_en": "Form the word for 'Table/Platter' (Gebeta)!",
+      "scrambled_letters": [
+        "በ",
+        "ገ",
+        "ታ"
+      ],
+      "correct_answer": "ገበታ",
+      "english_translation": "Table [Gebeta]",
+      "tips_en": "Tip: Select first form 'ገ', follow with first form 'በ', and end with fourth form 'ታ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_fill_blank_gebeta",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ገበታ",
+      "instructions_en": "Complete the word for 'Gebeta': ገ[ ? ]ታ.",
+      "word_display_with_blank": "ገ __ ታ",
+      "tips_en": "The full word is ገበታ (pronounced Ge-be-ta).",
+      "image_url": "images/vocabulary/table.png",
+      "options": [
+        "በ",
+        "ቡ",
+        "ባ",
+        "ብ"
+      ],
+      "correct_answer": "በ",
+      "points_reward": 25
+    }
+  ]
+}

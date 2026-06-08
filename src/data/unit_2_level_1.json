@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_2_fidel_fundamentals_l1",
+  "unit_title": "ምዕራፍ ፪ — Meraf 2: Foundations of ሐ and መ",
+  "module": "2.1",
+  "success_screen": {
+    "headline_en": "Glorious! You Mastered Level 1 Basics of ሐ and መ!",
+    "headline_am": "በጣም ድንቅ ነው! የሐ እና የመ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g2_shape_match_ha",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ሐ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ሐ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ሐ",
+      "options": ["ሐ", "ሑ", "መ"],
+      "correct_answer": "ሐ",
+      "pronunciation_label": "Ha",
+      "success_audio": "audio/pronunciation/ha_latin.mp3"
+    },
+    {
+      "game_id": "g2_bubble_pop_hu",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ሑ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ሑ'!",
+      "target_symbol": "ሑ",
+      "target_pronunciation": "Hu",
+      "target_audio": "audio/pronunciation/hu_latin.mp3",
+      "floating_options": ["ሐ", "ሑ", "ሒ", "ሓ"],
+      "correct_answer": "ሑ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g2_sequence_ha",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ሐ ➔ ሑ ➔ [ ? ]",
+      "options": ["ሒ", "ሓ", "ሔ"],
+      "correct_answer": "ሒ",
+      "target_pronunciation": "Hi",
+      "success_audio": "audio/pronunciation/hi_latin.mp3"
+    },
+    {
+      "game_id": "g2_word_to_image_hamer",
+      "game_type": "word_to_image",
+      "title": "Word Match: ሐመር",
+      "instructions_en": "Associate the illustrated ship/ark with the correct Amharic word: 'ሐመር'",
+      "tips_en": "Tip: ሐመር (pronounced 'Hamer') means Ark / Ship.",
+      "image_url": "images/vocabulary/ship.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ሐመር",
+          "phonetic": "Hamer"
+        },
+        {
+          "word": "ሎሚ",
+          "phonetic": "Lomi"
+        }
+      ],
+      "correct_answer": "ሐመር",
+      "success_audio": "audio/vocabulary/hamer_full.mp3"
+    },
+    {
+      "game_id": "g2_shape_match_me",
+      "game_type": "shape_matching",
+      "title": "Shape Match: መ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'መ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "መ",
+      "options": ["መ", "ሙ", "ሐ"],
+      "correct_answer": "መ",
+      "pronunciation_label": "Me",
+      "success_audio": "audio/pronunciation/me_latin.mp3"
+    },
+    {
+      "game_id": "g2_bubble_pop_mu",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ሙ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ሙ'!",
+      "target_symbol": "ሙ",
+      "target_pronunciation": "Mu",
+      "target_audio": "audio/pronunciation/mu_latin.mp3",
+      "floating_options": ["መ", "ሙ", "ሚ", "ማ"],
+      "correct_answer": "ሙ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g2_sequence_me",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "መ ➔ ሙ ➔ [ ? ]",
+      "options": ["ሚ", "ማ", "ሜ"],
+      "correct_answer": "ሚ",
+      "target_pronunciation": "Mi",
+      "success_audio": "audio/pronunciation/mi_latin.mp3"
+    },
+    {
+      "game_id": "g2_word_to_image_mekina",
+      "game_type": "word_to_image",
+      "title": "Word Match: መኪና",
+      "instructions_en": "Associate the illustrated car with the correct Amharic word: 'መኪና'",
+      "tips_en": "Tip: መኪና (pronounced 'Mekina') means Car.",
+      "image_url": "images/vocabulary/car.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "መኪና",
+          "phonetic": "Mekina"
+        },
+        {
+          "word": "ሙዝ",
+          "phonetic": "Muz"
+        }
+      ],
+      "correct_answer": "መኪና",
+      "success_audio": "audio/vocabulary/mekina_full.mp3"
+    }
+  ]
+}

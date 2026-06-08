@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_5_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፭ — Meraf 5: Grand Master of ቀ and በ",
+  "module": "5.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ቀ and በ!",
+    "headline_am": "ግሩም ድንቅ ነው! የቀ እና የበ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g5_decode_qebero",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: QEBERO",
+      "instructions_en": "Match the native English phonetic spelling 'QEBERO' (Jackal/Fox) with the correct Amharic word.",
+      "target_phonetic_label": "QE-BE-RO",
+      "options": [
+        "ቀበሮ",
+        "በግ",
+        "ብዕር",
+        "ቀለም"
+      ],
+      "correct_answer": "ቀበሮ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g5_fill_blank_qebero",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ቀበሮ",
+      "instructions_en": "Look closely at the word 'Fox' (Qebero). Find the correct missing first letter: [ ? ]በሮ.",
+      "word_display_with_blank": "__ በሮ",
+      "tips_en": "The full word is ቀበሮ (pronounced Qe-be-ro).",
+      "image_url": "images/vocabulary/fox.png",
+      "options": [
+        "ቀ",
+        "ቁ",
+        "ቂ",
+        "ቃ"
+      ],
+      "correct_answer": "ቀ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g5_sequence_qe_skip",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 1st form ➔ 3rd form ➔ 5th form ➔ [ ? ] (7th form). What goes next?",
+      "sequence_display": "ቀ (1st) ➔ ቂ (3rd) ➔ ቄ (5th) ➔ [ ? ] (7th)",
+      "options": [
+        "ቃ",
+        "ቁ",
+        "ቆ",
+        "ቅ"
+      ],
+      "correct_answer": "ቆ",
+      "target_pronunciation": "Qo (7th Form)",
+      "success_audio": "audio/pronunciation/qo_latin.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g5_assembly_qebero",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ቀበሮ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Fox (Qebero)!",
+      "scrambled_letters": [
+        "ሮ",
+        "ቀ",
+        "በ"
+      ],
+      "correct_answer": "ቀበሮ",
+      "english_translation": "Fox [Qebero]",
+      "tips_en": "Tip: Select 1st form 'ቀ', follow with 1st form 'በ', and end in 7th form 'ሮ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g5_decode_bier",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: BI'ER",
+      "instructions_en": "Match the phonetic spelling 'BI'ER' (Pen/Stylus) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "BI'ER",
+      "options": [
+        "ብዕር",
+        "ቀበሮ",
+        "በግ",
+        "ቀስት"
+      ],
+      "correct_answer": "ብዕር",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g5_blend_qe_sixth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ቅ",
+      "instructions_en": "Listen closely to the glottal native 6th form 'Q' sound of the ቀ family. Which symbol matches this silent/stopped form?",
+      "target_audio": "audio/blends/qe_sixth_sample.mp3",
+      "target_phonetic_description": "The glottal 6th form native sound: 'Q'",
+      "options": [
+        "ቀ",
+        "ቁ",
+        "ቂ",
+        "ቅ"
+      ],
+      "correct_answer": "ቅ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g5_assembly_bier",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ብዕር",
+      "instructions_en": "Form the Amharic word for Pen (Bi'er)!",
+      "scrambled_letters": [
+        "ር",
+        "ብ",
+        "ዕ"
+      ],
+      "correct_answer": "ብዕር",
+      "english_translation": "Pen [Bi'er]",
+      "tips_en": "Tip: Select 6th form 'ብ', followed by 6th form 'ዕ', and end in 6th form 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g5_decode_beg",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: BEG",
+      "instructions_en": "Match the native English phonetic spelling 'BEG' (Sheep) with the correct Amharic word.",
+      "target_phonetic_label": "BEG",
+      "options": [
+        "በግ",
+        "ቀበሮ",
+        "ብዕር",
+        "ቀስት"
+      ],
+      "correct_answer": "በግ",
+      "points_reward": 30
+    }
+  ]
+}

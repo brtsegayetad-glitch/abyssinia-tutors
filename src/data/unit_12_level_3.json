@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_12_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፲፪ — Meraf 12: Grand Master of ፀ and ፈ",
+  "module": "12.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ፀ and ፈ!",
+    "headline_am": "ግሩም ድንቅ ነው! የፀ እና የፈ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g12_decode_tsehay",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: TSEHAY",
+      "instructions_en": "Match the native English phonetic spelling 'TSEHAY' (Sun) with the correct Amharic word.",
+      "target_phonetic_label": "TSE-HAY",
+      "options": [
+        "ፀሐይ",
+        "ፈረስ",
+        "ፊደል",
+        "ፍየል"
+      ],
+      "correct_answer": "ፀሐይ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_fill_blank_feres_l3",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ፈረስ",
+      "instructions_en": "Look closely at the word 'Horse' (Feres). Find the correct missing first letter: [ ? ]ረስ.",
+      "word_display_with_blank": "__ ረስ",
+      "tips_en": "The full word is ፈረስ (pronounced Fe-re-s).",
+      "image_url": "images/vocabulary/horse.png",
+      "options": [
+        "ፈ",
+        "ፉ",
+        "ፊ",
+        "ፋ"
+      ],
+      "correct_answer": "ፈ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_sequence_fe_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 2nd form ➔ 4th form ➔ [ ? ] (6th form). What goes next?",
+      "sequence_display": "ፉ (2nd) ➔ ፋ (4th) ➔ [ ? ] (6th)",
+      "options": [
+        "ፊ",
+        "fe",
+        "ፍ",
+        "ፎ"
+      ],
+      "correct_answer": "ፍ",
+      "target_pronunciation": "F (6th Form)",
+      "success_audio": "audio/pronunciation/f_sixth.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g12_assembly_tsehay_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ፀሐይ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Sun (Tsehay)!",
+      "scrambled_letters": [
+        "ሐ",
+        "ፀ",
+        "ይ"
+      ],
+      "correct_answer": "ፀሐይ",
+      "english_translation": "Sun [Tsehay]",
+      "tips_en": "Tip: Select 1st form 'ፀ', breathy 4th form 'ሐ', and end in 6th form 'ይ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_decode_feres",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: FERES",
+      "instructions_en": "Match the phonetic spelling 'FERES' (Horse) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "FE-RES",
+      "options": [
+        "ፈረስ",
+        "ፀሐይ",
+        "ፊደል",
+        "ፍራፍሬ"
+      ],
+      "correct_answer": "ፈረስ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_blend_tse_sixth_form",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ፅ",
+      "instructions_en": "Listen closely to the emphatic native 6th form 'Ts' sound of the ፀ family. Which symbol matches this silent/stopped form?",
+      "target_audio": "audio/blends/tse_sixth_sample.mp3",
+      "target_phonetic_description": "The emphatic 6th form native sound: 'Ts'",
+      "options": [
+        "ፀ",
+        "ፁ",
+        "ፂ",
+        "ፅ"
+      ],
+      "correct_answer": "ፅ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_assembly_fidel_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ፊደል",
+      "instructions_en": "Form the full Amharic word for Alphabet/Letter (Fidel)!",
+      "scrambled_letters": [
+        "ል",
+        "ፊ",
+        "ደ"
+      ],
+      "correct_answer": "ፊደል",
+      "english_translation": "Alphabet [Fidel]",
+      "tips_en": "Tip: Select 3rd form 'ፊ', followed by 1st form 'ደ', and 6th form 'ል'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g12_decode_fidel",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: FIDEL",
+      "instructions_en": "Match the native English phonetic spelling 'FIDEL' (Alphabet) with the correct Amharic word.",
+      "target_phonetic_label": "FI-DEL",
+      "options": [
+        "ፊደል",
+        "ፈረስ",
+        "ፀሐይ",
+        "ፍየል"
+      ],
+      "correct_answer": "ፊደል",
+      "points_reward": 30
+    }
+  ]
+}

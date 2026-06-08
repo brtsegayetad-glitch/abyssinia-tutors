@@ -1,0 +1,141 @@
+{
+  "unit_id": "unit_9_fidel_flex_l2",
+  "unit_title": "ምዕራፍ ፱ — Meraf 9: Advanced Mastery of ደ and ጀ",
+  "module": "9.2",
+  "success_screen": {
+    "headline_en": "Brilliant! You solved the advanced ደ and ጀ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የደ እና የጀ ፈተናዎችን በብልሃት ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g9_assembly_jelba",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ጀልባ",
+      "instructions_en": "Assemble the letters to build the word for Boat!",
+      "scrambled_letters": [
+        "ባ",
+        "ጀ",
+        "ል"
+      ],
+      "correct_answer": "ጀልባ",
+      "english_translation": "Boat [Jelba]",
+      "tips_en": "Tip: Select 'ጀ', followed by sixth form 'ል', and end with 'ባ'!",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g9_fill_blank_debter",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ደብተር",
+      "instructions_en": "Look at the incomplete word for 'Notebook': ደ[ ? ]ተር. Choose the correct missing middle letter!",
+      "word_display_with_blank": "ደ __ ተር",
+      "tips_en": "The full word is ደብተር (pronounced Deb-ter).",
+      "image_url": "images/vocabulary/notebook.png",
+      "options": [
+        "ብ",
+        "በ",
+        "ባ",
+        "ቢ"
+      ],
+      "correct_answer": "ብ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g9_blend_de",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ደ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'De' sound?",
+      "target_audio": "audio/blends/de_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'De'",
+      "options": [
+        "ደ",
+        "ዱ",
+        "ዲ",
+        "ዳ"
+      ],
+      "correct_answer": "ደ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g9_assembly_debter",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ደብተር",
+      "instructions_en": "Form the word for 'Notebook' (Debter)!",
+      "scrambled_letters": [
+        "ር",
+        "ብ",
+        "ደ",
+        "ተ"
+      ],
+      "correct_answer": "ደብተር",
+      "english_translation": "Notebook [Debter]",
+      "tips_en": "Tip: Start with first form 'ደ', then sixth form 'ብ', then first form 'ተ', and end with 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_fill_blank_jelba",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ጀልባ",
+      "instructions_en": "Find the missing letter to complete the word for 'Boat': ጀል[ ? ].",
+      "word_display_with_blank": "ጀል __",
+      "tips_en": "The full word is ጀልባ (pronounced Jel-ba).",
+      "image_url": "images/vocabulary/boat.png",
+      "options": [
+        "ባ",
+        "ቡ",
+        "ቢ",
+        "ቤ"
+      ],
+      "correct_answer": "ባ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g9_blend_je",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ጀ",
+      "instructions_en": "Listen closely. Which symbol represents the 'Je' sound?",
+      "target_audio": "audio/blends/je_sample.mp3",
+      "target_phonetic_description": "The 1st form ('E' vowel sound): 'Je'",
+      "options": [
+        "ጀ",
+        "ጁ",
+        "ጂ",
+        "ጃ"
+      ],
+      "correct_answer": "ጀ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g9_assembly_dewel",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ደወል",
+      "instructions_en": "Form the word for 'Bell' (Dewel)!",
+      "scrambled_letters": [
+        "ወ",
+        "ል",
+        "ደ"
+      ],
+      "correct_answer": "ደወል",
+      "english_translation": "Bell [Dewel]",
+      "tips_en": "Tip: Select 'ደ', followed by 'ወ', and end with sixth form 'ል'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_fill_blank_dewel",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ደወል",
+      "instructions_en": "Complete the word for 'Bell': ደ[ ? ]ል.",
+      "word_display_with_blank": "ደ __ ል",
+      "tips_en": "The full word is ደወል (pronounced De-we-l).",
+      "image_url": "images/vocabulary/bell.png",
+      "options": [
+        "ወ",
+        "ዋ",
+        "ዊ",
+        "ዌ"
+      ],
+      "correct_answer": "ወ",
+      "points_reward": 25
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_7_fidel_flex_l1",
+  "unit_title": "ምዕራፍ ፯ — Meraf 7: Foundations of ከ and ኸ",
+  "module": "7.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ከ and ኸ!",
+    "headline_am": "በጣም ድንቅ ነው! የከ እና የኸ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g7_shape_match_ke",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ከ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ከ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ከ",
+      "options": ["ከ", "ኩ", "ኸ"],
+      "correct_answer": "ከ",
+      "pronunciation_label": "Ke",
+      "success_audio": "audio/pronunciation/ke.mp3"
+    },
+    {
+      "game_id": "g7_bubble_pop_kie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ኬ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ኬ'!",
+      "target_symbol": "ኬ",
+      "target_pronunciation": "Kie",
+      "target_audio": "audio/pronunciation/kie.mp3",
+      "floating_options": ["ከ", "ኩ", "ኪ", "ኬ"],
+      "correct_answer": "ኬ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g7_sequence_next_ke",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ከ ➔ ኩ ➔ [ ? ]",
+      "options": ["ካ", "ኪ", "ኬ"],
+      "correct_answer": "ኪ",
+      "target_pronunciation": "Ki",
+      "success_audio": "audio/pronunciation/ki.mp3"
+    },
+    {
+      "game_id": "g7_word_to_image_kokeb",
+      "game_type": "word_to_image",
+      "title": "Word Match: ኮከብ",
+      "instructions_en": "Associate the illustrated star with the correct Amharic word: 'ኮከብ'",
+      "tips_en": "Tip: ኮከብ (pronounced 'Kokeb') means Star.",
+      "image_url": "images/vocabulary/star.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ኮከብ",
+          "phonetic": "Kokeb (Ko-keb)"
+        },
+        {
+          "word": "ነብር",
+          "phonetic": "Nebr (Ne-b-r)"
+        }
+      ],
+      "correct_answer": "ኮከብ",
+      "success_audio": "audio/vocabulary/kokeb_full.mp3"
+    },
+    {
+      "game_id": "g7_shape_match_xhe",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ኸ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ኸ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ኸ",
+      "options": ["ኸ", "ኹ", "ከ"],
+      "correct_answer": "ኸ",
+      "pronunciation_label": "Xhe",
+      "success_audio": "audio/pronunciation/xhe.mp3"
+    },
+    {
+      "game_id": "g7_bubble_pop_xhie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ኼ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ኼ'!",
+      "target_symbol": "ኼ",
+      "target_pronunciation": "Xhie",
+      "target_audio": "audio/pronunciation/xhie.mp3",
+      "floating_options": ["ኸ", "ኹ", "ኺ", "ኼ"],
+      "correct_answer": "ኼ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g7_sequence_next_xhe",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ኻ ➔ ኼ ➔ [ ? ]",
+      "options": ["ኽ", "ኾ", "ኸ"],
+      "correct_answer": "ኽ",
+      "target_pronunciation": "Xh (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/xh_sixth.mp3"
+    },
+    {
+      "game_id": "g7_word_to_image_xhemr",
+      "game_type": "word_to_image",
+      "title": "Word Match: ኸምር",
+      "instructions_en": "Associate the illustrated grapes/wine jar with the correct Amharic word: 'ኸምር'",
+      "tips_en": "Tip: ኸምር (pronounced 'Xhemr') contains the breathy ኸ sound.",
+      "image_url": "images/vocabulary/grapes_jar.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ኸምር",
+          "phonetic": "Xhemr (Xhe-m-r)"
+        },
+        {
+          "word": "ቺኮሌት",
+          "phonetic": "Chikolet (Chi-ko-laet)"
+        }
+      ],
+      "correct_answer": "ኸምር",
+      "success_audio": "audio/vocabulary/xhemr_full.mp3"
+    }
+  ]
+}

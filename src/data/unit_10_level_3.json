@@ -1,0 +1,138 @@
+{
+  "unit_id": "unit_10_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፲ — Meraf 10: Grand Master of ገ and ጠ",
+  "module": "10.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ገ and ጠ!",
+    "headline_am": "ግሩም ድንቅ ነው! የገ እና የጠ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g10_decode_gari",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: GARI",
+      "instructions_en": "Match the native English phonetic spelling 'GARI' (Cart) with the correct Amharic word.",
+      "target_phonetic_label": "GA-RI",
+      "options": [
+        "ጋሪ",
+        "ጡሩምባ",
+        "ገበታ",
+        "ገመድ"
+      ],
+      "correct_answer": "ጋሪ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_fill_blank_turumba_l3",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ጡሩምባ",
+      "instructions_en": "Look closely at the word 'Trumpet' (Turumba). Find the correct missing first-form related letter: [ ? ]ሩምባ.",
+      "word_display_with_blank": "__ ሩምባ",
+      "tips_en": "The full word is ጡሩምባ (pronounced Tu-rum-ba).",
+      "image_url": "images/vocabulary/trumpet.png",
+      "options": [
+        "ጡ",
+        "ጠ",
+        "ጢ",
+        "ጣ"
+      ],
+      "correct_answer": "ጡ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_sequence_ge_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 2nd form ➔ 4th form ➔ [ ? ] (6th form). What goes next?",
+      "sequence_display": "ጉ (2nd) ➔ ጋ (4th) ➔ [ ? ] (6th)",
+      "options": [
+        "ጊ",
+        "ge",
+        "ግ",
+        "ጎ"
+      ],
+      "correct_answer": "ግ",
+      "target_pronunciation": "G (6th Form)",
+      "success_audio": "audio/pronunciation/g_sixth.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g10_assembly_turumba_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ጡሩምባ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Trumpet (Turumba)!",
+      "scrambled_letters": [
+        "ባ",
+        "ጡ",
+        "ሩ",
+        "ም"
+      ],
+      "correct_answer": "ጡሩምባ",
+      "english_translation": "Trumpet [Turumba]",
+      "tips_en": "Tip: Select 'ጡ' first, then 'ሩ', followed by sixth form 'ም' and fourth form 'ባ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_decode_turumba",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: TURUMBA",
+      "instructions_en": "Match the phonetic spelling 'TURUMBA' (Trumpet) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "TU-RUM-BA",
+      "options": [
+        "ጡሩምባ",
+        "ጋሪ",
+        "ገበታ",
+        "ጣውላ"
+      ],
+      "correct_answer": "ጡሩምባ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_blend_te_sixth_form",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ጥ",
+      "instructions_en": "Listen closely to the emphatic native 6th form 'T' sound of the ጠ family. Which symbol matches this silent/stopped form?",
+      "target_audio": "audio/blends/te_sixth_sample.mp3",
+      "target_phonetic_description": "The emphatic 6th form native sound: 'T'",
+      "options": [
+        "ጠ",
+        "ጡ",
+        "ጢ",
+        "ጥ"
+      ],
+      "correct_answer": "ጥ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_assembly_gebeta_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ገበታ",
+      "instructions_en": "Form the full Amharic word for Table/Platter (Gebeta)!",
+      "scrambled_letters": [
+        "ታ",
+        "ገ",
+        "በ"
+      ],
+      "correct_answer": "ገበታ",
+      "english_translation": "Platter [Gebeta]",
+      "tips_en": "Tip: Select 1st form 'ገ', follow with 1st form 'በ', and end with 4th form 'ታ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g10_decode_gebeta",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: GEBETA",
+      "instructions_en": "Match the native English phonetic spelling 'GEBETA' (Platter) with the correct Amharic word.",
+      "target_phonetic_label": "GE-BE-TA",
+      "options": [
+        "ገበታ",
+        "ጋሪ",
+        "ጡሩምባ",
+        "ገመድ"
+      ],
+      "correct_answer": "ገበታ",
+      "points_reward": 30
+    }
+  ]
+}

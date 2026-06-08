@@ -1,0 +1,138 @@
+{
+  "unit_id": "unit_1_fidel_fundamentals_l2",
+  "unit_title": "ምዕራፍ ፩ — Meraf 1: Advanced Foundations of ሀ and ለ",
+  "module": "1.2",
+  "success_screen": {
+    "headline_en": "Phenomenal! You solved the advanced ሀ and ለ challenges!",
+    "headline_am": "ድንቅ ነው! የላቁትን የሀ እና ለ ፈተናዎችን ጨረሱ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g1_assembly_hahu",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ሀሁ",
+      "instructions_en": "Build the word for Amharic Alphabet (Hahu)!",
+      "scrambled_letters": [
+        "ሁ",
+        "ሀ"
+      ],
+      "correct_answer": "ሀሁ",
+      "english_translation": "Amharic Alphabet [Hahu]",
+      "tips_en": "Tip: Select 'ሀ' first, then 'ሁ'!",
+      "points_reward": 20
+    },
+    {
+      "game_id": "g2_fill_blank_hisab",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ሂሳብ",
+      "instructions_en": "Look at the incomplete word for 'Math/Arithmetic': ሂ[ ? ]ብ. What is the missing middle letter?",
+      "word_display_with_blank": "ሂ __ ብ",
+      "tips_en": "The full word is ሂሳብ (pronounced Hi-sa-b).",
+      "image_url": "images/vocabulary/math.png",
+      "options": [
+        "ሳ",
+        "ሱ",
+        "ሲ",
+        "ሴ"
+      ],
+      "correct_answer": "ሳ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g3_blend_lu",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ሉ",
+      "instructions_en": "Listen closely to the sound blend. Which symbol represents the exact 'Lu' sound you hear?",
+      "target_audio": "audio/blends/lu_sample.mp3",
+      "target_phonetic_description": "The 2nd form ('U' vowel sound): 'Lu'",
+      "options": [
+        "ለ",
+        "ሉ",
+        "ሊ",
+        "ላ"
+      ],
+      "correct_answer": "ሉ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g4_assembly_lul",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ሉል",
+      "instructions_en": "Form the word for 'Pearl/Globe' (Lul)!",
+      "scrambled_letters": [
+        "ል",
+        "ሉ"
+      ],
+      "correct_answer": "ሉል",
+      "english_translation": "Pearl [Lul]",
+      "tips_en": "Tip: It starts with the 2nd form 'ሉ' and ends with 6th form 'ል'.",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g5_fill_blank_lomi",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ሎሚ",
+      "instructions_en": "Find the missing letter to complete the word for 'Lemon/Lime': ሎ[ ? ].",
+      "word_display_with_blank": "ሎ __",
+      "tips_en": "The full word is ሎሚ (pronounced Lo-mi).",
+      "image_url": "images/vocabulary/lemon.png",
+      "options": [
+        "ሚ",
+        "ሙ",
+        "መ",
+        "ማ"
+      ],
+      "correct_answer": "ሚ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g6_blend_ha_fourth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Audio Blend: ሃ",
+      "instructions_en": "Listen closely. Which symbol represents the long 'Ha' sound with flat styling?",
+      "target_audio": "audio/blends/ha_fourth.mp3",
+      "target_phonetic_description": "The 4th form ('A' long flat vowel styling): 'Ha'",
+      "options": [
+        "ሀ",
+        "ሁ",
+        "ሂ",
+        "ሃ"
+      ],
+      "correct_answer": "ሃ",
+      "points_reward": 25
+    },
+    {
+      "game_id": "g7_assembly_lelit",
+      "game_type": "word_assembly_puzzle",
+      "title": "Word Assembly: ሌሊት",
+      "instructions_en": "Form the word for 'Night' in Amharic!",
+      "scrambled_letters": [
+        "ት",
+        "ሌ",
+        "ሊ"
+      ],
+      "correct_answer": "ሌሊት",
+      "english_translation": "Night [Lelit]",
+      "tips_en": "Tip: It begins with the 5th form 'ሌ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_fill_blank_hager",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Word Finish: ሀገር",
+      "instructions_en": "Complete the word for 'Country/Nation': ሀ[ ? ]ር.",
+      "word_display_with_blank": "ሀ __ ር",
+      "tips_en": "The full word is ሀገር (pronounced Ha-ger).",
+      "image_url": "images/vocabulary/country.png",
+      "options": [
+        "ገ",
+        "ጉ",
+        "ጊ",
+        "ጋ"
+      ],
+      "correct_answer": "ገ",
+      "points_reward": 30
+    }
+  ]
+}

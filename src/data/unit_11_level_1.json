@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_11_fidel_flex_l1",
+  "unit_title": "ምዕራፍ ፲፩ — Meraf 11: Foundations of ጨ and ጰ",
+  "module": "11.1",
+  "success_screen": {
+    "headline_en": "Superb! You Mastered Level 1 Basics of ጨ and ጰ!",
+    "headline_am": "በጣም ድንቅ ነው! የጨ እና የጰ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g11_shape_match_ch_e",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ጨ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ጨ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ጨ",
+      "options": ["ጨ", "ጩ", "ጠ"],
+      "correct_answer": "ጨ",
+      "pronunciation_label": "Che (Emphatic)",
+      "success_audio": "audio/pronunciation/che_emphatic.mp3"
+    },
+    {
+      "game_id": "g11_bubble_pop_ch_ie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ጬ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ጬ'!",
+      "target_symbol": "ጬ",
+      "target_pronunciation": "Ch'ie",
+      "target_audio": "audio/pronunciation/chie_emphatic.mp3",
+      "floating_options": ["ጨ", "ጩ", "ጪ", "ጬ"],
+      "correct_answer": "ጬ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g11_sequence_next_ch_e",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ጫ ➔ ጬ ➔ [ ? ]",
+      "options": ["ጭ", "ጮ", "ጨ"],
+      "correct_answer": "ጭ",
+      "target_pronunciation": "Ch' (Native 6th form sound)",
+      "success_audio": "audio/pronunciation/ch_sixth_ex.mp3"
+    },
+    {
+      "game_id": "g11_word_to_image_chereqa",
+      "game_type": "word_to_image",
+      "title": "Word Match: ጨረቃ",
+      "instructions_en": "Associate the illustrated moon with the correct Amharic word: 'ጨረቃ'",
+      "tips_en": "Tip: ጨረቃ (pronounced 'Chereqa') means Moon.",
+      "image_url": "images/vocabulary/moon.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ጨረቃ",
+          "phonetic": "Chereqa (Che-re-qa)"
+        },
+        {
+          "word": "ጡሩምባ",
+          "phonetic": "Turumba (Tu-rum-ba)"
+        }
+      ],
+      "correct_answer": "ጨረቃ",
+      "success_audio": "audio/vocabulary/chereqa_full.mp3"
+    },
+    {
+      "game_id": "g11_shape_match_p_e",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ጰ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ጰ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ጰ",
+      "options": ["ጰ", "ጱ", "ለ"],
+      "correct_answer": "ጰ",
+      "pronunciation_label": "Pe (Emphatic)",
+      "success_audio": "audio/pronunciation/pe_emphatic.mp3"
+    },
+    {
+      "game_id": "g11_bubble_pop_p_ie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ጴ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ጴ'!",
+      "target_symbol": "ጴ",
+      "target_pronunciation": "P'ie",
+      "target_audio": "audio/pronunciation/pie_emphatic.mp3",
+      "floating_options": ["ጰ", "ጱ", "ጲ", "ጴ"],
+      "correct_answer": "ጴ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g11_sequence_next_p_e",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ጰ ➔ ጱ ➔ [ ? ]",
+      "options": ["ጳ", "ጲ", "ጴ"],
+      "correct_answer": "ጲ",
+      "target_pronunciation": "P'i",
+      "success_audio": "audio/pronunciation/pi_emphatic.mp3"
+    },
+    {
+      "game_id": "g11_word_to_image_papas",
+      "game_type": "word_to_image",
+      "title": "Word Match: ጳጳስ",
+      "instructions_en": "Associate the illustrated bishop with the correct Amharic word: 'ጳጳስ'",
+      "tips_en": "Tip: ጳጳስ (pronounced 'Papás') means Pope or Bishop.",
+      "image_url": "images/vocabulary/papas.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ጳጳስ",
+          "phonetic": "Papás (Pa-pás)"
+        },
+        {
+          "word": "ጨረቃ",
+          "phonetic": "Chereqa (Che-re-qa)"
+        }
+      ],
+      "correct_answer": "ጳጳስ",
+      "success_audio": "audio/vocabulary/papas_full.mp3"
+    }
+  ]
+}

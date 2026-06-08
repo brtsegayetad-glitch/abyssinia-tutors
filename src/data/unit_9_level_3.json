@@ -1,0 +1,138 @@
+{
+  "unit_id": "unit_9_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፱ — Meraf 9: Grand Master of ደ and ጀ",
+  "module": "9.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ደ and ጀ!",
+    "headline_am": "ግሩም ድንቅ ነው! የደ እና የጀ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g9_decode_debter",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: DEBTER",
+      "instructions_en": "Match the native English phonetic spelling 'DEBTER' (Notebook) with the correct Amharic word.",
+      "target_phonetic_label": "DEB-TER",
+      "options": [
+        "ደብተር",
+        "ጀልባ",
+        "ደወል",
+        "ዳሰሳ"
+      ],
+      "correct_answer": "ደብተር",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_fill_blank_debter_l3",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ደብተር",
+      "instructions_en": "Look closely at the word 'Notebook' (Debter). Find the correct missing first letter: [ ? ]ብተር.",
+      "word_display_with_blank": "__ ብተር",
+      "tips_en": "The full word is ደብተር (pronounced Deb-ter).",
+      "image_url": "images/vocabulary/notebook.png",
+      "options": [
+        "ደ",
+        "ዱ",
+        "ዲ",
+        "ዳ"
+      ],
+      "correct_answer": "ደ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_sequence_de_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 1st form ➔ 3rd form ➔ 5th form ➔ [ ? ] (7th form). What goes next?",
+      "sequence_display": "ደ (1st) ➔ ዲ (3rd) ➔ ዴ (5th) ➔ [ ? ] (7th)",
+      "options": [
+        "ዳ",
+        "ድ",
+        "દો",
+        "ዶ"
+      ],
+      "correct_answer": "ዶ",
+      "target_pronunciation": "Do (7th Form)",
+      "success_audio": "audio/pronunciation/do_latin.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g9_assembly_debter_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ደብተር",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Notebook (Debter)!",
+      "scrambled_letters": [
+        "ር",
+        "ተ",
+        "ደ",
+        "ብ"
+      ],
+      "correct_answer": "ደብተር",
+      "english_translation": "Notebook [Debter]",
+      "tips_en": "Tip: Select 1st form 'ደ', then 6th form 'ብ', first form 'ተ', and end with 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_decode_jelba",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: JELBA",
+      "instructions_en": "Match the phonetic spelling 'JELBA' (Boat) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "JEL-BA",
+      "options": [
+        "ጀልባ",
+        "ደብተር",
+        "ደወል",
+        "ዳሰሳ"
+      ],
+      "correct_answer": "ጀልባ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_blend_je_sixth_form",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ጅ",
+      "instructions_en": "Listen closely to the native 6th form 'J' sound of the ጀ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/je_sixth_sample.mp3",
+      "target_phonetic_description": "The 6th form native sound: 'J'",
+      "options": [
+        "ጀ",
+        "ጁ",
+        "ጂ",
+        "ጅ"
+      ],
+      "correct_answer": "ጅ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_assembly_dewel_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ደወል",
+      "instructions_en": "Form the full Amharic word for Bell (Dewel)!",
+      "scrambled_letters": [
+        "ደ",
+        "ል",
+        "ወ"
+      ],
+      "correct_answer": "ደወል",
+      "english_translation": "Bell [Dewel]",
+      "tips_en": "Tip: Select 'ደ', followed by 'ወ', and end with 'ል'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g9_decode_dewel",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: DEWEL",
+      "instructions_en": "Match the native English phonetic spelling 'DEWEL' (Bell) with the correct Amharic word.",
+      "target_phonetic_label": "DE-WEL",
+      "options": [
+        "ደወል",
+        "ደብተር",
+        "ጀልባ",
+        "ዳሰሳ"
+      ],
+      "correct_answer": "ደወል",
+      "points_reward": 30
+    }
+  ]
+}

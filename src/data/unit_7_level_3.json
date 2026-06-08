@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_7_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፯ — Meraf 7: Grand Master of ከ and ኸ",
+  "module": "7.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ከ and ኸ!",
+    "headline_am": "ግሩም ድንቅ ነው! የከ እና የኸ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g7_decode_kokeb",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: KOKEB",
+      "instructions_en": "Match the native English phonetic spelling 'KOKEB' (Star) with the correct Amharic word.",
+      "target_phonetic_label": "KO-KEB",
+      "options": [
+        "ኮከብ",
+        "ኬክ",
+        "ኸምር",
+        "ኪስ"
+      ],
+      "correct_answer": "ኮከብ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g7_fill_blank_kokeb_first",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ኮከብ",
+      "instructions_en": "Look closely at the word 'Star' (Kokeb). Find the correct missing first letter: [ ? ]ከብ.",
+      "word_display_with_blank": "__ ከብ",
+      "tips_en": "The full word is ኮከብ (pronounced Ko-ke-b).",
+      "image_url": "images/vocabulary/star.png",
+      "options": [
+        "ኮ",
+        "ኩ",
+        "ኪ",
+        "ካ"
+      ],
+      "correct_answer": "ኮ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g7_sequence_ke_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 1st form ➔ 3rd form ➔ 5th form ➔ [ ? ] (7th form). What goes next?",
+      "sequence_display": "ከ (1st) ➔ ኪ (3rd) ➔ ኬ (5th) ➔ [ ? ] (7th)",
+      "options": [
+        "ካ",
+        "ክ",
+        "ኮ",
+        "ኩ"
+      ],
+      "correct_answer": "ኮ",
+      "target_pronunciation": "Ko (7th Form)",
+      "success_audio": "audio/pronunciation/ko_latin.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g7_assembly_kokeb_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ኮከብ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Star (Kokeb)!",
+      "scrambled_letters": [
+        "ብ",
+        "ኮ",
+        "ከ"
+      ],
+      "correct_answer": "ኮከብ",
+      "english_translation": "Star [Kokeb]",
+      "tips_en": "Tip: Select 7th form 'ኮ', first form 'ከ', and end in 6th form 'ብ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g7_decode_kek",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: KEK",
+      "instructions_en": "Match the phonetic spelling 'KEK' (Cake) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "KEK",
+      "options": [
+        "ኬክ",
+        "ኮከብ",
+        "ኸምር",
+        "ኪስ"
+      ],
+      "correct_answer": "ኬክ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g7_blend_xh_sixth",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ኽ",
+      "instructions_en": "Listen closely to the breathy native 6th form 'Xh' sound of the ኸ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/xh_sixth_sample.mp3",
+      "target_phonetic_description": "The breathy 6th form native sound: 'Xh'",
+      "options": [
+        "ኸ",
+        "ኹ",
+        "ኺ",
+        "ኽ"
+      ],
+      "correct_answer": "ኽ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g7_assembly_xhemr_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ኸምር",
+      "instructions_en": "Form the full Amharic word for Grapes/Wine Jar (Xhemr)!",
+      "scrambled_letters": [
+        "ም",
+        "ኸ",
+        "ር"
+      ],
+      "correct_answer": "ኸምር",
+      "english_translation": "Grapes/Wine Jar [Xhemr]",
+      "tips_en": "Tip: Select 1st form 'ኸ', follow with 6th form 'ም', and end with 6th form 'ር'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g7_decode_xhemr_l3",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: XHEMR",
+      "instructions_en": "Match the native English phonetic spelling 'XHEMR' with the correct Amharic word.",
+      "target_phonetic_label": "XHE-M-R",
+      "options": [
+        "ኸምር",
+        "ኮከብ",
+        "ኬክ",
+        "ኪስ"
+      ],
+      "correct_answer": "ኸምር",
+      "points_reward": 30
+    }
+  ]
+}

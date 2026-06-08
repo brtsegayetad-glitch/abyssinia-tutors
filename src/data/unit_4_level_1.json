@@ -1,0 +1,124 @@
+{
+  "unit_id": "unit_4_fidel_advancement_l1",
+  "unit_title": "ምዕራፍ ፬ — Meraf 4: Foundations of ወ and ተ",
+  "module": "4.1",
+  "success_screen": {
+    "headline_en": "Glorious! You Mastered Level 1 Basics of ወ and ተ!",
+    "headline_am": "በጣም ድንቅ ነው! የውሻ እና የተማሪ መሠረታዊ ደረጃን በዓቢይ ውጤት አጠናቀቁ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g4_shape_match_we",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ወ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ወ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ወ",
+      "options": ["ወ", "ዉ", "ዐ"],
+      "correct_answer": "ወ",
+      "pronunciation_label": "We",
+      "success_audio": "audio/pronunciation/we.mp3"
+    },
+    {
+      "game_id": "g4_bubble_pop_wie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ዌ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ዌ'!",
+      "target_symbol": "ዌ",
+      "target_pronunciation": "Wie",
+      "target_audio": "audio/pronunciation/wie.mp3",
+      "floating_options": ["ወ", "ዉ", "ዊ", "ዌ"],
+      "correct_answer": "ዌ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g4_sequence_next_we",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ወ ➔ ዉ ➔ [ ? ]",
+      "options": ["ዋ", "ዊ", "ዌ"],
+      "correct_answer": "ዊ",
+      "target_pronunciation": "Wi",
+      "success_audio": "audio/pronunciation/wi.mp3"
+    },
+    {
+      "game_id": "g4_word_to_image_wef",
+      "game_type": "word_to_image",
+      "title": "Word Match: ወፍ",
+      "instructions_en": "Associate the illustrated bird with the correct Amharic word: 'ወፍ'",
+      "tips_en": "Tip: ወፍ (pronounced 'Wef') means Bird.",
+      "image_url": "images/vocabulary/bird.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ወፍ",
+          "phonetic": "Wef"
+        },
+        {
+          "word": "ሙዝ",
+          "phonetic": "Muz"
+        }
+      ],
+      "correct_answer": "ወፍ",
+      "success_audio": "audio/vocabulary/wef_full.mp3"
+    },
+    {
+      "game_id": "g4_shape_match_te",
+      "game_type": "shape_matching",
+      "title": "Shape Match: ተ",
+      "instructions_en": "Find the symbol that is exactly like the target shape 'ተ'",
+      "instructions_audio": "audio/instructions/match_the_fidel.mp3",
+      "target_shape": "ተ",
+      "options": ["ተ", "ቱ", "ቸ"],
+      "correct_answer": "ተ",
+      "pronunciation_label": "Te",
+      "success_audio": "audio/pronunciation/te.mp3"
+    },
+    {
+      "game_id": "g4_bubble_pop_tie",
+      "game_type": "sound_bubble",
+      "title": "Bubble Pop: ቴ",
+      "instructions_en": "Listen carefully, then pop the bubble that matches 'ቴ'!",
+      "target_symbol": "ቴ",
+      "target_pronunciation": "Tie",
+      "target_audio": "audio/pronunciation/tie.mp3",
+      "floating_options": ["ተ", "ቱ", "ቲ", "ቴ"],
+      "correct_answer": "ቴ",
+      "points_reward": 10
+    },
+    {
+      "game_id": "g4_sequence_next_te",
+      "game_type": "fidel_sequence",
+      "title": "What Comes Next?",
+      "instructions_en": "Look at the pattern! What is the next letter in order?",
+      "sequence_display": "ታ ➔ ቴ ➔ [ ? ]",
+      "options": ["ት", "ቶ", "ተ"],
+      "correct_answer": "ት",
+      "target_pronunciation": "Ti - 6th form",
+      "success_audio": "audio/pronunciation/t_sixth.mp3"
+    },
+    {
+      "game_id": "g4_word_to_image_temari",
+      "game_type": "word_to_image",
+      "title": "Word Match: ተማሪ",
+      "instructions_en": "Associate the illustrated student with the correct Amharic word: 'ተማሪ'",
+      "tips_en": "Tip: ተማሪ (pronounced 'Temari') means Student.",
+      "image_url": "images/vocabulary/student.png",
+      "object_label": "What am I?",
+      "options": [
+        {
+          "word": "ተማሪ",
+          "phonetic": "Temari"
+        },
+        {
+          "word": "ቢራ比ሮ",
+          "phonetic": "Birabiro"
+        }
+      ],
+      "correct_answer": "ተማሪ",
+      "success_audio": "audio/vocabulary/temari_full.mp3"
+    }
+  ]
+}

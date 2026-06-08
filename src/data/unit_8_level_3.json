@@ -1,0 +1,137 @@
+{
+  "unit_id": "unit_8_fidel_flex_l3",
+  "unit_title": "ምዕራፍ ፰ — Meraf 8: Grand Master of ዠ and የ",
+  "module": "8.3",
+  "success_screen": {
+    "headline_en": "Spectacular! You are the Grand Master of ዠ and የ!",
+    "headline_am": "ግሩም ድንቅ ነው! የዠ እና የየ የደረጃ ፫ ዋና ጠቢብ ሆኑ!",
+    "audio_feedback": "audio/feedback/betam_gobez.mp3"
+  },
+  "games": [
+    {
+      "game_id": "g8_decode_zhentila",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: ZHENTILA",
+      "instructions_en": "Match the native English phonetic spelling 'ZHENTILA' (Umbrella) with the correct Amharic word.",
+      "target_phonetic_label": "ZHEN-TI-LA",
+      "options": [
+        "ዠንጥላ",
+        "የእጅ ሰዓት",
+        "የኔ",
+        "ዪሀ"
+      ],
+      "correct_answer": "ዠንጥላ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_fill_blank_zhentila_l3",
+      "game_type": "word_puzzle_fill_blank",
+      "title": "Grand Finish: ዠንጥላ",
+      "instructions_en": "Look closely at the word 'Umbrella' (Zhentila). Find the correct missing first letter: [ ? ]ንጥላ.",
+      "word_display_with_blank": "__ ንጥላ",
+      "tips_en": "The full word is ዠንጥላ (pronounced Zhen-ti-la).",
+      "image_url": "images/vocabulary/umbrella.png",
+      "options": [
+        "ዠ",
+        "ዡ",
+        "ዢ",
+        "ዣ"
+      ],
+      "correct_answer": "ዠ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_sequence_ye_skip_two",
+      "game_type": "fidel_sequence_advanced",
+      "title": "Master Sequence Check",
+      "instructions_en": "Grand Master skip pattern! Look at the pattern: 2nd form ➔ 4th form ➔ [ ? ] (6th form). What goes next?",
+      "sequence_display": "ዩ (2nd) ➔ ያ (4th) ➔ [ ? ] (6th)",
+      "options": [
+        "ዪ",
+        "ye",
+        "ይ",
+        "ዮ"
+      ],
+      "correct_answer": "ይ",
+      "target_pronunciation": "Y (6th Form)",
+      "success_audio": "audio/pronunciation/y_sixth.mp3",
+      "points_reward": 35
+    },
+    {
+      "game_id": "g8_assembly_zhentila_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: ዠንጥላ",
+      "instructions_en": "Assemble the letters correctly to spell the Amharic word for Umbrella (Zhentila)!",
+      "scrambled_letters": [
+        "ጥ",
+        "ን",
+        "ዠ",
+        "ላ"
+      ],
+      "correct_answer": "ዠንጥላ",
+      "english_translation": "Umbrella [Zhentila]",
+      "tips_en": "Tip: Start with first form 'ዠ', followed by 'ን', 'ጥ', and end with 'ላ'!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_decode_yene",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: YENE",
+      "instructions_en": "Match the phonetic spelling 'YENE' (Mine) with the correct Amharic word counterpart.",
+      "target_phonetic_label": "YENE",
+      "options": [
+        "የኔ",
+        "ዠንጥላ",
+        "የእጅ ሰዓት",
+        "ይሁን"
+      ],
+      "correct_answer": "የኔ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_blend_ye_sixth_form",
+      "game_type": "phonetic_audio_blend",
+      "title": "Grand Audio Blend: ይ",
+      "instructions_en": "Listen closely to the native 6th form 'Y' sound of the የ family. Which symbol matches this silent form?",
+      "target_audio": "audio/blends/ye_sixth_sample.mp3",
+      "target_phonetic_description": "The 6th form native consonant sound: 'Y'",
+      "options": [
+        "የ",
+        "ዩ",
+        "ዪ",
+        "ይ"
+      ],
+      "correct_answer": "ይ",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_assembly_ye_ej_seat_l3",
+      "game_type": "word_assembly_puzzle",
+      "title": "Grand Builder: የእጅ ሰዓት",
+      "instructions_en": "Form the full Amharic word for Wristwatch (Ye'eje Se'at)!",
+      "scrambled_letters": [
+        "ሰዓት",
+        "የእጅ"
+      ],
+      "correct_answer": "የእጅ ሰዓት",
+      "english_translation": "Wristwatch [Ye'eje Se'at]",
+      "tips_en": "Tip: Select 'የእጅ' first, and 'ሰዓት' second!",
+      "points_reward": 30
+    },
+    {
+      "game_id": "g8_decode_ye_ej_seat",
+      "game_type": "reverse_fidel_decryption",
+      "title": "Grand Decoder: YE'EJE SE'AT",
+      "instructions_en": "Match the native English phonetic spelling 'YE'EJE SE'AT' (Wristwatch) with the correct Amharic word.",
+      "target_phonetic_label": "YE'EJE SE'AT",
+      "options": [
+        "የእጅ ሰዓት",
+        "ዠንጥላ",
+        "የኔ",
+        "ይሁን"
+      ],
+      "correct_answer": "የእጅ ሰዓት",
+      "points_reward": 30
+    }
+  ]
+}
