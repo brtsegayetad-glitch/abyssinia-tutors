@@ -14,7 +14,8 @@ import {
   Globe,
   Award,
   Clock,
-  Briefcase
+  Briefcase,
+  Check
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { 
@@ -33,11 +34,29 @@ export default function AdminTutors() {
   const [sessions, setSessions] = useState<any[]>([]);
   const [applications, setApplications] = useState<any[]>([]);
   const [activeTab, setActiveTab] = useState<'staff' | 'applications'>('staff');
+  const [appStatusFilter, setAppStatusFilter] = useState<'all' | 'pending' | 'reviewed' | 'onboarded' | 'rejected'>('all');
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   
   // Modal State
   const [showAddModal, setShowAddModal] = useState(false);
+
+  // Onboard Review & Edit Modal State
+  const [reviewingApplicant, setReviewingApplicant] = useState<any | null>(null);
+  const [editedApplicant, setEditedApplicant] = useState<any>({
+    fullName: '',
+    email: '',
+    whatsapp: '',
+    expertise: '',
+    timezone: '',
+    hourlyRate: '25',
+    yearsOfExperience: '3-5 years',
+    quote: '',
+    detailedBio: '',
+    videoUrl: '',
+    avatarUrl: '',
+    targetAge: 'Beginners (Ages 6-12)'
+  });
   const [newTutor, setNewTutor] = useState({ 
     displayName: '', 
     email: '', 
@@ -134,28 +153,58 @@ export default function AdminTutors() {
     setIsSubmitting(false);
   };
 
-  const handleOnboardApplicant = async (app: any) => {
+  const handleOnboardApplicant = async (appId: string) => {
     setIsSubmitting(true);
-    const candidateLangs = app.expertise 
-      ? app.expertise.split(',').map((x: string) => x.trim()).filter((x: string) => x.length > 0)
-      : ['Amharic'];
+    
+    // Parse years of experience to numeric value
+    const expStr = editedApplicant.yearsOfExperience;
+    const yearsNum = expStr === '10+ years' ? 10 : (expStr === '5-10 years' ? 7 : (expStr === '3-5 years' ? 4 : 2));
 
     const result = await createTutor({
-      displayName: app.fullName,
-      email: app.email,
-      expertise: app.expertise || 'Heritage Instructor',
-      bio: app.experience || '',
-      languages_taught: candidateLangs,
-      years_of_experience: 2
+      displayName: editedApplicant.fullName,
+      email: editedApplicant.email.trim().toLowerCase(),
+      expertise: editedApplicant.expertise || 'Heritage Language Tutor',
+      bio: editedApplicant.detailedBio || '',
+      languages_taught: ['Amharic', 'English', 'Ge\'ez'],
+      years_of_experience: yearsNum,
+      avatar: editedApplicant.avatarUrl,
+      videoUrl: editedApplicant.videoUrl || '',
+      rating: '5.0',
+      reviewsCount: '1',
+      location: `Ethiopia / Remote Partner`,
+      stats: 'Newly Approved • Verified Partner',
+      quote: editedApplicant.quote,
+      ageSpecialty: editedApplicant.targetAge,
+      hourlyRate: editedApplicant.hourlyRate
     });
 
     if (result.success) {
-      await updateTutorApplicationStatus(app.id, 'onboarded');
-      alert(`Success! Onboarded ${app.fullName} to active teaching staff.`);
+      await updateTutorApplicationStatus(appId, 'onboarded');
+      alert(`Success! Onboarded and published ${editedApplicant.fullName} to the live trial bookings registry.`);
+      setReviewingApplicant(null); // Close modal
     } else {
-      alert(`Onboard failed: ${result.error || 'Unknown error'}`);
+      alert(`Onboard failed: ${result.error || 'Unknown database issue'}`);
     }
     setIsSubmitting(false);
+  };
+
+  const startOnboardReview = (app: any) => {
+    setReviewingApplicant(app);
+    setEditedApplicant({
+      id: app.id,
+      fullName: app.fullName || '',
+      email: app.email || '',
+      whatsapp: app.whatsapp || '',
+      expertise: app.expertise || 'Amharic',
+      timezone: app.timezone || 'EST (New York / DC)',
+      hourlyRate: app.hourlyRate || '25',
+      yearsOfExperience: app.yearsOfExperience || '3-5 years',
+      quote: app.quote || '',
+      detailedBio: app.detailedBio || app.experience || '',
+      videoUrl: app.videoUrl || '',
+      avatarUrl: app.avatarUrl || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=260',
+      targetAge: app.targetAge || 'All Children (Ages 6-12)'
+    });
   };
 
   const handleReviewApplicant = async (appId: string) => {
@@ -184,7 +233,12 @@ export default function AdminTutors() {
     );
   });
 
-  const activeApplications = filteredApplications.filter(a => a.status !== 'rejected');
+  const activeApplications = filteredApplications.filter(a => {
+    if (appStatusFilter === 'all') return true;
+    if (appStatusFilter === 'rejected') return a.status === 'rejected';
+    if (appStatusFilter === 'pending') return a.status === 'pending' || !a.status;
+    return a.status === appStatusFilter;
+  });
 
   // Compute tutor stats from real data
   const totalTutorsCount = tutors.length;
@@ -275,7 +329,7 @@ export default function AdminTutors() {
             activeTab === 'applications' ? "text-primary border-b-2 border-primary" : "text-slate-400 hover:text-slate-600"
           )}
         >
-          Tutor Applications ({applications.filter(a => a.status === 'pending' || a.status === 'reviewed').length})
+          Tutor Applications ({applications.length})
           {applications.filter(a => a.status === 'pending').length > 0 && (
             <span className="bg-rose-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center animate-pulse shrink-0">
               {applications.filter(a => a.status === 'pending').length}
@@ -304,18 +358,54 @@ export default function AdminTutors() {
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="p-6 bg-white border border-slate-100 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-              <input 
-                type="text" 
-                placeholder="Search applicants (name, email, experience)..." 
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-2.5 bg-slate-50 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/10 transition-all outline-none"
-              />
+          <div className="p-6 bg-white border border-slate-100 rounded-2xl flex flex-col gap-5 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                <input 
+                  type="text" 
+                  placeholder="Search applicants (name, email, experience)..." 
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-4 py-2.5 bg-slate-50 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/10 transition-all outline-none"
+                />
+              </div>
+              <p className="text-slate-400 text-xs font-bold">Manage and view tutor candidate profiles submitted via the web portal.</p>
             </div>
-            <p className="text-slate-400 text-xs font-semibold">Active candidate profiles submitted via web portal.</p>
+
+            {/* Application Stages filter */}
+            <div className="flex flex-wrap items-center gap-2 border-t border-slate-50 pt-4">
+              <span className="text-xs font-semibold text-slate-400 mr-2 uppercase tracking-wide">Stage:</span>
+              {(['all', 'pending', 'reviewed', 'onboarded', 'rejected'] as const).map((status) => {
+                const count = applications.filter(a => {
+                  if (status === 'all') return true;
+                  if (status === 'rejected') return a.status === 'rejected';
+                  if (status === 'pending') return a.status === 'pending' || !a.status;
+                  return a.status === status;
+                }).length;
+
+                return (
+                  <button
+                    key={status}
+                    onClick={() => setAppStatusFilter(status)}
+                    className={cn(
+                      "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all relative cursor-pointer outline-none uppercase tracking-wider",
+                      appStatusFilter === status 
+                        ? "bg-primary text-white shadow-sm" 
+                        : "bg-slate-50 text-slate-600 hover:bg-slate-100"
+                    )}
+                  >
+                    {status === 'rejected' ? 'dismissed' : status}
+                    <span className={cn(
+                      "ml-1.5 px-1.5 py-0.5 rounded-full text-[9px]",
+                      appStatusFilter === status ? "bg-white/20 text-white" : "bg-slate-200 text-slate-600"
+                    )}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {activeApplications.length === 0 ? (
@@ -336,9 +426,21 @@ export default function AdminTutors() {
                     {/* Header */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-indigo-50 text-indigo-700 font-bold rounded-xl flex items-center justify-center text-sm uppercase">
-                          {app.fullName?.slice(0, 2) || "TU"}
-                        </div>
+                        {app.avatarUrl ? (
+                          <img 
+                            src={app.avatarUrl} 
+                            alt={app.fullName} 
+                            className="w-10 h-10 rounded-xl object-cover border border-slate-100 shadow-sm"
+                            referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=260';
+                            }}
+                          />
+                        ) : (
+                          <div className="w-10 h-10 bg-indigo-50 text-indigo-700 font-bold rounded-xl flex items-center justify-center text-sm uppercase">
+                            {app.fullName?.slice(0, 2) || "TU"}
+                          </div>
+                        )}
                         <div>
                           <h4 className="font-bold text-slate-900 text-base">{app.fullName}</h4>
                           <span className="text-[10px] text-slate-450 font-bold tracking-tight block">
@@ -368,9 +470,12 @@ export default function AdminTutors() {
 
                     {/* Details and Description */}
                     <div className="space-y-2">
-                      <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Experience & Credentials</p>
-                      <p className="text-slate-500 text-xs leading-relaxed line-clamp-3 hover:line-clamp-none transition-all cursor-pointer bg-slate-50/50 p-2.5 rounded-lg border border-dashed hover:bg-white">
-                        {app.experience}
+                      <div className="flex justify-between items-center text-[9px] font-bold text-slate-400 uppercase tracking-widest">
+                        <span>Experience & Credentials</span>
+                        {app.hourlyRate && <span className="text-emerald-650 font-bold font-sans">Proposed Rate: ${app.hourlyRate}/Hr</span>}
+                      </div>
+                      <p className="text-slate-505 text-xs leading-relaxed line-clamp-3 hover:line-clamp-none transition-all cursor-pointer bg-slate-50/50 p-2.5 rounded-lg border border-dashed hover:bg-white">
+                        {app.detailedBio || app.experience}
                       </p>
                     </div>
 
@@ -393,30 +498,44 @@ export default function AdminTutors() {
 
                   {/* Operational controls */}
                   {app.status !== 'onboarded' && (
-                    <div className="flex items-center gap-3 border-t border-slate-50 pt-5 mt-5">
-                      <button
-                        onClick={() => handleOnboardApplicant(app)}
-                        className="btn-primary py-2 px-4 rounded-lg flex items-center gap-1.5 text-xs font-bold shrink-0 cursor-pointer"
-                      >
-                        <UserPlus size={13} />
-                        Onboard Tutor
-                      </button>
+                    <div className="flex items-center gap-3 border-t border-slate-100 pt-5 mt-5">
+                      {app.status !== 'rejected' ? (
+                        <>
+                          <button
+                            onClick={() => startOnboardReview(app)}
+                            className="bg-indigo-650 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg flex items-center gap-1.5 text-xs font-bold shrink-0 cursor-pointer shadow-sm hover:shadow transition-all"
+                          >
+                            <UserPlus size={13} />
+                            Review & Onboard...
+                          </button>
 
-                      {app.status === 'pending' && (
+                          {app.status === 'pending' && (
+                            <button
+                              onClick={() => handleReviewApplicant(app.id)}
+                              className="bg-sky-50 text-sky-750 border border-sky-100 hover:bg-sky-100 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                            >
+                              Mark Reviewed
+                            </button>
+                          )}
+
+                          <button
+                            onClick={() => handleRejectApplicant(app.id)}
+                            className="bg-rose-50 text-rose-700 hover:bg-rose-100 py-2 px-3 rounded-lg text-xs font-bold ml-auto transition-all cursor-pointer"
+                          >
+                            Dismiss
+                          </button>
+                        </>
+                      ) : (
                         <button
-                          onClick={() => handleReviewApplicant(app.id)}
-                          className="bg-sky-50 text-sky-700 border border-sky-100 hover:bg-sky-100 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                          onClick={async () => {
+                            await updateTutorApplicationStatus(app.id, 'pending');
+                            alert(`Application restored! Moved back to the Pending list.`);
+                          }}
+                          className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 py-2.5 px-4 rounded-lg text-xs font-bold ml-auto transition-all cursor-pointer border border-emerald-100 shadow-sm"
                         >
-                          Mark Reviewed
+                          Restore Application as Pending
                         </button>
                       )}
-
-                      <button
-                        onClick={() => handleRejectApplicant(app.id)}
-                        className="bg-rose-50 text-rose-700 hover:bg-rose-100 py-2 px-3 rounded-lg text-xs font-bold ml-auto transition-all cursor-pointer"
-                      >
-                        Dismiss
-                      </button>
                     </div>
                   )}
                 </div>
@@ -553,6 +672,202 @@ export default function AdminTutors() {
           </div>
         </div>
       )}
+      {/* Review, Edit, & Approved Onboard Applicant Modal */}
+      {reviewingApplicant && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200">
+          <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col">
+            {/* Modal Header */}
+            <div className="p-6 bg-slate-900 text-white flex justify-between items-center shrink-0">
+              <div>
+                <span className="text-[10px] font-black uppercase bg-indigo-500 text-white px-2.5 py-1 rounded-full tracking-wider">
+                  Reviewing Application Profile
+                </span>
+                <h3 className="font-bold text-lg mt-2 leading-tight">Review & Refine Profile</h3>
+                <p className="text-slate-400 text-xs mt-0.5">Edit this applicant's profile before approving and posting live to parents</p>
+              </div>
+              <button 
+                onClick={() => setReviewingApplicant(null)}
+                className="p-2 hover:bg-white/10 rounded-full transition-colors text-white"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            
+            {/* Modal Form Scrollable */}
+            <form onSubmit={(e) => { e.preventDefault(); handleOnboardApplicant(reviewingApplicant.id); }} className="p-6 overflow-y-auto space-y-6 flex-1 text-left">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">Public Display Name</label>
+                  <input 
+                    required
+                    type="text" 
+                    value={editedApplicant.fullName}
+                    onChange={(e) => setEditedApplicant({...editedApplicant, fullName: e.target.value})}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">Email (Private Profile Record)</label>
+                  <input 
+                    required
+                    type="email" 
+                    value={editedApplicant.email}
+                    onChange={(e) => setEditedApplicant({...editedApplicant, email: e.target.value})}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-indigo-505/20 transition-all outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">WhatsApp Number</label>
+                  <input 
+                    required
+                    type="text" 
+                    value={editedApplicant.whatsapp}
+                    onChange={(e) => setEditedApplicant({...editedApplicant, whatsapp: e.target.value})}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none font-mono"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-slate-450 uppercase tracking-widest">Syllabus Specialty Focus</label>
+                  <select 
+                    value={editedApplicant.expertise}
+                    onChange={(e) => setEditedApplicant({...editedApplicant, expertise: e.target.value})}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer outline-none"
+                  >
+                    <option value="Amharic">Amharic</option>
+                    <option value="Ge'ez">Ge'ez</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">Hourly Lesson Rate ($/hr)</label>
+                  <input 
+                    required
+                    type="number" 
+                    value={editedApplicant.hourlyRate}
+                    onChange={(e) => setEditedApplicant({...editedApplicant, hourlyRate: e.target.value})}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none font-mono"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">Years of Experience</label>
+                  <select 
+                    value={editedApplicant.yearsOfExperience}
+                    onChange={(e) => setEditedApplicant({...editedApplicant, yearsOfExperience: e.target.value})}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-1 focus:ring-indigo-500 transition-all outline-none cursor-pointer"
+                  >
+                    <option value="1-2 years">1-2 years</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="5-10 years">5-10 years</option>
+                    <option value="10+ years">10+ years</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest flex items-center justify-between">
+                  <span>Welcome Speech Quote / Tagline</span>
+                  <span className="text-[9px] text-amber-600 font-bold">Visible inside the dialog card</span>
+                </label>
+                <input 
+                  required
+                  type="text" 
+                  value={editedApplicant.quote}
+                  onChange={(e) => setEditedApplicant({...editedApplicant, quote: e.target.value})}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-indigo-500/20 transition-all italic font-serif"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">Public Biography (Methodology & Tone)</label>
+                <textarea 
+                  required
+                  value={editedApplicant.detailedBio}
+                  onChange={(e) => setEditedApplicant({...editedApplicant, detailedBio: e.target.value})}
+                  rows={4}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none leading-relaxed"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">Introductory Presentation Video link (YouTube)</label>
+                <input 
+                  type="text" 
+                  value={editedApplicant.videoUrl}
+                  onChange={(e) => setEditedApplicant({...editedApplicant, videoUrl: e.target.value})}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-indigo-505/20 transition-all font-mono"
+                />
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-100 rounded-xl flex items-center gap-4 text-left">
+                <div className="w-12 h-12 bg-white rounded-xl object-cover border border-slate-200 shadow-sm overflow-hidden shrink-0">
+                  <img 
+                    src={editedApplicant.avatarUrl} 
+                    alt="Current upload preview"
+                    className="w-full h-full object-cover" 
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=260';
+                    }}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-xs font-black text-slate-800">Tutor Portrait File Preview</h4>
+                  <p className="text-[10px] text-slate-500 leading-snug">
+                    This represents the candidate's real profile photo uploaded through the recruitment portal. It will represent them on the interactive parent checkout dashboard.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold text-slate-405 uppercase tracking-widest">Portrait Picture URL (Override if needed)</label>
+                <input 
+                  type="text" 
+                  value={editedApplicant.avatarUrl}
+                  onChange={(e) => setEditedApplicant({...editedApplicant, avatarUrl: e.target.value})}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-[10px] focus:ring-1 focus:ring-indigo-500 font-mono text-slate-500"
+                />
+              </div>
+
+              {/* Action Buttons in footer inside form for perfect overflow handling */}
+              <div className="flex gap-4 pt-4 border-t border-slate-100">
+                <button
+                  type="button"
+                  onClick={() => setReviewingApplicant(null)}
+                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 px-5 rounded-xl text-xs font-bold transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-indigo-650 hover:bg-indigo-750 text-white font-bold py-3 px-5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/10 cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin text-white" size={15} />
+                      Publishing Registry Record...
+                    </>
+                  ) : (
+                    <>
+                      <Check className="w-4 h-4 text-white" />
+                      Approve & Post to Live Trial Bookings!
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

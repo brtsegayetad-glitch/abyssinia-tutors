@@ -19,6 +19,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { cn } from '../lib/utils';
 import { subscribeToSettings } from '../services/dataService';
+import BrandLogo from '../components/BrandLogo';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -104,20 +105,12 @@ export default function DashboardLayout({ children, role }: DashboardLayoutProps
       <aside className="hidden lg:flex w-64 flex-col bg-slate-900 text-white sticky top-0 h-screen">
         <div className="p-5 border-b border-slate-800">
           <Link to="/" className="flex items-center gap-3">
-            {brandSettings.activeLogoUrl ? (
-              <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1 shadow-inner shrink-0">
-                <img 
-                  src={brandSettings.activeLogoUrl} 
-                  alt="Abyssinia Tutors Logo" 
-                  className="w-full h-full object-contain"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            ) : (
-              <div className="w-9 h-9 bg-secondary rounded-lg flex items-center justify-center font-bold text-lg text-white shrink-0">
-                A
-              </div>
-            )}
+            <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0">
+              <BrandLogo 
+                logoUrl={brandSettings.activeLogoUrl || '/logo_option_one.png'} 
+                className="w-full h-full"
+              />
+            </div>
             <span className="text-lg font-bold tracking-tight text-slate-100 truncate">
               {brandSettings.academyName}
             </span>
@@ -311,20 +304,12 @@ export default function DashboardLayout({ children, role }: DashboardLayoutProps
           >
             <div className="p-5 flex items-center justify-between border-b border-slate-800">
               <div className="flex items-center gap-3">
-                {brandSettings.activeLogoUrl ? (
-                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center overflow-hidden p-0.5 shadow-inner shrink-0">
-                    <img 
-                      src={brandSettings.activeLogoUrl} 
-                      alt="Abyssinia Tutors Logo" 
-                      className="w-full h-full object-contain"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center font-bold text-lg text-white shrink-0">
-                    A
-                  </div>
-                )}
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
+                  <BrandLogo 
+                    logoUrl={brandSettings.activeLogoUrl || '/logo_option_one.png'} 
+                    className="w-full h-full"
+                  />
+                </div>
                 <span className="text-lg font-bold tracking-tight text-slate-100 truncate">
                   {brandSettings.academyName}
                 </span>

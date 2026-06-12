@@ -107,7 +107,7 @@ export default function LoginPage() {
         <div className="md:w-1/2 bg-primary p-12 text-white flex flex-col justify-between relative overflow-hidden">
           <Link to="/" className="flex items-center gap-2 relative z-10">
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
-              <span className="text-primary font-serif text-2xl font-bold">A</span>
+              <span className="text-primary font-serif text-3xl font-black">A</span>
             </div>
             <span className="font-serif text-2xl font-bold text-white tracking-tight">Abyssinia Tutors</span>
           </Link>

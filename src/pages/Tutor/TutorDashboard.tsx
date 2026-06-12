@@ -727,16 +727,16 @@ export default function TutorDashboard() {
         {/* Resources & Sidebar */}
         <div className="space-y-6">
           <div className="bg-slate-900 text-white p-8 rounded-xl shadow-xl relative overflow-hidden">
-            <h3 className="text-lg font-bold mb-3 tracking-tight">Open Library</h3>
-            <p className="text-slate-400 text-xs mb-8 leading-relaxed">Quick access to interactive flashcards and visual Ge'ez charts for today's sessions.</p>
+            <h3 className="text-lg font-bold mb-3 tracking-tight">Ge'ez Hub & Library</h3>
+            <p className="text-slate-400 text-xs mb-8 leading-relaxed">Quick access to 32 original Meraf lessons, adaptive quizzes, flashcards, and the Ge'ez Root dictionary.</p>
             <button 
               onClick={() => {
                 setLibraryModalOpen(true);
               }}
-              className="btn-secondary w-full text-[10px] uppercase font-bold tracking-widest border-none py-2 bg-slate-800 text-white hover:bg-slate-700 cursor-pointer"
+              className="btn-secondary w-full text-[10px] uppercase font-bold tracking-widest border-none py-2 bg-slate-850 text-white hover:bg-slate-750 cursor-pointer"
             >
               <BookOpen size={14} />
-              Open Global Library
+              Open Ge'ez Hub
             </button>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
           </div>

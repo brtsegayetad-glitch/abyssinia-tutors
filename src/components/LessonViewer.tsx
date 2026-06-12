@@ -1,8 +1,11 @@
-import { amharicLibraryData } from "../data/amharicLibrary";
 import React, { useState, useRef, useEffect } from "react";
-import { X, ArrowLeft, ArrowRight, Volume2, Sparkles, Award, RotateCcw, BookOpen, Compass, CheckCircle2, Paintbrush, Trash2, Check, Star, Play, MessageSquare, Info, ShieldAlert, Heart, Trophy, Activity, Award as StarIcon } from "lucide-react";
+import { X, ArrowLeft, ArrowRight, Volume2, Sparkles, Award, RotateCcw, BookOpen, Compass, CheckCircle2, Paintbrush, Trash2, Check, Star, Play, MessageSquare, Info, ShieldAlert, Heart, Trophy, Activity, Award as StarIcon, Database, Github, Terminal, Code, ExternalLink, RefreshCw, Layers, GraduationCap, Video, BookOpenCheck } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { slides, LessonSlide, IntroSlide, ObjectivesSlide, VocabularySlide, SpeakingExerciseSlide, GuidedDialogueSlide, ReadingActivitySlide, WritingActivitySlide, InteractiveGameSlide, HomeworkSlide, ParentInvolvementSlide, TutorGuidanceSlide, ProgressAssessmentSlide, ConclusionSlide } from "../data/slides";
+import { subscribeToSettings } from "../services/dataService";
+import GeezAcademy from "./GeezAcademy";
+import LinguKidApp from "../lingukid/App";
+import AmharicCertificate from "./AmharicCertificate";
 
 // 1. Safe image fallback dictionary
 const localFallbackImages: Record<string, string> = {
@@ -237,14 +240,31 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
   const [curriculumLevel, setCurriculumLevel] = useState<1 | 2 | 3 | 4 | 5>(1);
 
   // Dynamic view scenes and stage selectors
-  const [viewScene, setViewScene] = useState<"home" | "amharic-levels" | "geez-levels" | "lessons" | "session">("home");
+  const [viewScene, setViewScene] = useState<"home" | "amharic-levels" | "geez-levels" | "lessons" | "session" | "fidel-fundamentals">("home");
   const [geezStage, setGeezStage] = useState<1 | 2>(1);
+  const [fidelTab, setFidelTab] = useState<"play" | "git">("play");
+  const [fidelIframeKey, setFidelIframeKey] = useState<number>(0);
+
+  // Settings state for dynamic Companion App configurations
+  const [settings, setSettings] = useState<any>({
+    fidelFundamentalsUrl: "https://brtsegayetad-glitch.github.io/fidel-fundamentals/",
+    fidelFundamentalsGit: "https://github.com/brtsegayetad-glitch/fidel-fundamentals"
+  });
 
   useEffect(() => {
     if (isOpen) {
       setViewScene("home");
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const unsub = subscribeToSettings((data) => {
+      if (data) {
+        setSettings(data);
+      }
+    });
+    return () => unsub();
+  }, []);
 
   // Sound synthesis pronunciation mappings
   const interceptPronunciation = (text: string): string => {
@@ -521,7 +541,7 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
   // Derive title metadata details dynamically
   const currentDef = activeLessonsMetaData.find(l => l.num === activeLesson) || activeLessonsMetaData[0];
   const lessonTitleStr = currentDef ? `${currentDef.amh} (${currentDef.topic}) — ምዕራፍ ${currentDef.geez}` : "Amharic Core Lesson";
-  const lessonThemeStr = currentDef ? `${currentDef.amh} • ${selectedLanguage === "geez" ? "Ancient Numeral Heritage" : "Heritage Curriculum"}` : "LinguKid Heritage Library";
+  const lessonThemeStr = currentDef ? `${currentDef.amh} • ${selectedLanguage === "geez" ? "Ancient Numeral Heritage" : "Heritage Curriculum"}` : "Open Abyssinia Library";
 
   const handleLessonChange = (newLesson: number) => {
     setActiveLesson(newLesson);
@@ -571,12 +591,45 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
               </span>
               <div>
                 <h2 className="text-base md:text-lg font-black text-slate-900 tracking-tight flex items-center gap-2">
-                  LinguKid Global Library <span className="text-indigo-600 text-xs font-black bg-indigo-50 border border-indigo-150 rounded-lg px-2 py-0.5">የቋንቋ መዝገብ</span>
+                  Open Abyssinia Library <span className="text-indigo-600 text-xs font-black bg-indigo-50 border border-indigo-150 rounded-lg px-2 py-0.5">የቋንቋ መዝገብ</span>
                 </h2>
                 <p className="text-xs text-slate-400 font-bold uppercase tracking-widest hidden sm:block">
                   Abyssinia Tutors • East African Dialect Repository
                 </p>
               </div>
+            </div>
+
+            {/* Quick Hub Switcher */}
+            <div className="hidden md:flex bg-slate-100 border p-1 rounded-2xl items-center gap-1 shrink-0">
+              <button
+                id="btn-header-amharic"
+                onClick={() => {
+                  setSelectedLanguage("amharic");
+                  setViewScene("home");
+                }}
+                className={`px-4 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider transition duration-150 cursor-pointer ${
+                  selectedLanguage === "amharic" && viewScene !== "geez-levels"
+                    ? "bg-indigo-650 text-white shadow-sm"
+                    : "text-slate-650 hover:bg-slate-200 text-slate-700"
+                }`}
+              >
+                🇪🇹 Amharic Suite
+              </button>
+              <button
+                id="btn-header-geez"
+                onClick={() => {
+                  setSelectedLanguage("geez");
+                  setViewScene("geez-levels");
+                }}
+                className={`px-4 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider transition duration-150 cursor-pointer flex items-center gap-1.5 ${
+                  selectedLanguage === "geez" && viewScene === "geez-levels"
+                    ? "bg-amber-600 text-white shadow-sm"
+                    : "text-slate-650 hover:bg-slate-200 text-slate-700"
+                }`}
+              >
+                <span>📜 Ge'ez Hub</span>
+                <span className="bg-amber-200 text-amber-950 font-black px-1.5 py-0.5 rounded text-[8px] tracking-normal animate-pulse">New</span>
+              </button>
             </div>
             
             <button
@@ -658,15 +711,15 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
                     ✨ Abyssinia Tutors • Portfolio Portal
                   </span>
                   <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none">
-                    LinguKid Heritage Library
+                    Open Abyssinia Library <span className="block text-xl md:text-3xl text-indigo-600 font-serif font-bold mt-2">የአቢሲኒያ ቤተ-መጻሕፍት</span>
                   </h1>
                   <p className="text-slate-500 max-w-3xl text-sm md:text-base leading-relaxed font-medium">
                     Discover the vibrant language and numeral history of East Africa! Our heritage repository brings diaspora children closest to their ancestral roots through beautifully illustrated calling cards, responsive phonetic voice keys, and exciting interactive exercises.
                   </p>
                 </div>
 
-                {/* Main Two Columns of Paths */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full pt-4">
+                {/* Main Three Columns of Paths */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full pt-4">
                   {/* Amharic Selection Card */}
                   <div className="bg-gradient-to-br from-indigo-50/70 to-violet-50/70 border-2 border-indigo-100 rounded-[28px] p-6 text-left flex flex-col justify-between hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-50 duration-200 transition-all group">
                     <div className="space-y-4">
@@ -693,32 +746,35 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
                         setSelectedLanguage("amharic");
                         setViewScene("amharic-levels");
                       }}
-                      className="mt-6 w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 group-hover:scale-102 duration-150 transition-all text-white font-black text-xs uppercase tracking-widest rounded-2xl cursor-pointer shadow-md shadow-indigo-200 flex items-center justify-center gap-2"
+                      className="mt-6 w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 group-hover:scale-102 duration-150 transition-all text-white font-black text-xs uppercase tracking-widest rounded-2xl cursor-pointer shadow-md shadow-indigo-200 flex items-center justify-center gap-2 animate:pulse"
                     >
                       <span>Explore Amharic Levels</span>
                       <ArrowRight size={14} />
                     </button>
                   </div>
 
-                  {/* Ge'ez Selection Card */}
-                  <div className="bg-gradient-to-br from-amber-50/70 to-orange-50/70 border-2 border-orange-100 rounded-[28px] p-6 text-left flex flex-col justify-between hover:border-orange-300 hover:shadow-xl hover:shadow-amber-55 duration-200 transition-all group">
+                  {/* Ge'ez Selection Card (Ge'ez Hub) */}
+                  <div className="bg-gradient-to-br from-amber-50 to-orange-100 border-2 border-amber-300 rounded-[28px] p-6 text-left flex flex-col justify-between hover:border-amber-500 hover:shadow-2xl hover:shadow-amber-100 duration-200 transition-all group relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-orange-600 text-white font-black text-[9px] uppercase tracking-widest px-3.5 py-1 rounded-bl-xl shadow-sm">
+                      🌟 Hub Access
+                    </div>
                     <div className="space-y-4">
                       <div className="flex justify-between items-start">
-                        <span className="text-4xl">📜</span>
+                        <span className="text-4xl animate-bounce">📜</span>
                         <span className="bg-amber-100 text-amber-800 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-xl">
                           Classical Antiquity
                         </span>
                       </div>
                       <div className="space-y-1">
-                        <h3 className="text-xl md:text-2xl font-bold text-amber-950 font-serif">
-                          Classical Ge'ez (ግዕዝ)
+                        <h3 className="text-xl md:text-2xl font-black text-amber-955 font-serif">
+                          Ge'ez Hub (ግዕዝ Hub)
                         </h3>
                         <p className="text-slate-500 text-xs font-bold font-serif">
-                          32 Alphabetic Families • 2 Classical Stages
+                          32 Alphabetic Chapters • Quizzes • Live Features
                         </p>
                       </div>
                       <p className="text-slate-650 text-xs leading-relaxed font-semibold">
-                        Master the structural roots of Ethiopic calligraphy. Learn primary characters, ejective dental pronunciation codes, cosmic space calendars, and ancient parchment chronicles.
+                        Master the structural roots of Ethiopic calligraphy. Under one single hub: explore 32 original Merafs, level-by-level adaptive quizzes, grammar handbooks, and our rich Ge'ez word dictionary!
                       </p>
                     </div>
                     <button
@@ -726,9 +782,41 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
                         setSelectedLanguage("geez");
                         setViewScene("geez-levels");
                       }}
-                      className="mt-6 w-full py-3.5 bg-amber-600 hover:bg-amber-750 group-hover:scale-102 duration-150 transition-all text-white font-black text-xs uppercase tracking-widest rounded-2xl cursor-pointer shadow-md shadow-amber-200 flex items-center justify-center gap-2"
+                      className="mt-6 w-full py-3.5 bg-gradient-to-r from-amber-500 to-orange-650 hover:from-amber-600 hover:to-orange-755 group-hover:scale-102 duration-150 transition-all text-white font-black text-xs uppercase tracking-widest rounded-2xl cursor-pointer shadow-md shadow-amber-200 flex items-center justify-center gap-2"
                     >
-                      <span>Explore Ge'ez Modules</span>
+                      <span>Open Ge'ez Hub 🚀</span>
+                      <ArrowRight size={14} />
+                    </button>
+                  </div>
+
+                  {/* Fidel Fundamentals Selection Card */}
+                  <div className="bg-gradient-to-br from-emerald-50/70 to-teal-50/70 border-2 border-emerald-100 rounded-[28px] p-6 text-left flex flex-col justify-between hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-50 duration-200 transition-all group" id="card-fidel-fundamentals-launcher">
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-start">
+                        <span className="text-4xl">🎮</span>
+                        <span className="bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-xl">
+                          Smart Companion App
+                        </span>
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="text-xl md:text-2xl font-bold text-emerald-950 font-sans">
+                          Fidel Fundamentals (ፊደል)
+                        </h3>
+                        <p className="text-slate-500 text-xs font-bold font-serif">
+                          Interactive Playground & Git Sandbox
+                        </p>
+                      </div>
+                      <p className="text-slate-650 text-xs leading-relaxed font-semibold">
+                        Access your custom-built alphabetic game companion! Play live inside the sandbox environment, verify vowel tracing, challenge sound-bubble matchers, or view your source repository.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setViewScene("fidel-fundamentals");
+                      }}
+                      className="mt-6 w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 group-hover:scale-102 duration-150 transition-all text-white font-black text-xs uppercase tracking-widest rounded-2xl cursor-pointer shadow-md shadow-emerald-250 flex items-center justify-center gap-2"
+                    >
+                      <span>Open Companion Hub</span>
                       <ArrowRight size={14} />
                     </button>
                   </div>
@@ -738,6 +826,331 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
                 <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest pt-4">
                   Developed with kids in mind • Secure Offline Sandbox Learning Environment
                 </p>
+              </motion.div>
+            )}
+
+            {viewScene === "fidel-fundamentals" && (
+              <motion.div
+                key="scene-fidel-fundamentals"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                className="flex-1 overflow-hidden p-3 md:p-4 w-full h-full flex flex-col justify-start text-left space-y-3"
+              >
+                {/* LOW PROFILE SUPER-COMPACT BAR */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3 border border-slate-200/80 rounded-2xl shrink-0 shadow-xs">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setViewScene("home")}
+                      className="inline-flex items-center gap-1 bg-slate-100 hover:bg-slate-200 border border-slate-200/60 hover:border-slate-300 text-slate-705 hover:text-slate-900 px-3.5 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider cursor-pointer active:scale-97 transition-all shrink-0"
+                    >
+                      <ArrowLeft size={13} />
+                      <span>Back</span>
+                    </button>
+                    <div className="h-4 w-px bg-slate-200" />
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className="text-base select-none">🎮</span>
+                      <h1 className="text-xs md:text-sm font-black text-slate-900 tracking-tight truncate">
+                        Fidel Fundamentals (ፊደል መሰረታዊያን)
+                      </h1>
+                      <span className="hidden md:inline-flex bg-emerald-100/90 text-emerald-800 text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md">
+                        Companion Sandbox
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Navigation Tabs and Controls */}
+                  <div className="flex items-center gap-3">
+                    {/* View/Play toggles */}
+                    <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/80 gap-0.5 text-[10px] font-black uppercase tracking-widest shrink-0">
+                      <button
+                        onClick={() => setFidelTab("play")}
+                        className={`py-1 px-3.5 rounded-md cursor-pointer transition-all ${
+                          fidelTab === "play"
+                            ? "bg-white text-emerald-700 shadow-xs"
+                            : "text-slate-500 hover:text-slate-800"
+                        }`}
+                      >
+                        Play Screen
+                      </button>
+                      <button
+                        onClick={() => setFidelTab("git")}
+                        className={`py-1 px-3.5 rounded-md cursor-pointer transition-all ${
+                          fidelTab === "git"
+                            ? "bg-white text-emerald-700 shadow-xs"
+                            : "text-slate-500 hover:text-slate-800"
+                        }`}
+                      >
+                        Source/Code Setup
+                      </button>
+                    </div>
+
+                    <div className="h-4 w-px bg-slate-200 hidden sm:block" />
+
+                    {/* Dynamic Action Buttons */}
+                    {settings.fidelFundamentalsUrl && (
+                      <a
+                        href={settings.fidelFundamentalsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="py-1 px-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[10px] uppercase font-black tracking-widest flex items-center gap-1 transition-all cursor-pointer shadow-xs whitespace-nowrap"
+                      >
+                        <ExternalLink size={10} />
+                        <span className="hidden md:inline">Open Full Screen</span>
+                        <span className="md:hidden">Launch</span>
+                      </a>
+                    )}
+
+                    <button
+                      onClick={() => setFidelIframeKey((k) => k + 1)}
+                      className="p-1 px-2.5 text-slate-500 hover:text-slate-950 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-1 cursor-pointer transition-all shrink-0"
+                      title="Reset/Reload Game Sandbox"
+                    >
+                      <RefreshCw size={10} />
+                      <span>Reload</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Sub-view Content panels */}
+                <div className="w-full flex-1 min-h-0">
+                  {fidelTab === "play" ? (
+                    /* 100% IMMERSIVE ZERO-SCROLL IFRAME CONTAINER */
+                    <div className="w-full h-full bg-slate-900 overflow-hidden relative rounded-[24px] border border-slate-200/80 shadow-md">
+                      <iframe
+                        key={fidelIframeKey}
+                        src={settings.fidelFundamentalsUrl || "https://brtsegayetad-glitch.github.io/fidel-fundamentals/"}
+                        className="w-full h-full border-0 absolute inset-0"
+                        title="Fidel Fundamentals"
+                        referrerPolicy="no-referrer"
+                        sandbox="allow-scripts allow-same-origin allow-popups"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-full h-full overflow-y-auto space-y-6 pr-1 pb-4">
+                      
+                      {/* Troubleshooting Section for GitHub Pages & Blank Screens */}
+                      <div className="bg-amber-50/70 border border-amber-200 rounded-2xl p-6 space-y-4">
+                        <div className="flex items-center gap-2.5 text-amber-900">
+                          <span className="text-xl">⚙️</span>
+                          <h4 className="font-sans font-bold text-sm">
+                            Vite & GitHub Pages Blank Screen Guide
+                          </h4>
+                        </div>
+                        <p className="text-slate-700 text-xs leading-relaxed font-sans max-w-4xl font-medium">
+                          Great! Your GitHub Pages is now live, but it is displaying a <strong>blank white screen</strong>. This is because GitHub is serving the raw source code (like <code className="bg-slate-100 px-1 py-0.5 rounded text-rose-600 font-mono text-[10px]">/src/main.tsx</code>) instead of the compiled production-ready website assets from the <code className="bg-slate-100 px-1 py-0.5 border rounded text-slate-800 font-mono text-[10px]">dist/</code> folder.
+                        </p>
+                        
+                        <div className="bg-white border border-amber-100 p-5 rounded-xl space-y-3 shadow-xs">
+                          <p className="text-slate-800 text-xs font-bold font-sans flex items-center gap-1.5">
+                            <span className="bg-amber-100 text-amber-800 text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wide">
+                              STEP-BY-STEP FIX: BUILD & PUBLISH YOUR CODE
+                            </span>
+                          </p>
+                          <p className="text-slate-650 text-[11.5px] leading-relaxed">
+                            To convert and compile your code so browsers can run it, run these simple terminal commands inside your local <strong>fidel-fundamentals</strong> project directory:
+                          </p>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                            {/* Substep 1 */}
+                            <div className="space-y-1.5">
+                              <span className="text-[10px] uppercase tracking-wider font-bold text-indigo-600 block">1. Configure base path in vite.config.ts</span>
+                              <p className="text-slate-500 text-[11px] leading-relaxed">
+                                Open <code className="bg-slate-50 border px-1 rounded text-slate-700 font-mono text-[10px]">vite.config.ts</code> in your code editor and add the <code className="text-rose-600 font-mono text-[10px] font-bold">base</code> property corresponding exactly to your GitHub repository name:
+                              </p>
+                              <code className="block bg-slate-900 text-pink-300 p-2.5 rounded text-[10px] font-mono leading-relaxed select-all">
+                                export default defineConfig(&#123;<br />
+                                &nbsp;&nbsp;base: "/fidel-fundamentals/",<br />
+                                &nbsp;&nbsp;// other config props...<br />
+                                &#125;)
+                              </code>
+                            </div>
+
+                            {/* Substep 2 */}
+                            <div className="space-y-1.5">
+                              <span className="text-[10px] uppercase tracking-wider font-bold text-rose-500 block">2. Add deploy script & deploy!</span>
+                              <p className="text-slate-500 text-[11px] leading-relaxed">
+                                Run these terminal commands to automatically deploy the compiled folder:
+                              </p>
+                              <code className="block bg-slate-900 text-teal-300 p-2 text-[10px] font-mono leading-relaxed space-y-1">
+                                <span className="text-slate-400"># Install the github deployment package:</span>
+                                <div>npm install gh-pages --save-dev</div>
+                              </code>
+                              <p className="text-slate-500 text-[11px] leading-relaxed">
+                                Under your <code className="bg-slate-550/10 border px-1 rounded text-slate-700 font-mono text-[10px]">package.json</code>'s "scripts" block, add the deploy action:
+                              </p>
+                              <code className="block bg-slate-900 text-amber-300 p-1.5 rounded text-[10px] font-mono select-all">
+                                "deploy": "gh-pages -d dist"
+                              </code>
+                              <p className="text-slate-500 text-[11px] leading-relaxed">
+                                Now, compile and push live to your branch in one simple go:
+                              </p>
+                              <code className="block bg-slate-900 text-white p-2.5 rounded text-[10px] font-mono">
+                                npm run build && npm run deploy
+                              </code>
+                              <div className="mt-3 bg-amber-100/50 border border-amber-200/50 p-2.5 rounded-lg space-y-1">
+                                <p className="text-amber-950 text-[11px] font-bold">
+                                  💡 Stalled with "Failed to get remote.origin.url"?
+                                </p>
+                                <p className="text-slate-650 text-[10.5px] leading-relaxed">
+                                  Your local Git folder's remote connection is not linked to GitHub yet. Run this direct bypass command in your terminal to publish immediately:
+                                </p>
+                                <code className="block bg-slate-900 text-cyan-300 p-2 rounded text-[10px] font-mono select-all leading-normal whitespace-pre-wrap break-all border border-slate-800">
+                                  npx gh-pages -d dist -r https://github.com/brtsegayetad-glitch/fidel-fundamentals.git
+                                </code>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Private Repo Info (Alternative collapsed alert) */}
+                        <div className="border border-slate-200/60 bg-slate-50 p-4 rounded-xl space-y-2">
+                          <p className="text-xs font-bold text-slate-900 font-sans flex items-center gap-1.5">
+                            <span>🔒 Private Repo check warning:</span>
+                          </p>
+                          <p className="text-slate-600 text-[11px] leading-relaxed">
+                            For free GitHub accounts, the "Deploy from branch" option is only visible if visibility is set to <strong>Public</strong> under the Danger Zone in repository Settings. Alternatively, you can easily host this directory on <a href="https://vercel.com" target="_blank" rel="noreferrer" className="text-indigo-600 underline font-bold">Vercel.com</a> or <a href="https://netlify.com" target="_blank" rel="noreferrer" className="text-indigo-600 underline font-bold">Netlify.com</a> completely for free with high-speed private repository permissions!
+                          </p>
+                        </div>
+
+                        <div className="text-[11px] text-amber-900 font-bold border-t border-amber-200/50 pt-3 flex flex-wrap items-center gap-1.5">
+                          <span>💡 Need to change the deployed URL in this platform?</span>
+                          <span className="text-slate-500 font-semibold">You can update the Deployed Application URL inside Admin Settings &gt; System Settings at any time.</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-emerald-50 border border-emerald-150 rounded-2xl p-4 flex items-start gap-3">
+                        <Info className="text-emerald-600 shrink-0 mt-0.5" size={16} />
+                        <div className="space-y-1">
+                          <p className="text-xs text-emerald-950 font-bold font-sans">
+                            Interactive Sandbox Location
+                          </p>
+                          <p className="text-[10px] text-emerald-800 font-medium leading-relaxed font-sans">
+                            This panel displays your live, custom-configured **Fidel Fundamentals** application directly! If you make updates to your export branch on GitHub and deploy them, you'll see the gameplay reflect here instantly. To edit the URL, go to the <strong>Admin Dashboard &gt; System Settings &gt; Companion App Options</strong>.
+                          </p>
+                        </div>
+                      </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {/* Steps Panel Left */}
+                      <div className="md:col-span-2 space-y-6">
+                        {/* Step 1 */}
+                        <div className="bg-white border border-slate-150 rounded-2xl p-6 space-y-4">
+                          <div className="flex items-center gap-3">
+                            <span className="w-7 h-7 bg-indigo-50 text-indigo-700 flex items-center justify-center rounded-xl font-black text-xs font-mono border border-indigo-150">
+                              01
+                            </span>
+                            <h3 className="text-sm font-black text-slate-900 uppercase tracking-wide">
+                              Prepare the Export & Clone Repos
+                            </h3>
+                          </div>
+                          <p className="text-xs text-slate-500 leading-relaxed font-semibold">
+                            Download the code of your exported AI Studio app using the git command or by extracting the exported .ZIP archive file.
+                          </p>
+                          <div className="bg-slate-900 text-slate-200 font-mono text-[10px] p-4 rounded-xl space-y-1 select-all relative group shadow-inner">
+                            <span className="text-teal-400"># Clone your Fidel Fundamentals repository files</span>
+                            <div className="text-slate-100 block">git clone {settings.fidelFundamentalsGit || "https://github.com/your-username/fidel-fundamentals.git"}</div>
+                            <div className="text-slate-100 block">cd fidel-fundamentals</div>
+                          </div>
+                        </div>
+
+                        {/* Step 2 */}
+                        <div className="bg-white border border-slate-150 rounded-2xl p-6 space-y-4">
+                          <div className="flex items-center gap-3">
+                            <span className="w-7 h-7 bg-indigo-50 text-indigo-700 flex items-center justify-center rounded-xl font-black text-xs font-mono border border-indigo-150">
+                              02
+                            </span>
+                            <h3 className="text-sm font-black text-slate-900 uppercase tracking-wide">
+                              Relocate Components & Layout Sheets
+                            </h3>
+                          </div>
+                          <div className="space-y-2 text-xs text-slate-500 font-semibold leading-relaxed">
+                            <p>
+                              Copy your interactive game engines (such as your canvas renderers, shape matches, or phonetic blender cards) into this project:
+                            </p>
+                            <ul className="list-disc list-inside space-y-1.5 pl-2 text-indigo-950 font-sans">
+                              <li>Copy game files into <code className="bg-slate-100 px-1.5 py-0.5 rounded font-mono font-bold">/src/components/fidel/</code> folder structure.</li>
+                              <li>Copy images or sound dictionaries into <code className="bg-slate-100 px-1.5 py-0.5 rounded font-mono font-bold">/src/data/fidel/</code> directories.</li>
+                            </ul>
+                          </div>
+                          <div className="bg-slate-100 border border-slate-200 rounded-xl p-4 font-mono text-[10px] text-slate-700 space-y-1 select-none">
+                            <div className="text-slate-400 font-bold">📂 Suggested Folder Hierarchy:</div>
+                            <div>├── src/</div>
+                            <div>│   ├── components/</div>
+                            <div className="text-emerald-700 font-medium">│   │   ├── fidel/           &lt;-- Place Game Engines here</div>
+                            <div className="text-emerald-700 font-medium">│   │   │   ├── VowelTracingCanvas.tsx</div>
+                            <div className="text-emerald-700 font-medium">│   │   │   └── SoundBubbleMatcher.tsx</div>
+                          </div>
+                        </div>
+
+                        {/* Step 3 */}
+                        <div className="bg-white border border-slate-150 rounded-2xl p-6 space-y-4">
+                          <div className="flex items-center gap-3">
+                            <span className="w-7 h-7 bg-indigo-50 text-indigo-700 flex items-center justify-center rounded-xl font-black text-xs font-mono border border-indigo-150">
+                              03
+                            </span>
+                            <h3 className="text-sm font-black text-slate-900 uppercase tracking-wide">
+                              Declare Local State & Firebase Persistence
+                            </h3>
+                          </div>
+                          <p className="text-xs text-slate-500 leading-relaxed font-semibold">
+                            You can save student progress directly so parents can view metrics in real-time. Use the provided Firestore wrapper <code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-pink-650">saveStudentProgress()</code> to upload final high scores!
+                          </p>
+                          <div className="bg-slate-900 text-slate-200 font-mono text-[10px] p-4 rounded-xl space-y-2 select-all shadow-inner">
+                            <div className="text-slate-400">// Sample function to sync stats in your dynamic component</div>
+                            <div className="text-indigo-300">import {`{ saveStudentProgress }`} from '../services/dataService';</div>
+                            <div>
+                              <span className="text-pink-400">const</span> handleLevelComplete = <span className="text-indigo-300">async</span> (score: number) =&gt; {` {`}
+                              <div className="pl-4 text-slate-350">
+                                <span className="text-pink-400">await</span> saveStudentProgress(studentId, {`{`}
+                                <div className="pl-4">
+                                  lessonCompleted: <span className="text-amber-300">"Fidel Foundations Level"</span>,
+                                  gameScore: score,
+                                  fidelProgress: <span className="text-indigo-300">100</span>,
+                                  timestamp: <span className="text-indigo-300">new Date()</span>
+                                </div>
+                                {`});`}
+                              </div>
+                              {`};`}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Info Cards Sidebar Right */}
+                      <div className="space-y-6">
+                        <div className="bg-slate-900 text-slate-200 p-6 rounded-2xl border border-slate-950 space-y-4">
+                          <h4 className="text-xs font-black text-white uppercase tracking-widest flex items-center gap-1.5 border-b border-slate-800 pb-3">
+                            <Database size={14} className="text-emerald-400" />
+                            <span>Database State Schema</span>
+                          </h4>
+                          <p className="text-[10px] text-slate-400 font-semibold leading-relaxed">
+                            All interactive game variables, tutor notes, and classroom schedules sync instantly to your enterprise Firestore cluster configured inside AI Studio.
+                          </p>
+                          <div className="rounded-xl bg-slate-950 p-3 border border-slate-850 font-mono text-[9px] text-teal-400 space-y-1 select-none">
+                            <div>collection: 'settings' / 'global'</div>
+                            <div>{'  {'}</div>
+                            <div className="text-slate-400">{"    academyName: string,"}</div>
+                            <div className="text-slate-400">{"    facebookUrl: string,"}</div>
+                            <div className="text-emerald-400">{"    fidelFundamentalsUrl: string,"}</div>
+                            <div className="text-emerald-400">{"    fidelFundamentalsGit: string"}</div>
+                            <div>{'  }'}</div>
+                          </div>
+                        </div>
+
+                        <div className="bg-emerald-50/50 border border-emerald-100 text-emerald-950 p-6 rounded-2xl space-y-3">
+                          <h4 className="text-xs font-black text-emerald-900 uppercase tracking-widest flex items-center gap-1.5">
+                            <BookOpenCheck size={14} className="text-emerald-600" />
+                            <span>Tutoring Alignment</span>
+                          </h4>
+                          <p className="text-[10px] text-emerald-800 leading-relaxed font-semibold">
+                            Using companion apps alongside weekly 1-on-1 sessions boosts heritage retention rates by up to **85%**. Instructors are automatically prompted of student progression during classroom assessments.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                </div>
               </motion.div>
             )}
 
@@ -810,81 +1223,19 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
                     </div>
                   ))}
                 </div>
+
+                {/* Global Academic Certification Hub for standard Amharic track */}
+                <AmharicCertificate />
               </motion.div>
             )}
 
-            {viewScene === "geez-levels" && (
-              <motion.div
-                key="scene-geez-levels"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="flex-1 overflow-y-auto p-6 md:p-10 max-w-5xl mx-auto w-full space-y-8"
-              >
-                {/* Back Link Row */}
-                <button
-                  onClick={() => setViewScene("home")}
-                  className="inline-flex items-center gap-1.5 text-slate-500 hover:text-indigo-600 font-extrabold text-xs uppercase tracking-widest cursor-pointer group"
-                >
-                  <ArrowLeft size={14} className="group-hover:-translate-x-0.5 transition-transform" />
-                  <span>Back to Languages</span>
-                </button>
-
-                <div className="space-y-1">
-                  <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                    Select Your Ge'ez Stage
-                  </h1>
-                  <p className="text-slate-550 text-xs md:text-sm font-semibold">
-                    Deepen calligraphy form mastery and unlock traditional Ethiopic sound vowels.
-                  </p>
-                </div>
-
-                {/* 2 Ge'ez Stage layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-                  {[
-                    { id: 1, title: "ደረጃ ፩: መሠረታዊ ፊደላት", subtitle: "Stage 1: Classical Alphabets", span: "Lessons 1-16", bg: "from-amber-50 to-yellow-50/60", border: "border-amber-150", text: "Covers vowel shapes from ሀ (Ha) to ከ (Ke). Master basic drawing strokes, ancient names, spelling and phonetics.", count: "16 Lessons" },
-                    { id: 2, title: "ደረጃ ፪: ታሪካዊ መጻሕፍት", subtitle: "Stage 2: Historical Manuscripts", span: "Lessons 17-32", bg: "from-orange-50 to-amber-50/50", border: "border-orange-150", text: "Remaining letter families from ኸ (Kha) to ፐ (Pe). Study advanced ejectives, astronomical calendars, and Gonder chronicles.", count: "16 Lessons" }
-                  ].map((stage) => (
-                    <div
-                      key={`geez-stage-${stage.id}`}
-                      onClick={() => {
-                        setGeezStage(stage.id as any);
-                        setCurriculumLevel(1); // Internally registered as level 1
-                        setViewScene("lessons");
-                      }}
-                      className={`bg-gradient-to-br ${stage.bg} border-2 ${stage.border} p-6 rounded-[24px] flex flex-col justify-between hover:shadow-lg transition-all duration-200 cursor-pointer group active:scale-98`}
-                    >
-                      <div className="space-y-3.5">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-black uppercase text-amber-800 bg-white border px-2.5 py-1 rounded-lg shadow-sm">
-                            {stage.span}
-                          </span>
-                          <span className="text-[10px] text-orange-700 font-bold uppercase">{stage.count}</span>
-                        </div>
-                        <div className="space-y-0.5">
-                          <h3 className="text-xl font-black text-slate-900 font-serif group-hover:text-amber-700 transition-colors">
-                            {stage.title}
-                          </h3>
-                          <p className="text-sm font-bold text-slate-500">
-                            {stage.subtitle}
-                          </p>
-                        </div>
-                        <p className="text-slate-650 text-xs leading-relaxed font-semibold">
-                          {stage.text}
-                        </p>
-                      </div>
-
-                      <div className="pt-6 flex items-center justify-between text-xs font-black uppercase tracking-widest text-slate-755 group-hover:text-amber-700 transition-colors">
-                        <span>Launch Stage</span>
-                        <ArrowRight size={14} className="group-hover:translate-x-1 duration-150 transition-all" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+            {selectedLanguage === "geez" && viewScene === "geez-levels" && (
+              <LinguKidApp 
+                onBackToHome={() => setViewScene("home")}
+              />
             )}
 
-            {viewScene === "lessons" && (
+            {viewScene === "lessons" && selectedLanguage === "amharic" && (
               <motion.div
                 key="scene-lessons"
                 initial={{ opacity: 0, y: 15 }}
@@ -894,7 +1245,7 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
               >
                 {/* Back Link Row */}
                 <button
-                  onClick={() => setViewScene(selectedLanguage === "amharic" ? "amharic-levels" : "geez-levels")}
+                  onClick={() => setViewScene("amharic-levels")}
                   className="inline-flex items-center gap-1.5 text-slate-500 hover:text-indigo-600 font-extrabold text-xs uppercase tracking-widest cursor-pointer group"
                 >
                   <ArrowLeft size={14} className="group-hover:-translate-x-0.5 transition-transform" />
@@ -903,7 +1254,7 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
 
                 <div className="space-y-1">
                   <h1 className="text-2xl md:text-3.5xl font-black text-slate-950 tracking-tight flex items-center gap-2">
-                    {selectedLanguage === "geez" ? "📜 Ge'ez Foundations" : `🇪🇹 Amharic • Level ${curriculumLevel}`}
+                    {`🇪🇹 Amharic • Level ${curriculumLevel}`}
                     <span className="text-xs bg-indigo-50 text-indigo-700 border border-indigo-150 font-bold px-2 py-0.5 rounded-lg uppercase">
                       Catalog Index
                     </span>
@@ -2348,7 +2699,28 @@ function Game3SyllableScramble({ data, speakText }: { data: any; speakText: (tex
           {/* Builder area where syllable chunks are slotted */}
           <div className="space-y-2">
             <span className="text-[11px] font-black uppercase text-slate-400 block tracking-wide">Building Slate Box:</span>
-            <div className="flex justify-center items-center gap-3 bg-white border border-slate-200 h-[72px] rounded-2xl max-w-sm mx-auto p-2 shadow-inner">
+            <div 
+              onDragOver={(e) => {
+                e.preventDefault();
+                e.currentTarget.classList.add("border-emerald-500", "bg-emerald-50/10");
+              }}
+              onDragLeave={(e) => {
+                e.currentTarget.classList.remove("border-emerald-500", "bg-emerald-50/10");
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                e.currentTarget.classList.remove("border-emerald-500", "bg-emerald-50/10");
+                try {
+                  const data = JSON.parse(e.dataTransfer.getData("application/json"));
+                  if (data && typeof data.index === 'number') {
+                    handleSyllableClick(data.index);
+                  }
+                } catch (err) {
+                  console.error(err);
+                }
+              }}
+              className="flex justify-center items-center gap-3 bg-white border border-slate-200 h-[72px] rounded-2xl max-w-sm mx-auto p-2 shadow-inner transition-colors duration-150"
+            >
               {userSequence.length > 0 ? (
                 userSequence.map((idx) => (
                   <div key={idx} className="bg-indigo-600 text-white text-xl font-black font-serif px-6 py-2.5 rounded-xl border border-indigo-750 shadow-md animate-in zoom-in-95 duration-120">
@@ -2356,7 +2728,7 @@ function Game3SyllableScramble({ data, speakText }: { data: any; speakText: (tex
                   </div>
                 ))
               ) : (
-                <span className="text-xs text-slate-450 italic">Tap the scattered letter bubbles below in order!</span>
+                <span className="text-xs text-slate-450 italic">Drag syllables or tap bubbles below in order!</span>
               )}
             </div>
           </div>
@@ -2371,10 +2743,15 @@ function Game3SyllableScramble({ data, speakText }: { data: any; speakText: (tex
                   <button
                     key={index}
                     type="button"
+                    draggable={!isSelected}
+                    onDragStart={(e) => {
+                      e.dataTransfer.setData("application/json", JSON.stringify({ index }));
+                      e.dataTransfer.effectAllowed = "move";
+                    }}
                     onClick={() => handleSyllableClick(index)}
-                    className={`w-14 h-14 rounded-full font-serif font-black text-xl flex items-center justify-center border transition-all duration-200 cursor-pointer shadow-sm ${
+                    className={`w-14 h-14 rounded-full font-serif font-black text-xl flex items-center justify-center border transition-all duration-200 cursor-grab active:cursor-grabbing shadow-sm ${
                       isSelected 
-                        ? 'bg-slate-100 text-slate-200 border-slate-100 scale-90 opacity-40' 
+                        ? 'bg-slate-100 text-slate-200 border-slate-100 scale-90 opacity-40 cursor-not-allowed' 
                         : 'bg-white border-slate-250 hover:bg-emerald-50/10 hover:border-emerald-300 scale-100 font-black'
                     }`}
                   >
@@ -2531,7 +2908,28 @@ function GameWordAssembly({ vocabularies, speakText }: { vocabularies: any[]; sp
           {/* User's construction tray */}
           <div className="space-y-1">
             <span className="text-[10px] uppercase font-black tracking-widest text-slate-400">My Spell Tray:</span>
-            <div className="flex justify-center items-center gap-2 h-14 bg-white border rounded-2xl max-w-sm mx-auto p-1.5 shadow-inner">
+            <div 
+              onDragOver={(e) => {
+                e.preventDefault();
+                e.currentTarget.classList.add("border-indigo-500", "bg-indigo-50/10");
+              }}
+              onDragLeave={(e) => {
+                e.currentTarget.classList.remove("border-indigo-500", "bg-indigo-50/10");
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                e.currentTarget.classList.remove("border-indigo-500", "bg-indigo-50/10");
+                try {
+                  const data = JSON.parse(e.dataTransfer.getData("application/json"));
+                  if (data && data.item) {
+                    handleCharacterClick(data.item, data.index);
+                  }
+                } catch (err) {
+                  console.error(err);
+                }
+              }}
+              className="flex justify-center items-center gap-2 h-14 bg-white border border-slate-200 rounded-2xl max-w-sm mx-auto p-1.5 shadow-inner transition-colors duration-150"
+            >
               {selectedSequence.length > 0 ? (
                 selectedSequence.map((char, index) => (
                   <span key={index} className="bg-indigo-600 text-white text-lg font-black font-serif px-4 py-2 rounded-xl shadow border">
@@ -2539,7 +2937,7 @@ function GameWordAssembly({ vocabularies, speakText }: { vocabularies: any[]; sp
                   </span>
                 ))
               ) : (
-                <span className="text-xs text-slate-400 italic">Select scrambled letters below in spelling order...</span>
+                <span className="text-xs text-slate-400 italic">Drag letters or tap them below in spelling order...</span>
               )}
             </div>
           </div>
@@ -2551,8 +2949,13 @@ function GameWordAssembly({ vocabularies, speakText }: { vocabularies: any[]; sp
                 <button
                   key={item.key}
                   disabled={item.isSelected}
+                  draggable={!item.isSelected}
+                  onDragStart={(e) => {
+                    e.dataTransfer.setData("application/json", JSON.stringify({ item, index: i }));
+                    e.dataTransfer.effectAllowed = "move";
+                  }}
                   onClick={() => handleCharacterClick(item, i)}
-                  className={`w-12 h-12 text-lg font-serif font-black rounded-full flex items-center justify-center border transition-all duration-155 cursor-pointer hover:scale-105 active:scale-95 ${
+                  className={`w-12 h-12 text-lg font-serif font-black rounded-full flex items-center justify-center border transition-all duration-155 cursor-grab active:cursor-grabbing hover:scale-105 active:scale-95 ${
                     item.isSelected
                       ? "bg-slate-100 border-slate-200 text-slate-200 cursor-not-allowed"
                       : "bg-white border-slate-305 hover:bg-indigo-50 hover:border-indigo-350 shadow-sm"
@@ -3196,7 +3599,7 @@ function TutorGuidanceSlideView({ slide, speakText }: { slide: TutorGuidanceSlid
 
           <div className="text-[10px] text-slate-400 font-bold border-t border-slate-800 pt-2 flex justify-between">
             <span>📝 Private Teacher Console Guide</span>
-            <span className="text-indigo-400">LinguKid Admin Portal</span>
+            <span className="text-indigo-400">Abyssinia Admin Portal</span>
           </div>
         </div>
 

@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "deploy": "gh-pages -d dist",
     "dev": "tsx server.ts",
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
@@ -32,7 +31,6 @@
     "react": "^18.3.1",
     "react-day-picker": "^10.0.1",
     "react-dom": "^18.3.1",
-    "react-example": "git+https://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@github.com/brtsegayetad-glitch/fidel-fundamentals.git",
     "react-hook-form": "^7.76.0",
     "react-router-dom": "^6.22.3",
     "recharts": "^3.8.1",
@@ -47,7 +45,6 @@
     "@types/nodemailer": "^8.0.0",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
-    "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",

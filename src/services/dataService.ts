@@ -890,13 +890,68 @@ export async function updateTutorAvailability(uid: string, availability: any, tu
   }
 }
 
+export function isDemoOrHardcodedTutor(t: any) {
+  if (!t) return false;
+  const email = (t.email || '').toLowerCase().trim();
+  const name = (t.displayName || t.name || t.fullName || '').toLowerCase().trim();
+  const id = (t.id || '').toLowerCase().trim();
+  
+  return (
+    email.includes('sample') || 
+    name.includes('sample') ||
+    id.includes('sample')
+  );
+}
+
 export async function getTutorsWithAvailability() {
   try {
-    const q = query(collection(db, 'users'), where('role', '==', 'tutor'));
-    const snapshot = await getDocs(q);
-    return snapshot.docs
-      .map(doc => ({ id: doc.id, ...doc.data() }))
-      .filter((t: any) => t.availability);
+    // 1. Fetch from 'tutors' collection containing master approved recruiter profiles
+    const tutorsSnap = await getDocs(collection(db, 'tutors'));
+    const tutorsList = tutorsSnap.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        ...data,
+        displayName: data.name || data.displayName || '',
+        expertise: data.specializedSyllabus || data['specialized syllabus'] || data.expertise || 'Heritage Language Tutor',
+        specializedSyllabus: data.specializedSyllabus || data['specialized syllabus'] || data.expertise || 'Heritage Language Tutor',
+      };
+    }) as any[];
+
+    // 2. Fetch from 'users' collection with role 'tutor'
+    const usersQ = query(collection(db, 'users'), where('role', '==', 'tutor'));
+    const usersSnap = await getDocs(usersQ);
+    const usersList = usersSnap.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: data.tutorId || doc.id,
+        ...data,
+        displayName: data.displayName || data.fullName || '',
+        expertise: data.specializedSyllabus || data.expertise || 'Heritage Language Tutor',
+        specializedSyllabus: data.specializedSyllabus || data.expertise || 'Heritage Language Tutor',
+      };
+    }) as any[];
+
+    // 3. Merge cleanly by email (case-insensitive) to prevent duplicates and combine info
+    const mergedMap = new Map<string, any>();
+    
+    for (const t of tutorsList) {
+      const emailKey = t.email ? t.email.trim().toLowerCase() : t.id;
+      mergedMap.set(emailKey, t);
+    }
+    
+    for (const u of usersList) {
+      const emailKey = u.email ? u.email.trim().toLowerCase() : u.id;
+      const existing = mergedMap.get(emailKey);
+      if (existing) {
+        mergedMap.set(emailKey, { ...u, ...existing });
+      } else {
+        mergedMap.set(emailKey, u);
+      }
+    }
+
+    const filtered = Array.from(mergedMap.values()).filter(t => !isDemoOrHardcodedTutor(t));
+    return filtered;
   } catch (error) {
     console.error("getTutorsWithAvailability Error:", error);
     return [];
@@ -909,6 +964,15 @@ export async function createTutor(tutorData: {
   bio?: string;
   languages_taught?: string[];
   years_of_experience?: number;
+  avatar?: string;
+  videoUrl?: string;
+  rating?: string;
+  reviewsCount?: string;
+  location?: string;
+  stats?: string;
+  quote?: string;
+  ageSpecialty?: string;
+  hourlyRate?: string;
 }) {
   const path = 'tutors';
   try {
@@ -918,12 +982,22 @@ export async function createTutor(tutorData: {
     // 1. Explicitly create in dedicated 'tutors' collection
     const tutorRef = await addDoc(collection(db, 'tutors'), {
       name: tutorData.displayName,
+      displayName: tutorData.displayName,
       email: cleanEmail,
       'specialized syllabus': tutorData.expertise,
       specializedSyllabus: tutorData.expertise,
       bio: tutorData.bio || '',
       languages_taught: tutorData.languages_taught || [],
       years_of_experience: Number(tutorData.years_of_experience) || 0,
+      avatar: tutorData.avatar || '',
+      videoUrl: tutorData.videoUrl || '',
+      rating: tutorData.rating || '4.9',
+      reviewsCount: tutorData.reviewsCount || '1',
+      location: tutorData.location || 'Addis Ababa Native Speaker',
+      stats: tutorData.stats || 'Trial Onboarded',
+      quote: tutorData.quote || '',
+      ageSpecialty: tutorData.ageSpecialty || 'All children aged 6-12',
+      hourlyRate: tutorData.hourlyRate || '25',
       role: 'tutor',
       createdAt: serverTimestamp()
     });
@@ -934,9 +1008,19 @@ export async function createTutor(tutorData: {
       fullName: tutorData.displayName,
       email: cleanEmail,
       expertise: tutorData.expertise,
+      specializedSyllabus: tutorData.expertise,
       bio: tutorData.bio || '',
       languages_taught: tutorData.languages_taught || [],
       years_of_experience: Number(tutorData.years_of_experience) || 0,
+      avatar: tutorData.avatar || '',
+      videoUrl: tutorData.videoUrl || '',
+      rating: tutorData.rating || '4.9',
+      reviewsCount: tutorData.reviewsCount || '1',
+      location: tutorData.location || 'Addis Ababa Native Speaker',
+      stats: tutorData.stats || 'Trial Onboarded',
+      quote: tutorData.quote || '',
+      ageSpecialty: tutorData.ageSpecialty || 'All children aged 6-12',
+      hourlyRate: tutorData.hourlyRate || '25',
       role: 'tutor',
       tutorId: tutorRef.id, // Explicitly link the tutor auto ID!
       createdAt: serverTimestamp(),
@@ -1034,57 +1118,70 @@ export function subscribeToAllSessions(callback: (sessions: any[]) => void, onEr
 
 export function subscribeToTutors(callback: (tutors: any[]) => void, onError?: () => void) {
   const qTutors = query(collection(db, 'tutors'));
-  let unsubscribeUsers: (() => void) | null = null;
+  const qUsers = query(collection(db, 'users'), where('role', '==', 'tutor'));
 
-  const unsubscribeTutors = onSnapshot(qTutors, (snapshot) => {
-    if (!snapshot.empty) {
-      if (unsubscribeUsers) {
-        unsubscribeUsers();
-        unsubscribeUsers = null;
-      }
-      const tutors = snapshot.docs.map(doc => {
-        const data = doc.data();
-        return {
-          id: doc.id,
-          ...data,
-          displayName: data.name || data.displayName || '',
-          expertise: data.specializedSyllabus || data['specialized syllabus'] || data.expertise || 'General Instruction',
-          role: data.role || 'tutor'
-        };
-      });
-      callback(tutors);
-    } else {
-      // Graceful fallback to users collection for matching role: 'tutor'
-      if (!unsubscribeUsers) {
-        const qUsers = query(collection(db, 'users'), where('role', '==', 'tutor'));
-        unsubscribeUsers = onSnapshot(qUsers, (usersSnap) => {
-          const tutorsFromUsers = usersSnap.docs.map(doc => {
-            const data = doc.data();
-            return {
-              id: doc.id,
-              ...data,
-              displayName: data.displayName || data.name || '',
-              expertise: data.expertise || data.specializedSyllabus || data['specialized syllabus'] || 'General Instruction',
-              role: data.role || 'tutor'
-            };
-          });
-          callback(tutorsFromUsers);
-        }, (err) => {
-          console.error("Firestore fallback error in subscribeToTutors:", err);
-          onError?.();
-        });
+  let tutorsList: any[] = [];
+  let usersList: any[] = [];
+
+  const handleMerge = () => {
+    const mergedMap = new Map<string, any>();
+    
+    for (const t of tutorsList) {
+      const emailKey = t.email ? t.email.trim().toLowerCase() : t.id;
+      mergedMap.set(emailKey, t);
+    }
+    
+    for (const u of usersList) {
+      const emailKey = u.email ? u.email.trim().toLowerCase() : u.id;
+      const existing = mergedMap.get(emailKey);
+      if (existing) {
+        mergedMap.set(emailKey, { ...u, ...existing });
+      } else {
+        mergedMap.set(emailKey, u);
       }
     }
-  }, (error) => {
-    console.error("Firestore error in subscribeToTutors:", error);
+    
+    const filtered = Array.from(mergedMap.values()).filter(t => !isDemoOrHardcodedTutor(t));
+    callback(filtered);
+  };
+
+  const unsubscribeTutors = onSnapshot(qTutors, (snapshot) => {
+    tutorsList = snapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        ...data,
+        displayName: data.name || data.displayName || '',
+        expertise: data.specializedSyllabus || data['specialized syllabus'] || data.expertise || 'General Instruction',
+        role: data.role || 'tutor'
+      };
+    });
+    handleMerge();
+  }, (err) => {
+    console.error("Firestore error in subscribeToTutors (tutors):", err);
+    onError?.();
+  });
+
+  const unsubscribeUsers = onSnapshot(qUsers, (snapshot) => {
+    usersList = snapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        ...data,
+        displayName: data.displayName || data.name || '',
+        expertise: data.expertise || data.specializedSyllabus || data['specialized syllabus'] || 'General Instruction',
+        role: data.role || 'tutor'
+      };
+    });
+    handleMerge();
+  }, (err) => {
+    console.error("Firestore error in subscribeToTutors (users):", err);
     onError?.();
   });
 
   return () => {
     unsubscribeTutors();
-    if (unsubscribeUsers) {
-      unsubscribeUsers();
-    }
+    unsubscribeUsers();
   };
 }
 
@@ -1119,13 +1216,45 @@ export async function addManualLead(leadData: {
 }
 
 // Global Settings Subscriptions & Writes
+function sanitizeFidelUrls(data: any): any {
+  if (!data) return data;
+  const copy = { ...data };
+  
+  if (copy.fidelFundamentalsUrl && typeof copy.fidelFundamentalsUrl === 'string') {
+    let url = copy.fidelFundamentalsUrl.trim();
+    // Fix singular or truncated endings like fidel-fundamental, fidel-fundamen
+    if (url.includes('fidel-fundamental') && !url.includes('fidel-fundamentals')) {
+      url = url.replace('fidel-fundamental', 'fidel-fundamentals');
+    } else if (url.includes('fidel-fundamen') && !url.includes('fidel-fundamentals')) {
+      url = url.replace('fidel-fundamen', 'fidel-fundamentals');
+    }
+    // Ensure trailing slash
+    if (url && !url.endsWith('/')) {
+      url = url + '/';
+    }
+    copy.fidelFundamentalsUrl = url;
+  }
+  
+  if (copy.fidelFundamentalsGit && typeof copy.fidelFundamentalsGit === 'string') {
+    let git = copy.fidelFundamentalsGit.trim();
+    if (git.includes('fidel-fundamental') && !git.includes('fidel-fundamentals')) {
+      git = git.replace('fidel-fundamental', 'fidel-fundamentals');
+    } else if (git.includes('fidel-fundamen') && !git.includes('fidel-fundamentals')) {
+      git = git.replace('fidel-fundamen', 'fidel-fundamentals');
+    }
+    copy.fidelFundamentalsGit = git;
+  }
+  
+  return copy;
+}
+
 export function subscribeToSettings(callback: (settings: any) => void, onError?: () => void) {
   const path = 'settings';
   const q = doc(db, 'settings', 'global');
   return onSnapshot(q, (snapshot) => {
     if (snapshot.exists()) {
       const data = snapshot.data() || {};
-      const sanitized = { ...data };
+      let sanitized = { ...data };
       if (!sanitized.academyName || sanitized.academyName.includes('Selam')) {
         sanitized.academyName = "Abyssinia Tutors";
       }
@@ -1133,6 +1262,12 @@ export function subscribeToSettings(callback: (settings: any) => void, onError?:
       sanitized.youtubeUrl = data.youtubeUrl || 'https://www.youtube.com/@abyssiniatutors';
       sanitized.instagramUrl = data.instagramUrl || 'https://www.instagram.com/abyssiniatutors';
       sanitized.whatsappUrl = data.whatsappUrl || 'https://wa.me/15550192834';
+      sanitized.fidelFundamentalsUrl = data.fidelFundamentalsUrl || 'https://brtsegayetad-glitch.github.io/fidel-fundamentals/';
+      sanitized.fidelFundamentalsGit = data.fidelFundamentalsGit || 'https://github.com/brtsegayetad-glitch/fidel-fundamentals';
+      
+      // Auto-correct any user URL spelling typos (e.g., singular vs plural)
+      sanitized = sanitizeFidelUrls(sanitized);
+      
       callback(sanitized);
     } else {
       // Return beautiful default configurations in fallback
@@ -1147,7 +1282,9 @@ export function subscribeToSettings(callback: (settings: any) => void, onError?:
         instagramUrl: "https://www.instagram.com/abyssiniatutors",
         whatsappUrl: "https://wa.me/15550192834",
         facebookUrl: "https://www.facebook.com/abyssiniatutors",
-        youtubeUrl: "https://www.youtube.com/@abyssiniatutors"
+        youtubeUrl: "https://www.youtube.com/@abyssiniatutors",
+        fidelFundamentalsUrl: "https://brtsegayetad-glitch.github.io/fidel-fundamentals/",
+        fidelFundamentalsGit: "https://github.com/brtsegayetad-glitch/fidel-fundamentals"
       });
     }
   }, (error) => {
@@ -1160,8 +1297,10 @@ export async function saveSettings(settingsData: any) {
   const path = 'settings';
   try {
     const docRef = doc(db, 'settings', 'global');
+    // Auto-sanitize typos before saving
+    const sanitizedData = sanitizeFidelUrls(settingsData);
     await setDoc(docRef, {
-      ...settingsData,
+      ...sanitizedData,
       updatedAt: serverTimestamp()
     }, { merge: true });
     return { success: true };
@@ -1320,13 +1459,21 @@ export async function syncAllExistingTutorsToUsers(): Promise<{ success: boolean
 }
 
 // Tutor Applications Submissions & Subscriptions
-export async function submitTutorApplication(appData: { 
-  fullName: string; 
-  email: string; 
-  whatsapp: string; 
-  experience: string; 
-  expertise: string; 
-  timezone: string; 
+export async function submitTutorApplication(appData: {
+  fullName: string;
+  email: string;
+  whatsapp: string;
+  experience: string;
+  expertise: string;
+  timezone: string;
+  hourlyRate?: string;
+  yearsOfExperience?: string;
+  quote?: string;
+  detailedBio?: string;
+  videoUrl?: string;
+  avatarUrl?: string;
+  targetAge?: string;
+  instantDemoOnboard?: boolean;
 }) {
   const path = 'tutor_applications';
   try {

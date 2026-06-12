@@ -15,6 +15,8 @@ import {
   Check,
   Users,
   BookOpen,
+  Sparkles,
+  Award,
 } from "lucide-react";
 import { cn } from "../../lib/utils";
 import LessonViewer from "../../components/LessonViewer";
@@ -508,27 +510,7 @@ export default function ParentDashboard() {
       : () => {};
 
     const unsubscribeTutors = subscribeToTutors((data) => {
-      let list = [...data];
-      const hasPreviewTutor = list.some(t => t.id === 'preview-tutor-id' || t.id === 'selamawit_kebede' || t.email === 'selamawit@heritage.academy');
-      if (!hasPreviewTutor && (user?.email?.toLowerCase() === 'biruktt11@gmail.com' || (user?.uid && user.uid.startsWith('virtual_')))) {
-        list.push({
-          id: "preview-tutor-id",
-          displayName: "Selamawit Kebede",
-          name: "Selamawit Kebede",
-          email: "selamawit@heritage.academy",
-          specializedSyllabus: "Geez/Ethiopic Heritage, Amharic Conversational",
-          availability: {
-            monday: { active: true, slots: ["09:00", "14:00", "16:00"] },
-            tuesday: { active: true, slots: ["10:00", "15:00", "18:00"] },
-            wednesday: { active: true, slots: ["11:00", "14:00", "16:00"] },
-            thursday: { active: true, slots: ["09:00", "15:00", "17:05"] },
-            friday: { active: true, slots: ["10:00", "16:00", "19:00"] },
-            saturday: { active: true, slots: ["09:00", "11:00", "14:00"] },
-            sunday: { active: true, slots: ["13:00", "15:00", "17:00"] },
-          }
-        });
-      }
-      setTutors(list);
+      setTutors(data);
     });
 
     return () => {
@@ -561,12 +543,32 @@ export default function ParentDashboard() {
 
     setIsSubscribing(true);
     try {
-      const tutor = tutors.find((t) => t.id === selectedTutorId);
-      if (!tutor) {
-        alert("Selected tutor no longer available. Please select another.");
+      let targetTutor = null;
+      if (selectedTutorId === "auto-assign") {
+        // Find which tutor has the closest match to the selected times
+        const firstTime = recurringTimes[0];
+        if (firstTime) {
+          const d = new Date(firstTime);
+          const dayName = d.toLocaleDateString("en-US", { weekday: "long" }).toLowerCase();
+          const hourPart = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+          targetTutor = tutors.find(t => {
+            const avail = getLocalAvailability(t.availability);
+            return avail?.[dayName]?.active && avail[dayName].slots?.includes(hourPart);
+          });
+        }
+        if (!targetTutor) {
+          targetTutor = tutors[0];
+        }
+      } else {
+        targetTutor = tutors.find((t) => t.id === selectedTutorId);
+      }
+
+      if (!targetTutor) {
+        alert("Selected tutor options are no longer available. Please select another.");
         setIsSubscribing(false);
         return;
       }
+      const tutor = targetTutor;
 
       const schedulePattern = recurringTimes.map((time) => {
         const d = new Date(time);
@@ -585,7 +587,7 @@ export default function ParentDashboard() {
           user.uid,
           useCustomCreditsNew ? "custom" : selectedPlan?.id || "standard",
           child.name,
-          selectedTutorId,
+          tutor.id,
           recurringTimes,
           schedulePattern,
           user.email || "",
@@ -2092,10 +2094,10 @@ export default function ParentDashboard() {
                     <BookOpen size={18} />
                   </div>
                   <h4 className="font-extrabold text-slate-900 text-sm mb-1.5 font-sans">
-                    Amharic Global Library
+                    Heritage Library & Ge'ez Hub
                   </h4>
                   <p className="text-[11px] text-slate-550 mb-4 leading-relaxed">
-                    Interactive kid-friendly slides, fidel spelling cards, and visual Ge'ez vocabulary matrices.
+                    Interactive kid-friendly slides, fidel spelling spelling, games, quizzes, and our complete Classical Ge'ez Hub!
                   </p>
                   <button
                     onClick={() => setLibraryOpen(true)}
@@ -3275,38 +3277,117 @@ export default function ParentDashboard() {
                   {/* Step 2: Schedule & Tutor */}
                   <div className="grid md:grid-cols-1 gap-8">
                     <div className="space-y-4">
-                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        Step 2: Choose Your Primary Tutor
-                      </label>
-                      {tutors.length === 0 ? (
-                        <div className="p-8 border-2 border-dashed border-slate-100 rounded-2xl text-center">
-                          <p className="text-xs text-slate-400 font-medium">
-                            No tutors available at the moment. Please contact
-                            support.
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                          Step 2: Tutor Selection Mode
+                        </label>
+                        <span className="text-[10px] bg-indigo-50 border border-indigo-150 text-indigo-700 px-2.5 py-1 rounded-xl font-bold font-sans">
+                          🎉 Hybrid Matching System Active
+                        </span>
+                      </div>
+
+                      {/* Choice Cards */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSelectedTutorId("auto-assign");
+                            setRecurringTimes([]);
+                          }}
+                          className={cn(
+                            "p-5 rounded-3xl border text-left transition-all relative overflow-hidden cursor-pointer",
+                            selectedTutorId === "auto-assign"
+                              ? "border-indigo-600 bg-indigo-50/10 shadow-md ring-2 ring-indigo-600/20"
+                              : "border-slate-100 bg-white hover:border-slate-300"
+                          )}
+                        >
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <span className="p-1 px-1.5 bg-indigo-100 text-indigo-700 rounded-lg text-xs font-bold">
+                              🔍 Auto
+                            </span>
+                            <span className="font-bold text-sm text-slate-900">Let Abyssinia Assign Best Tutor</span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 leading-relaxed font-sans">
+                            Aggregates slots across all tutors for maximum calendar flexibility. Smart matching assigns the ultimate expert matching your preferred slot.
                           </p>
-                        </div>
-                      ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                          {tutors.map((t) => (
-                            <button
-                              key={t.id}
-                              type="button"
-                              onClick={() => setSelectedTutorId(t.id)}
-                              className={cn(
-                                "p-4 rounded-2xl border text-left transition-all",
-                                selectedTutorId === t.id
-                                  ? "border-primary bg-primary/5 shadow-md ring-2 ring-primary/20"
-                                  : "border-slate-100 bg-white hover:border-slate-300",
-                              )}
-                            >
-                              <p className="font-bold text-sm text-slate-900">
-                                {t.displayName || t.email}
+                          {selectedTutorId === "auto-assign" && (
+                            <div className="absolute top-3 right-3 w-2 h-2 bg-indigo-600 rounded-full"></div>
+                          )}
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const firstTutor = tutors.find(t => t.id !== "auto-assign");
+                            setSelectedTutorId(firstTutor ? firstTutor.id : "");
+                            setRecurringTimes([]);
+                          }}
+                          className={cn(
+                            "p-5 rounded-3xl border text-left transition-all relative overflow-hidden cursor-pointer",
+                            selectedTutorId !== "auto-assign" && selectedTutorId !== ""
+                              ? "border-indigo-600 bg-indigo-50/10 shadow-md ring-2 ring-indigo-600/20"
+                              : "border-slate-100 bg-white hover:border-slate-300"
+                          )}
+                        >
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <span className="p-1 px-1.5 bg-emerald-100 text-emerald-700 rounded-lg text-xs font-bold">
+                              👤 Select
+                            </span>
+                            <span className="font-bold text-sm text-slate-900">Manually Choose My Tutor</span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 leading-relaxed font-sans">
+                            Select a specific designated tutor. Perfect if you prefer a single dedicated guide for your child's entire learning track.
+                          </p>
+                          {selectedTutorId !== "auto-assign" && selectedTutorId !== "" && (
+                            <div className="absolute top-3 right-3 w-2 h-2 bg-indigo-600 rounded-full"></div>
+                          )}
+                        </button>
+                      </div>
+
+                      {/* Specific native speaker list if manually selected */}
+                      {selectedTutorId !== "auto-assign" && selectedTutorId !== "" && (
+                        <div className="space-y-3 pt-2 animate-in fade-in slide-in-from-top-1 duration-200">
+                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                            Available Native Speakers
+                          </p>
+                          {tutors.length === 0 ? (
+                            <div className="p-8 border-2 border-dashed border-slate-100 rounded-2xl text-center">
+                              <p className="text-xs text-slate-400 font-medium font-sans">
+                                No tutors available at the moment. Please contact support.
                               </p>
-                              <p className="text-[10px] text-slate-400 font-medium">
-                                Native Heritage Speaker
-                              </p>
-                            </button>
-                          ))}
+                            </div>
+                          ) : (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {tutors.map((t) => (
+                                <button
+                                  key={t.id}
+                                  type="button"
+                                  onClick={() => {
+                                    setSelectedTutorId(t.id);
+                                    setRecurringTimes([]);
+                                  }}
+                                  className={cn(
+                                    "p-4 rounded-2xl border text-left transition-all cursor-pointer relative",
+                                    selectedTutorId === t.id
+                                      ? "border-primary bg-primary/5 shadow-md ring-2 ring-primary/20 scale-[0.99]"
+                                      : "border-slate-100 bg-white hover:border-slate-200"
+                                  )}
+                                >
+                                  <p className="font-bold text-sm text-slate-900">
+                                    {t.displayName || t.email}
+                                  </p>
+                                  <p className="text-[10px] text-slate-400 font-medium mb-2 font-sans">
+                                    Native Heritage Speaker
+                                  </p>
+                                  {t.specializedSyllabus && (
+                                    <span className="text-[9px] font-sans font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-lg px-2 py-0.5">
+                                      {t.specializedSyllabus}
+                                    </span>
+                                  )}
+                                </button>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>{" "}
@@ -3318,7 +3399,7 @@ export default function ParentDashboard() {
                               <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                                 Step 3: Select Weekly Schedule
                               </label>
-                              <p className="text-[10px] text-slate-400 font-medium whitespace-nowrap">
+                              <p className="text-[10px] text-slate-400 font-medium whitespace-nowrap font-sans">
                                 Choose{" "}
                                 {selectedPlan ? selectedPlan.sessions / 4 : 1}{" "}
                                 regular times each week.
@@ -3333,12 +3414,42 @@ export default function ParentDashboard() {
                           </div>
                           <div className="space-y-6">
                             {(() => {
-                              const tutor = tutors.find(
-                                (t) => t.id === selectedTutorId,
-                              );
-                              const localAvail = getLocalAvailability(
-                                tutor?.availability,
-                              );
+                              let localAvail: any = null;
+                              if (selectedTutorId === "auto-assign") {
+                                // Aggregate availability days and slots across ALL active tutors
+                                const aggregated: any = {};
+                                const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+                                days.forEach((d) => {
+                                  aggregated[d] = { active: false, slots: [] };
+                                });
+
+                                tutors.forEach((t) => {
+                                  const singleAvail = getLocalAvailability(t.availability);
+                                  if (singleAvail) {
+                                    days.forEach((d) => {
+                                      if (singleAvail[d]?.active) {
+                                        aggregated[d].active = true;
+                                        if (Array.isArray(singleAvail[d].slots)) {
+                                          singleAvail[d].slots.forEach((slot: string) => {
+                                            if (!aggregated[d].slots.includes(slot)) {
+                                              aggregated[d].slots.push(slot);
+                                            }
+                                          });
+                                        }
+                                      }
+                                    });
+                                  }
+                                });
+
+                                // Sort the slot times chronologically
+                                days.forEach((d) => {
+                                  aggregated[d].slots.sort();
+                                });
+                                localAvail = aggregated;
+                              } else {
+                                const tutor = tutors.find((t) => t.id === selectedTutorId);
+                                localAvail = getLocalAvailability(tutor?.availability);
+                              }
                               if (!localAvail)
                                 return (
                                   <div className="p-8 border-2 border-dashed border-slate-100 rounded-[32px] text-center text-slate-400 italic text-xs">

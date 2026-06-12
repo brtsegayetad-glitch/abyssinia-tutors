@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { subscribeToSettings, saveSettings } from '../../services/dataService';
 import { useAuth } from '../../context/AuthContext';
+import BrandLogo from '../../components/BrandLogo';
 
 export default function AdminSettings() {
   const { user } = useAuth();
@@ -32,6 +33,8 @@ export default function AdminSettings() {
     whatsappUrl: 'https://wa.me/15550192834',
     facebookUrl: 'https://www.facebook.com/abyssiniatutors',
     youtubeUrl: 'https://www.youtube.com/@abyssiniatutors',
+    fidelFundamentalsUrl: 'https://brtsegayetad-glitch.github.io/fidel-fundamentals/',
+    fidelFundamentalsGit: 'https://github.com/brtsegayetad-glitch/fidel-fundamentals',
     activeLogoUrl: ''
   });
 
@@ -58,6 +61,8 @@ export default function AdminSettings() {
           whatsappUrl: data.whatsappUrl || 'https://wa.me/15550192834',
           facebookUrl: data.facebookUrl || 'https://www.facebook.com/abyssiniatutors',
           youtubeUrl: data.youtubeUrl || 'https://www.youtube.com/@abyssiniatutors',
+          fidelFundamentalsUrl: data.fidelFundamentalsUrl || '',
+          fidelFundamentalsGit: data.fidelFundamentalsGit || '',
           activeLogoUrl: data.activeLogoUrl || ''
         });
       }
@@ -386,6 +391,53 @@ export default function AdminSettings() {
           </div>
         </div>
 
+        {/* Companion App Integration (Fidel Fundamentals) */}
+        <div className="bg-white rounded-2xl border border-slate-150/85 p-8 shadow-xs space-y-6" id="settings-companion-app-section">
+          <div className="border-b border-slate-50 pb-4">
+            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <Sparkles className="text-secondary" size={20} />
+              <span>Companion App: Fidel Fundamentals</span>
+            </h2>
+            <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mt-1">
+              Configure and integrate external interactive learning apps for your students
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Hosted Web App URL */}
+            <div className="space-y-2">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Deployed Application URL (or Iframe Embed Link)</label>
+              <input
+                disabled={!isAdmin}
+                type="url"
+                value={formSettings.fidelFundamentalsUrl}
+                onChange={(e) => setFormSettings({...formSettings, fidelFundamentalsUrl: e.target.value})}
+                placeholder="e.g. https://yourbrand.github.io/fidel-fundamentals"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/10 transition-all outline-none font-medium text-slate-800 disabled:opacity-75 disabled:cursor-not-allowed"
+              />
+              <p className="text-[10px] text-slate-400 font-semibold leading-relaxed">
+                Provide a hosted live URL of Fidel Fundamentals to allow instant inline previewing and game-play inside the Global Library's interactive iframe sandbox.
+              </p>
+            </div>
+
+            {/* GitHub Repository URL */}
+            <div className="space-y-2">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">GitHub Repository URL</label>
+              <input
+                disabled={!isAdmin}
+                type="url"
+                value={formSettings.fidelFundamentalsGit}
+                onChange={(e) => setFormSettings({...formSettings, fidelFundamentalsGit: e.target.value})}
+                placeholder="e.g. https://github.com/yourusername/fidel-fundamentals"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/10 transition-all outline-none font-medium text-slate-800 disabled:opacity-75 disabled:cursor-not-allowed"
+              />
+              <p className="text-[10px] text-slate-400 font-semibold leading-relaxed">
+                Provide the link to your exported GitHub code so that educators and parents can view progress, download repositories, or study integration templates.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Brand Logo Laboratory Segment */}
         <div className="bg-white rounded-2xl border border-slate-150/85 p-8 shadow-xs space-y-6">
           <div className="border-b border-slate-50 pb-4">
@@ -410,11 +462,9 @@ export default function AdminSettings() {
             >
               <div className="space-y-4">
                 <div className="aspect-square w-full rounded-xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center p-4 relative group-hover:scale-[1.02] transition-transform duration-300">
-                  <img 
-                    src="/logo_option_one.png" 
-                    alt="Logo Option One: The Modern Traditionalist ፪" 
+                  <BrandLogo 
+                    logoUrl="/logo_option_one.png" 
                     className="max-h-full max-w-full object-contain"
-                    referrerPolicy="no-referrer"
                   />
                   {formSettings.activeLogoUrl === '/logo_option_one.png' && (
                     <span className="absolute top-3 right-3 bg-indigo-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
@@ -444,7 +494,7 @@ export default function AdminSettings() {
             {/* Logo 2 */}
             <div 
               onClick={() => isAdmin && setFormSettings({ ...formSettings, activeLogoUrl: '/logo_option_two.png' })}
-              className={`group relative rounded-2xl border-2 p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-full bg-slate-50/50 hover:bg-white hover:shadow-md ${
+              className={`group relative rounded-2xl border-2 p-5 cursor-pointer transition-all duration-350 flex flex-col justify-between h-full bg-slate-50/50 hover:bg-white hover:shadow-md ${
                 formSettings.activeLogoUrl === '/logo_option_two.png' 
                   ? 'border-indigo-600 bg-white ring-4 ring-indigo-50 shadow-sm' 
                   : 'border-slate-150/80 hover:border-slate-350'
@@ -452,11 +502,9 @@ export default function AdminSettings() {
             >
               <div className="space-y-4">
                 <div className="aspect-square w-full rounded-xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center p-4 relative group-hover:scale-[1.02] transition-transform duration-300">
-                  <img 
-                    src="/logo_option_two.png" 
-                    alt="Logo Option Two: Corporate Excellence ፻" 
+                  <BrandLogo 
+                    logoUrl="/logo_option_two.png" 
                     className="max-h-full max-w-full object-contain"
-                    referrerPolicy="no-referrer"
                   />
                   {formSettings.activeLogoUrl === '/logo_option_two.png' && (
                     <span className="absolute top-3 right-3 bg-indigo-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
@@ -494,11 +542,9 @@ export default function AdminSettings() {
             >
               <div className="space-y-4">
                 <div className="aspect-square w-full rounded-xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center p-4 relative group-hover:scale-[1.02] transition-transform duration-300">
-                  <img 
-                    src="/logo_option_three.png" 
-                    alt="Logo Option Three: Playful Alphabet 'ሀ'" 
+                  <BrandLogo 
+                    logoUrl="/logo_option_three.png" 
                     className="max-h-full max-w-full object-contain"
-                    referrerPolicy="no-referrer"
                   />
                   {formSettings.activeLogoUrl === '/logo_option_three.png' && (
                     <span className="absolute top-3 right-3 bg-indigo-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">

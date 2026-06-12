@@ -4,11 +4,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, CheckCircle2, Loader2, Globe, Send } from 'lucide-react';
+import { ChevronLeft, CheckCircle2, Loader2, Globe, Send, Play, Star, Video, X, Award, Sparkles } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useAuth } from '../context/AuthContext';
 import { auth } from '../lib/firebase';
-import { captureLead, getTutorsWithAvailability, scheduleTrial } from '../services/dataService';
+import { captureLead, getTutorsWithAvailability, scheduleTrial, subscribeToSettings } from '../services/dataService';
+import BrandLogo from '../components/BrandLogo';
 
 const schema = z.object({
   parentName: z.string().min(2, 'Name is required'),
@@ -31,11 +32,63 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+function getEmbedUrl(url: string) {
+  if (!url) return '';
+  
+  const cleanUrl = url.trim();
+  
+  // 1. YouTube Shorts support
+  if (cleanUrl.includes('/shorts/')) {
+    const parts = cleanUrl.split('/shorts/');
+    if (parts.length > 1) {
+      const idPart = parts[1].split(/[?&]/)[0];
+      if (idPart.length >= 11) {
+        return `https://www.youtube.com/embed/${idPart.substring(0, 11)}`;
+      }
+    }
+  }
+
+  // 2. Already formatted embed url
+  if (cleanUrl.includes('/embed/')) {
+    const base = cleanUrl.split('?')[0];
+    return base;
+  }
+
+  // 3. Standard and short YouTube links
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = cleanUrl.match(regExp);
+  if (match && match[2] && match[2].length === 11) {
+    return `https://www.youtube.com/embed/${match[2]}`;
+  }
+  return cleanUrl;
+}
+
 export default function BookingPage() {
   const { user, signUpWithEmail, signInWithEmail, signInWithGoogle } = useAuth();
+  
+  const [logoUrl, setLogoUrl] = useState('/logo_option_one.png');
+  const [academyName, setAcademyName] = useState('Abyssinia Tutors');
+
+  useEffect(() => {
+    const unsubscribe = subscribeToSettings((data) => {
+      if (data) {
+        if (data.activeLogoUrl) {
+          setLogoUrl(data.activeLogoUrl);
+        }
+        if (data.academyName) {
+          setAcademyName(data.academyName);
+        }
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorStatus, setErrorStatus] = useState('');
+  const [tutors, setTutors] = useState<any[]>([]);
+  const [selectedTutorId, setSelectedTutorId] = useState<string>("auto-assign");
+  const [videoModalTutor, setVideoModalTutor] = useState<any | null>(null);
   const navigate = useNavigate();
 
   const [children, setChildren] = useState<Array<{ id: string; name: string; age: string; subjects: string[] }>>([
@@ -70,6 +123,15 @@ export default function BookingPage() {
       setValue('email', user.email || '');
     }
   }, [user, setValue]);
+
+  useEffect(() => {
+    getTutorsWithAvailability().then((list) => {
+      const dbList = (list as any[] || []).filter((t: any) => t.id !== 'preview-tutor-id');
+      setTutors(dbList);
+    }).catch(err => {
+      console.error("Error loading tutors:", err);
+    });
+  }, []);
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -151,11 +213,14 @@ export default function BookingPage() {
       const mainAge = Number(cleanedChildren[0]?.age) || 0;
 
       // 3. Capture lead under their authenticated parent account context
+      const chosenTutor = selectedTutorId === "auto-assign" ? null : tutors.find(t => t.id === selectedTutorId);
       const result = await captureLead({
         ...leadPayload,
         childName: childNames,
         childAge: mainAge,
-        children: cleanedChildren
+        children: cleanedChildren,
+        tutorId: selectedTutorId === "auto-assign" ? "" : selectedTutorId,
+        tutorName: selectedTutorId === "auto-assign" ? "System Auto-Assigned" : (chosenTutor?.displayName || chosenTutor?.email || "Selected Tutor")
       });
       
       if (result.success) {
@@ -172,24 +237,105 @@ export default function BookingPage() {
   };
 
   if (isSuccess) {
+    const chosenTutor = selectedTutorId === "auto-assign" 
+      ? (tutors[0] || null)
+      : (tutors.find(t => t.id === selectedTutorId) || null);
+
     return (
-      <div className="min-h-screen bg-surface flex items-center justify-center p-6">
-        <div className="max-w-md w-full bg-white rounded-[40px] p-12 text-center shadow-xl border border-gray-100">
-          <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <CheckCircle2 size={40} />
+      <div className="min-h-screen bg-surface flex items-center justify-center p-6 py-12">
+        <div className="max-w-2xl w-full bg-white rounded-[40px] p-8 md:p-12 text-center shadow-xl border border-gray-100 space-y-8">
+          <div>
+            <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 size={40} />
+            </div>
+            <h2 className="text-3xl font-serif font-bold text-primary mb-3">Trial Request Received!</h2>
+            <p className="text-gray-600 leading-relaxed max-w-lg mx-auto text-sm">
+              Ameseginalehu! We've received your request for <strong>{children.map(c => c.name).filter(Boolean).join(' & ') || 'your children'}</strong>. Our administrator will contact you via WhatsApp or email within 24 hours to schedule the session.
+            </p>
           </div>
-          <h2 className="text-3xl font-serif font-bold text-primary mb-4">Trial Request Received!</h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
-            Ameseginalehu! We've received your request for <strong>{children.map(c => c.name).filter(Boolean).join(' & ') || 'your children'}</strong>. Our administrator will contact you via WhatsApp or email within 24 hours to assign a tutor and schedule the session.
-          </p>
-          <div className="space-y-4">
+
+          {/* Tutor Profile Block */}
+          {chosenTutor && (
+            <div className="bg-slate-50/80 rounded-[32px] p-6 md:p-8 text-left border border-slate-100 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/50 pb-4">
+                <div>
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-indigo-700 bg-indigo-50 border border-indigo-100 px-2.5 py-1 rounded-full font-sans">
+                    {selectedTutorId === "auto-assign" ? "System Class Matching Active" : "Requested Private Tutor"}
+                  </span>
+                  <h3 className="font-serif text-lg font-bold text-primary mt-2">
+                    {selectedTutorId === "auto-assign" ? "Matching Lead Tutor" : "Meet Your Tutor"}
+                  </h3>
+                </div>
+                <div className="flex items-center gap-1 text-xs text-amber-500 font-bold bg-white px-3 py-1 rounded-full border border-slate-100 self-start sm:self-center">
+                  <Star size={12} className="fill-amber-500" />
+                  <span>{chosenTutor.rating || "4.9"}</span>
+                  <span className="text-[10px] text-slate-400 font-normal">({chosenTutor.reviewsCount || "120"})</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <div className="relative flex-shrink-0 mx-auto sm:mx-0">
+                  <img
+                    src={chosenTutor.avatar || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=260"}
+                    alt={chosenTutor.displayName}
+                    className="w-24 h-24 rounded-2xl object-cover border-2 border-white shadow-md"
+                    referrerPolicy="no-referrer"
+                  />
+                  <span className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></span>
+                </div>
+
+                <div className="space-y-3 text-center sm:text-left flex-1">
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      {chosenTutor.displayName}
+                    </h4>
+                    <p className="text-xs text-slate-400 font-medium">
+                      {chosenTutor.location || "Addis Ababa Native Speaker"}
+                    </p>
+                  </div>
+
+                  <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                    {chosenTutor.bio}
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-2 pt-1">
+                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider font-sans">Focus:</span>
+                    <span className="text-[9px] font-sans font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-lg px-2.5 py-0.5">
+                      {chosenTutor.specializedSyllabus || "Conversational Amharic • Level 1 Foundations"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {chosenTutor.quote && (
+                <div className="bg-white border border-slate-100 p-4 rounded-2xl">
+                  <p className="text-xs text-slate-500 font-medium italic relative font-sans leading-relaxed">
+                    "{chosenTutor.quote}"
+                  </p>
+                </div>
+              )}
+              
+              {chosenTutor.videoUrl && (
+                <button
+                  type="button"
+                  onClick={() => setVideoModalTutor(chosenTutor)}
+                  className="w-full flex items-center justify-center gap-2 py-3 bg-white hover:bg-slate-50 border border-slate-200 text-indigo-700 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-sm hover:border-slate-350"
+                >
+                  <Play size={12} className="fill-current text-indigo-700" />
+                  <span>Watch Presentation Video Intro</span>
+                </button>
+              )}
+            </div>
+          )}
+
+          <div className="space-y-4 pt-4">
             <button 
               onClick={() => navigate('/')}
-              className="btn-primary w-full"
+              className="btn-primary w-full py-3.5"
             >
               Back to Home
             </button>
-            <p className="text-xs text-gray-400">You'll receive a confirmation email shortly.</p>
+            <p className="text-xs text-slate-400">You'll receive a confirmation email shortly.</p>
           </div>
         </div>
       </div>
@@ -201,10 +347,13 @@ export default function BookingPage() {
       {/* Left: Content */}
       <div className="hidden md:flex md:w-1/3 bg-primary p-12 flex-col justify-between items-start text-white sticky top-0 h-screen">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-            <span className="text-primary font-serif text-xl font-bold">A</span>
+          <div className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0">
+            <BrandLogo 
+              logoUrl={logoUrl} 
+              className="w-full h-full"
+            />
           </div>
-          <span className="font-serif text-xl font-bold text-white tracking-tight">Abyssinia Tutors</span>
+          <span className="font-serif text-xl font-bold text-white tracking-tight">{academyName}</span>
         </Link>
         
         <div>
@@ -228,10 +377,21 @@ export default function BookingPage() {
       {/* Right: Form */}
       <div className="flex-1 p-6 md:p-20 flex flex-col justify-center">
         <div className="max-w-xl mx-auto w-full">
-          <Link to="/" className="md:hidden flex items-center gap-2 text-primary mb-8">
-            <ChevronLeft size={20} />
-            <span className="font-medium text-sm">Back</span>
-          </Link>
+          <div className="md:hidden flex items-center justify-between mb-8">
+            <Link to="/" className="flex items-center gap-2 text-primary">
+              <ChevronLeft size={20} />
+              <span className="font-medium text-sm">Back to Home</span>
+            </Link>
+            <div className="flex items-center gap-2 matches-glow">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
+                <BrandLogo 
+                  logoUrl={logoUrl} 
+                  className="w-full h-full"
+                />
+              </div>
+              <span className="font-serif text-xs font-black text-primary uppercase tracking-tight">{academyName}</span>
+            </div>
+          </div>
 
           <header className="mb-12">
             <h1 className="text-4xl font-serif font-bold text-primary mb-2">Book a Free Trial Session</h1>
@@ -239,7 +399,188 @@ export default function BookingPage() {
           </header>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Hybrid Model Tutor Allocation Selection Block */}
+            <div className="bg-white p-6 rounded-3xl border border-slate-100 space-y-4 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
+                  <span className="p-1 px-1.5 bg-indigo-50 text-indigo-700 rounded-lg text-xs font-black">⭐ Opening Choice</span>
+                  Select Your Tutor Strategy (Hybrid Model)
+                </h3>
+                <span className="text-[10px] font-sans font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-xl">
+                  🎉 Hybrid Matching Active
+                </span>
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed font-sans">
+                Choose to select a specific native academic speaker or let Abyssinia automatically pair you with the best matching fit for your selected slot.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <button
+                  type="button"
+                  onClick={() => setSelectedTutorId("auto-assign")}
+                  className={cn(
+                    "p-5 rounded-[22px] border text-left transition-all cursor-pointer relative overflow-hidden",
+                    selectedTutorId === "auto-assign"
+                      ? "border-indigo-600 bg-indigo-50/10 shadow-sm ring-2 ring-indigo-600/15"
+                      : "border-slate-100 bg-slate-50/40 hover:border-slate-300"
+                  )}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="p-1 px-1.5 bg-indigo-100 text-indigo-700 rounded-lg text-[10px] font-bold font-sans">🔍 Auto</span>
+                    <p className="font-extrabold text-xs text-slate-955">Fully Auto-Assign</p>
+                  </div>
+                  <p className="text-[10px] text-slate-500 leading-normal font-sans">
+                    Fastest match. Highly optimized for parent's listed time zones. Our system allocates the top available educator matching your slot.
+                  </p>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    const firstTutor = tutors.find(t => t.id !== "auto-assign") || tutors[0];
+                    setSelectedTutorId(firstTutor ? firstTutor.id : "auto-assign");
+                  }}
+                  className={cn(
+                    "p-5 rounded-[22px] border text-left transition-all cursor-pointer relative overflow-hidden",
+                    selectedTutorId !== "auto-assign"
+                      ? "border-indigo-600 bg-indigo-50/10 shadow-sm ring-2 ring-indigo-600/15"
+                      : "border-slate-100 bg-slate-50/40 hover:border-slate-300"
+                  )}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="p-1 px-1.5 bg-emerald-100 text-emerald-700 rounded-lg text-[10px] font-bold font-sans">👤 Choose</span>
+                    <p className="font-extrabold text-xs text-slate-955">Parent-Selected Tutor</p>
+                  </div>
+                  <p className="text-[10px] text-slate-500 leading-normal font-sans">
+                    Review native academic counselors, filter specializations, and request a specific core tutor for your entire study track.
+                  </p>
+                </button>
+              </div>
+
+              {/* Specific tutor picker if manually selected or preferred */}
+              {selectedTutorId !== "auto-assign" && (
+                <div className="space-y-4 pt-2 animate-in fade-in duration-300">
+                  <div className="flex items-center justify-between border-b pb-1">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                      Available Native Abyssinia Tutors
+                    </p>
+                    <span className="text-[9px] text-indigo-600 font-bold font-sans">100% Native Speakers</span>
+                  </div>
+
+                  {tutors.length === 0 ? (
+                    <div className="p-6 border border-dashed border-slate-100 rounded-2xl bg-slate-50 text-center">
+                      <p className="text-xs text-slate-400 font-medium font-sans">
+                        No custom tutors listed in directory. Falling back to matching allocation.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {tutors.map((t) => {
+                        const isSelected = selectedTutorId === t.id;
+                        return (
+                          <div
+                            key={t.id}
+                            className={cn(
+                              "bg-white rounded-[24px] border transition-all overflow-hidden flex flex-col h-full relative group",
+                              isSelected
+                                ? "border-indigo-600 ring-2 ring-indigo-600/15 shadow-sm scale-[1.01]"
+                                : "border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-md"
+                            )}
+                          >
+                            {/* Checkmark indicator */}
+                            {isSelected && (
+                              <div className="absolute top-2.5 right-2.5 bg-indigo-600 text-white p-0.5 rounded-full z-10 shadow-sm">
+                                <CheckCircle2 size={12} className="fill-white text-indigo-600" />
+                              </div>
+                            )}
+
+                            {/* Header info */}
+                            <div className="p-4 flex gap-3 items-start border-b border-slate-50 bg-slate-50/20">
+                              <div className="relative flex-shrink-0">
+                                <img
+                                  src={t.avatar || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=260"}
+                                  alt={t.displayName || t.email}
+                                  className="w-12 h-12 rounded-xl object-cover border border-slate-150 shadow-sm"
+                                  referrerPolicy="no-referrer"
+                                />
+                                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+                              </div>
+                              <div className="space-y-0.5 min-w-0">
+                                <h4 className="font-extrabold text-xs text-slate-900 truncate">
+                                  {t.displayName || t.email}
+                                </h4>
+                                <div className="flex items-center gap-1 text-[10px] text-amber-500 font-bold">
+                                  <Star size={10} className="fill-amber-500" />
+                                  <span>{t.rating || "4.9"}</span>
+                                  <span className="text-[9px] text-slate-400 font-light">({t.reviewsCount || "120"})</span>
+                                </div>
+                                <p className="text-[8px] text-slate-400 font-bold tracking-wider uppercase truncate">
+                                  {t.location || "Addis Ababa Native Speak"}
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Body contents */}
+                            <div className="p-4 space-y-3 flex-grow flex flex-col justify-between">
+                              <div className="space-y-2">
+                                <p className="text-[10px] text-slate-650 leading-relaxed italic line-clamp-3">
+                                  "{t.bio || `Specialized native heritage speaker dedicated to helping children speak, read and write classical Amharic.`}"
+                                </p>
+
+                                <div className="space-y-0.5">
+                                  <p className="text-[8px] font-bold text-slate-400 tracking-wider uppercase font-sans">Course Focus:</p>
+                                  <span className="inline-block text-[9px] font-sans font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-lg px-2 py-0.5 truncate max-w-full">
+                                    {t.specializedSyllabus || "Conversational Amharic • Level 1 Core Foundations"}
+                                  </span>
+                                </div>
+
+                                {t.ageSpecialty && (
+                                  <div className="space-y-0.5">
+                                    <p className="text-[8px] font-bold text-slate-400 tracking-wider uppercase font-sans">Suited For:</p>
+                                    <p className="text-[9px] text-slate-700 font-bold font-sans">{t.ageSpecialty}</p>
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Actions container inside the card */}
+                              <div className="pt-2.5 border-t border-slate-50 flex gap-2 items-center">
+                                {/* Watch intro video button */}
+                                {t.videoUrl && t.videoUrl.trim() !== '' && (
+                                  <button
+                                    type="button"
+                                    onClick={() => setVideoModalTutor(t)}
+                                    className="flex items-center justify-center gap-1 px-2 py-1.5 bg-indigo-50/60 hover:bg-indigo-100 text-indigo-700 rounded-lg text-[9px] font-extrabold transition-all cursor-pointer flex-1"
+                                  >
+                                    <Play size={8} className="fill-current text-indigo-700" />
+                                    <span>Video Intro</span>
+                                  </button>
+                                )}
+
+                                {/* Choose Tutor Button */}
+                                <button
+                                  type="button"
+                                  onClick={() => setSelectedTutorId(t.id)}
+                                  className={cn(
+                                    "px-2 py-1.5 rounded-lg text-[9px] font-black transition-all cursor-pointer flex-1 text-center border",
+                                    isSelected
+                                      ? "bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-700 shadow-sm"
+                                      : "bg-white text-slate-700 border-slate-200 hover:border-slate-300"
+                                  )}
+                                >
+                                  {isSelected ? "Select ✓" : "Choose"}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Parent Full Name</label>
                 <input {...register('parentName')} className={cn("input-field", errors.parentName && "border-red-500")} placeholder="e.g. Almaz Bekele" />
@@ -324,7 +665,6 @@ export default function BookingPage() {
                 {...register('learningGoal')} 
                 className={cn("input-field h-32 resize-none", errors.learningGoal && "border-red-500")} 
                 placeholder="What do you want your child to achieve? (e.g. speak with grandparents, read Ge'ez, etc.)" 
-                // Set default/placeholder so empty submission handles cleanly
               />
               {errors.learningGoal && <p className="text-red-500 text-xs mt-1">{errors.learningGoal.message}</p>}
             </div>
@@ -470,6 +810,174 @@ export default function BookingPage() {
           </form>
         </div>
       </div>
+
+      {/* Immersive Tutor Introduction Profile Page Overlay */}
+      {videoModalTutor && (() => {
+        const isShorts = videoModalTutor.videoUrl && videoModalTutor.videoUrl.includes('/shorts/');
+        return (
+          <div 
+            className="fixed inset-0 bg-slate-900 z-50 overflow-y-auto flex flex-col lg:flex-row animate-in fade-in duration-200"
+            onClick={() => setVideoModalTutor(null)}
+          >
+            {/* Cinema Video Stage Column */}
+            <div 
+              className="lg:flex-1 bg-slate-950 flex flex-col justify-center items-center p-4 md:p-8 relative min-h-[50vh] lg:min-h-screen"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                type="button"
+                onClick={() => setVideoModalTutor(null)}
+                className="absolute top-6 left-6 z-10 flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-full text-xs font-bold transition-all backdrop-blur-sm cursor-pointer border border-white/5"
+              >
+                <ChevronLeft size={16} />
+                <span>Back to Booking</span>
+              </button>
+
+              <div className="w-full max-w-4xl flex flex-col justify-center items-center h-full">
+                {/* Responsive Video Presentation Container */}
+                <div className={cn(
+                  "bg-slate-900 rounded-[28px] relative overflow-hidden shadow-2xl border border-white/10 w-full",
+                  isShorts ? "aspect-[9/16] max-w-[340px]" : "aspect-video"
+                )}>
+                  <iframe
+                    src={`${getEmbedUrl(videoModalTutor.videoUrl)}?autoplay=1&mute=0`}
+                    title={`${videoModalTutor.displayName} Profile Video`}
+                    className="w-full h-full border-0 absolute inset-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+
+                {/* Floating Ethiopic Language Card Subtitle Overlay */}
+                {videoModalTutor.quote && (
+                  <div className="max-w-2xl text-center mt-6 px-4">
+                    <p className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest font-sans flex items-center justify-center gap-1.5 mb-2">
+                      <Sparkles size={11} className="animate-pulse" /> Language Coach Motto
+                    </p>
+                    <p className="text-sm md:text-base text-slate-300 font-medium italic leading-relaxed">
+                      "{videoModalTutor.quote}"
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Profile Detail Desk Column */}
+            <div 
+              className="w-full lg:w-[440px] shrink-0 bg-white border-t lg:border-t-0 lg:border-l border-slate-100 flex flex-col h-full lg:h-screen lg:overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Profile Header Block */}
+              <div className="p-6 md:p-8 border-b border-slate-100 flex flex-col items-center text-center">
+                <div className="relative mb-4">
+                  <img 
+                    src={videoModalTutor.avatar} 
+                    alt={videoModalTutor.displayName} 
+                    className="w-24 h-24 rounded-[32px] object-cover border-4 border-white shadow-xl"
+                    referrerPolicy="no-referrer"
+                  />
+                  <span className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full animate-ping"></span>
+                  <span className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></span>
+                </div>
+
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="font-serif font-black text-slate-900 text-2xl">
+                    {videoModalTutor.displayName}
+                  </h3>
+                </div>
+
+                <div className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-50 text-emerald-850 rounded-full text-[10px] font-black uppercase tracking-wider mb-3">
+                  Verified Academic Partner
+                </div>
+
+                <p className="text-sm text-slate-500 max-w-sm font-sans leading-relaxed">
+                  {videoModalTutor.bio || 'Native Amharic speaker dedicated to teaching children through immersive, gamified lessons.'}
+                </p>
+              </div>
+
+              {/* Stats & Curriculum Detail Blocks */}
+              <div className="p-6 md:p-8 space-y-6 flex-1">
+                {/* High quality stat pills */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-slate-50/80 p-3.5 rounded-2xl border border-slate-150/10">
+                    <span className="block text-[9px] text-slate-400 font-bold uppercase tracking-widest font-sans">Student Rating</span>
+                    <div className="flex items-center gap-1 mt-1 font-bold text-sm text-slate-800">
+                      <Star size={14} className="fill-amber-500 text-amber-500" />
+                      <span>{videoModalTutor.rating || '5.0'}</span>
+                      <span className="text-slate-300 font-normal">({videoModalTutor.reviewsCount || '15'}+ reviews)</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-50/80 p-3.5 rounded-2xl border border-slate-150/10">
+                    <span className="block text-[9px] text-slate-400 font-bold uppercase tracking-widest font-sans">Lessons Completed</span>
+                    <span className="block text-sm font-bold text-slate-800 mt-1 font-sans">
+                      {videoModalTutor.stats || 'Verified Tutor'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Specialties list */}
+                <div className="space-y-4">
+                  <div className="space-y-1.5">
+                    <span className="block text-[9px] text-slate-400 font-bold uppercase tracking-widest font-sans">Syllabus Focus & Methodology</span>
+                    <div className="flex flex-wrap gap-2">
+                      {(videoModalTutor.specializedSyllabus || videoModalTutor.expertise || 'Conversational Amharic').split('•').map((item: string, idx: number) => (
+                        <span key={idx} className="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-3 py-1.5 rounded-xl">
+                          {item.trim()}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="block text-[9px] text-slate-400 font-bold uppercase tracking-widest font-sans">Ideal Student Age Range</span>
+                    <span className="block text-sm font-bold text-slate-900 font-sans">
+                      {videoModalTutor.ageSpecialty || 'All children ages 6-12'}
+                    </span>
+                  </div>
+
+                  {videoModalTutor.location && (
+                    <div className="space-y-1">
+                      <span className="block text-[9px] text-slate-400 font-bold uppercase tracking-widest font-sans">Location / Operational Base</span>
+                      <span className="block text-xs text-slate-700 font-medium font-sans">
+                        {videoModalTutor.location}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Bottom selection sticky panel */}
+              <div className="p-6 md:p-8 bg-slate-50 border-t border-slate-100 flex flex-col gap-3 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedTutorId(videoModalTutor.id);
+                    setVideoModalTutor(null);
+                  }}
+                  className={cn(
+                    "w-full py-3.5 rounded-2xl text-sm font-extrabold transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-primary/10",
+                    selectedTutorId === videoModalTutor.id 
+                      ? "bg-emerald-600 text-white hover:bg-emerald-700 hover:shadow-emerald-100" 
+                      : "bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-indigo-100"
+                  )}
+                >
+                  <Award size={16} />
+                  <span>{selectedTutorId === videoModalTutor.id ? "Target Selected" : `Select ${videoModalTutor.displayName}`}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setVideoModalTutor(null)}
+                  className="w-full py-2.5 bg-white hover:bg-slate-100 text-slate-650 border border-slate-200 rounded-2xl text-xs font-bold transition-all cursor-pointer text-center"
+                >
+                  Close & Keep Browsing
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

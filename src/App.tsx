@@ -25,8 +25,9 @@ import TutorCalendar from './pages/Tutor/TutorCalendar';
 import TutorStudents from './pages/Tutor/TutorStudents';
 import ParentDashboard from './pages/Parent/ParentDashboard';
 
+import LinguKidApp from './lingukid/App';
 import ErrorBoundary from './components/ErrorBoundary';
-import FidelGameLab from './components/FidelGameLab';
+
 const ProtectedRoute = ({ children, allowedRoles }: { children: React.ReactNode, allowedRoles?: string[] }) => {
   const { user, loading } = useAuth();
 
@@ -55,6 +56,7 @@ export default function App() {
         <AuthProvider>
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/geez-hub" element={<LinguKidApp />} />
             <Route path="/book-trial" element={<BookingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
@@ -71,7 +73,6 @@ export default function App() {
                     <Route path="conversations" element={<AdminConversations />} />
                     <Route path="reports" element={<AdminReports />} />
                     <Route path="settings" element={<AdminSettings />} />
-                    <Route path="games" element={<FidelGameLab />} />
                   </Routes>
                 </DashboardLayout>
               </ProtectedRoute>
@@ -85,7 +86,6 @@ export default function App() {
                     <Route path="calendar" element={<TutorCalendar />} />
                     <Route path="students" element={<TutorStudents />} />
                     <Route path="settings" element={<TutorSettings />} />
-                    <Route path="games" element={<FidelGameLab />} /> 
                   </Routes>
                 </DashboardLayout>
               </ProtectedRoute>
@@ -100,7 +100,6 @@ export default function App() {
                     <Route path="billing" element={<ParentDashboard />} />
                     <Route path="progress" element={<ParentDashboard />} />
                     <Route path="settings" element={<ParentDashboard />} />
-                    <Route path="games" element={<FidelGameLab />} />
                   </Routes>
                 </DashboardLayout>
               </ProtectedRoute>

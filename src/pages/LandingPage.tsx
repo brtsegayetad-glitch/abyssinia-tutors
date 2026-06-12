@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { subscribeToSettings } from '../services/dataService';
+import BrandLogo from '../components/BrandLogo';
 
 const faqs = [
   {
@@ -75,20 +76,12 @@ export default function LandingPage() {
       <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            {settings.activeLogoUrl ? (
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden p-1 shadow-inner border border-slate-100 shrink-0">
-                <img 
-                  src={settings.activeLogoUrl} 
-                  alt="Abyssinia Tutors Logo" 
-                  className="w-full h-full object-contain"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            ) : (
-              <div className="w-10 h-10 bg-secondary rounded-xl flex items-center justify-center font-bold text-white text-xl shrink-0">
-                A
-              </div>
-            )}
+            <div className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0">
+              <BrandLogo 
+                logoUrl={settings.activeLogoUrl || '/logo_option_one.png'} 
+                className="w-full h-full"
+              />
+            </div>
             <span className="text-2xl font-bold tracking-tight text-primary">{settings.academyName}</span>
           </Link>
           
@@ -459,20 +452,12 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 pb-12 border-b border-white/10">
           <div>
             <div className="flex items-center gap-3 mb-8">
-              {settings.activeLogoUrl ? (
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden p-1 shadow-inner shrink-0">
-                  <img 
-                    src={settings.activeLogoUrl} 
-                    alt="Abyssinia Tutors Logo" 
-                    className="w-full h-full object-contain"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              ) : (
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0">
-                  <span className="text-primary font-bold text-2xl">A</span>
-                </div>
-              )}
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
+                <BrandLogo 
+                  logoUrl={settings.activeLogoUrl || '/logo_option_one.png'} 
+                  className="w-full h-full"
+                />
+              </div>
               <span className="text-2xl font-bold text-white tracking-tight">{settings.academyName}</span>
             </div>
             <p className="text-slate-400 max-w-sm mb-8 leading-relaxed">
