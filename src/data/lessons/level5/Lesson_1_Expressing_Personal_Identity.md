@@ -281,7 +281,7 @@ In senior Level 5, we do not memorize boring charts. We observe how the suffix *
 **Debate Topic: "ቴክኖሎጂ የባህል እሴቶችን ያጠፋል ወይስ ያጠናክራል?"**
 *(Does technology destroy or strengthen cultural values?)*
 * **Affirmative position guidelines:** Screen time makes children forget physical respectful bows and gathering rituals.
-* **Negative position guidelines:** Multi-user apps like LinguKid allow diaspora kids from Berlin, Toronto, and London to gather and study Ge'ez numerals under an Ethiopian tutor.
+* **Negative position guidelines:** Multi-user apps like HabKids allow diaspora kids from Berlin, Toronto, and London to gather and study Ge'ez numerals under an Ethiopian tutor.
 
 ---
 

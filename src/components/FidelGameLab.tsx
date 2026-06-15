@@ -10,7 +10,7 @@ export default function FidelGameLab() {
     <div className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen rounded-2xl shadow-sm">
       {/* Header Banner */}
       <div className="text-center mb-8 bg-gradient-to-r from-indigo-600 to-purple-600 p-6 rounded-xl text-white">
-        <h1 className="text-3xl font-bold tracking-tight">Abyssinia Tutors - Interactive Game Lab</h1>
+        <h1 className="text-3xl font-bold tracking-tight">HabKids - Interactive Game Lab</h1>
         <p className="mt-2 text-indigo-100 text-sm">Fun and immersive Fidel fundamentals for kids living abroad</p>
       </div>
 

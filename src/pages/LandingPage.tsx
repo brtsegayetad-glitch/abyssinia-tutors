@@ -7,7 +7,7 @@ import BrandLogo from '../components/BrandLogo';
 
 const faqs = [
   {
-    question: "What teaching methods do Abyssinia Tutors use for diaspora children?",
+    question: "What teaching methods do HabKids use for diaspora children?",
     answer: "We employ a play-based, highly interactive curriculum tailored specifically for children aged 6–12. Our lessons connect kids to their heritage using localized storytelling, gamified Ge'ez alphabet exercises, sound-bubble matches, and digital flashcards that make learning feel natural and engaging."
   },
   {
@@ -19,7 +19,7 @@ const faqs = [
     answer: "Yes, absolute scheduling flexibility is at the core of our platform. Parents can access the scheduling panel to select trial sessions, set reoccurring weekly spots, view tutors' real-time calendars matching your system's timezone detector (e.g. Africa/Nairobi, EST, PST), and cancel or reschedule sessions with ease."
   },
   {
-    question: "Who are the tutors at Abyssinia Tutors?",
+    question: "Who are the tutors at HabKids?",
     answer: "Our educators are highly trained, native-speaking veteran Amharic teachers experienced in instructing children in international and diaspora environments. They are patient, child-centric, and vetted to supply welcoming, secure, and encouraging spaces for interactive bilingual learning."
   },
   {
@@ -38,7 +38,7 @@ export default function LandingPage() {
   const { user, signOut } = useAuth();
   
   const [settings, setSettings] = useState({
-    academyName: 'Abyssinia Tutors',
+    academyName: 'HabKids',
     founderName: 'Biruk Tadesse',
     founderLinkedIn: 'https://www.linkedin.com/in/biruk-tadesse-1750a3223/',
     welcomeMotto: 'Expanding heritage language tutoring and curriculum worldwide',
@@ -55,7 +55,7 @@ export default function LandingPage() {
         const rawName = data.founderName || '';
         const rawLink = data.founderLinkedIn || '';
         setSettings({
-          academyName: data.academyName || 'Abyssinia Tutors',
+          academyName: data.academyName || 'HabKids',
           founderName: (!rawName || rawName === 'Brtsegaye Tad') ? 'Biruk Tadesse' : rawName,
           founderLinkedIn: (!rawLink || rawLink.includes('brtsegayetad')) ? 'https://www.linkedin.com/in/biruk-tadesse-1750a3223/' : rawLink,
           welcomeMotto: data.welcomeMotto || 'Expanding heritage language tutoring and curriculum worldwide',
@@ -335,7 +335,7 @@ export default function LandingPage() {
                     {settings.founderName}
                   </h3>
                   <p className="text-slate-500 font-mono text-xs font-bold uppercase tracking-wider">
-                    Abyssinia Tutors Network
+                    HabKids Network
                   </p>
                 </div>
               </div>
@@ -428,7 +428,7 @@ export default function LandingPage() {
           <div className="mt-16 bg-gradient-to-br from-primary to-[#0f1d2e] text-white rounded-[32px] p-8 md:p-12 text-center relative overflow-hidden shadow-2xl shadow-primary/20">
             <div className="absolute right-0 bottom-0 top-0 w-1/3 bg-[radial-gradient(circle_at_bottom_right,var(--color-secondary)_0%,transparent_60%)] opacity-30 select-none pointer-events-none" />
             <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold font-sans tracking-tight">Ready to see Abyssinia Tutors in action?</h3>
+              <h3 className="text-2xl md:text-3xl font-bold font-sans tracking-tight">Ready to see HabKids in action?</h3>
               <p className="text-slate-300 text-sm md:text-base leading-relaxed">
                 Book a risk-free, complimentary 1-on-1 trial session. Our expert tutors will perform a quick milestone assessment and custom-tailor a learning pathway for your child.
               </p>
@@ -485,7 +485,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-xs font-bold uppercase tracking-widest">
-          <p>© 2024 Abyssinia Tutors. All rights reserved.</p>
+          <p>© 2024 HabKids. All rights reserved.</p>
           <div className="flex flex-wrap gap-5 items-center justify-center">
             <a href={settings.founderLinkedIn} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5 bg-[#0a66c2]/10 px-2.5 py-1 rounded-md text-slate-300">
               <Linkedin size={13} fill="currentColor" />

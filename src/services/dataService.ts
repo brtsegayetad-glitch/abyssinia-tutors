@@ -1256,7 +1256,7 @@ export function subscribeToSettings(callback: (settings: any) => void, onError?:
       const data = snapshot.data() || {};
       let sanitized = { ...data };
       if (!sanitized.academyName || sanitized.academyName.includes('Selam')) {
-        sanitized.academyName = "Abyssinia Tutors";
+        sanitized.academyName = "HabKids";
       }
       sanitized.facebookUrl = data.facebookUrl || 'https://www.facebook.com/abyssiniatutors';
       sanitized.youtubeUrl = data.youtubeUrl || 'https://www.youtube.com/@abyssiniatutors';
@@ -1275,7 +1275,7 @@ export function subscribeToSettings(callback: (settings: any) => void, onError?:
         standardPrice: 160,
         proPrice: 240,
         masteryPrice: 320,
-        academyName: "Abyssinia Tutors",
+        academyName: "HabKids",
         supportEmail: "info@abyssiniatutors.com",
         supportPhone: "+1 (555) 019-2834",
         welcomeMotto: "Expanding heritage language tutoring and curriculum worldwide",

@@ -69,7 +69,7 @@ export default function AmharicCertificate({ parentName }: AmharicCertificatePro
 
   const handleCopyCredential = () => {
     const credId = `ABYSSINIA-AMH-L${selectedLevel}-${studentName.toUpperCase().replace(/\s+/g, '-')}`;
-    const shareText = `Official Conversational Amharic Credential: ${studentName} successfully completed Abyssinia Tutors Level ${selectedLevel} (${levelsMeta[selectedLevel].title})! Reference Verification: ${credId}`;
+    const shareText = `Official Conversational Amharic Credential: ${studentName} successfully completed HabKids Level ${selectedLevel} (${levelsMeta[selectedLevel].title})! Reference Verification: ${credId}`;
     navigator.clipboard.writeText(shareText);
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 3000);
@@ -96,7 +96,7 @@ export default function AmharicCertificate({ parentName }: AmharicCertificatePro
             Amharic Global Literacy Certification
           </h3>
           <p className="text-xs text-slate-500 max-w-2xl font-medium">
-            Honor your child's milestones! Parents can select any completed Amharic level (Levels 1 to 5) to dynamically generate and co-sign the Abyssinia Tutors official bilingual certificate of conversational proficiency.
+            Honor your child's milestones! Parents can select any completed Amharic level (Levels 1 to 5) to dynamically generate and co-sign the HabKids official bilingual certificate of conversational proficiency.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export default function AmharicCertificate({ parentName }: AmharicCertificatePro
           {/* Upper Header Brand Block */}
           <div className="space-y-1.5 z-10">
             <span className="text-[#4F46E5] tracking-widest uppercase text-[10px] sm:text-xs font-mono font-bold block">
-              Abyssinia Tutors Bilingual Global Literacy Council
+              HabKids Bilingual Global Literacy Council
             </span>
             <div className="h-[2px] bg-gradient-to-r from-transparent via-indigo-950/20 to-transparent w-56 mx-auto" />
             <h1 className="text-2xl sm:text-4xl font-serif font-black text-indigo-950 tracking-tight pt-1">
@@ -202,7 +202,7 @@ export default function AmharicCertificate({ parentName }: AmharicCertificatePro
             {/* Right co-signator */}
             <div className="text-center">
               <span className="text-[13px] font-serif text-slate-800 italic block">
-                Abyssinia Tutors
+                HabKids
               </span>
               <div className="h-[1px] bg-slate-300 w-2/3 mx-auto my-1" />
               <span className="text-[8px] sm:text-[9px] uppercase font-mono block text-slate-450 font-bold leading-none">
@@ -330,7 +330,7 @@ export default function AmharicCertificate({ parentName }: AmharicCertificatePro
           <span>Linguistic Precedents & Secure Safeguards Notice</span>
         </h4>
         <p className="text-slate-650 leading-relaxed text-[11px]">
-          By implementing easy-to-use printing keepsakes alongside digital hashes, Abyssinia Tutors enhances student retention and builds tangible pride:
+          By implementing easy-to-use printing keepsakes alongside digital hashes, HabKids enhances student retention and builds tangible pride:
         </p>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-600 text-[11px] list-disc list-inside pl-1">
           <li>

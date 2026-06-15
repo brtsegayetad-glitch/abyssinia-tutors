@@ -58,14 +58,14 @@ export default function DashboardLayout({ children, role }: DashboardLayoutProps
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [brandSettings, setBrandSettings] = useState<any>({ activeLogoUrl: '', academyName: 'Abyssinia Tutors' });
+  const [brandSettings, setBrandSettings] = useState<any>({ activeLogoUrl: '', academyName: 'HabKids' });
 
   useEffect(() => {
     const unsubscribe = subscribeToSettings((data) => {
       if (data) {
         setBrandSettings({
           activeLogoUrl: data.activeLogoUrl || '',
-          academyName: data.academyName || 'Abyssinia Tutors'
+          academyName: data.academyName || 'HabKids'
         });
       }
     });

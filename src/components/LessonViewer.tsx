@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { slides, LessonSlide, IntroSlide, ObjectivesSlide, VocabularySlide, SpeakingExerciseSlide, GuidedDialogueSlide, ReadingActivitySlide, WritingActivitySlide, InteractiveGameSlide, HomeworkSlide, ParentInvolvementSlide, TutorGuidanceSlide, ProgressAssessmentSlide, ConclusionSlide } from "../data/slides";
 import { subscribeToSettings } from "../services/dataService";
 import GeezAcademy from "./GeezAcademy";
-import LinguKidApp from "../lingukid/App";
+import HabKidsApp from "../lingukid/App"
 import AmharicCertificate from "./AmharicCertificate";
 
 // 1. Safe image fallback dictionary
@@ -594,7 +594,7 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
                   Open Abyssinia Library <span className="text-indigo-600 text-xs font-black bg-indigo-50 border border-indigo-150 rounded-lg px-2 py-0.5">የቋንቋ መዝገብ</span>
                 </h2>
                 <p className="text-xs text-slate-400 font-bold uppercase tracking-widest hidden sm:block">
-                  Abyssinia Tutors • East African Dialect Repository
+                  HabKids • East African Dialect Repository
                 </p>
               </div>
             </div>
@@ -708,7 +708,7 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
                 {/* Brand Welcome Banner */}
                 <div className="space-y-4">
                   <span className="px-4 py-1.5 bg-indigo-50 text-indigo-700 border border-indigo-150 rounded-full text-xs font-black uppercase tracking-widest inline-flex items-center gap-1.5 shadow-sm">
-                    ✨ Abyssinia Tutors • Portfolio Portal
+                    ✨ HabKids • Portfolio Portal
                   </span>
                   <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none">
                     Open Abyssinia Library <span className="block text-xl md:text-3xl text-indigo-600 font-serif font-bold mt-2">የአቢሲኒያ ቤተ-መጻሕፍት</span>
@@ -1230,7 +1230,7 @@ export default function LessonViewer({ isOpen, onClose }: LessonViewerProps) {
             )}
 
             {selectedLanguage === "geez" && viewScene === "geez-levels" && (
-              <LinguKidApp 
+              <HabKidsApp 
                 onBackToHome={() => setViewScene("home")}
               />
             )}

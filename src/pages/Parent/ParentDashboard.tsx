@@ -1089,7 +1089,7 @@ export default function ParentDashboard() {
                   <strong className="font-extrabold text-slate-900 font-mono bg-slate-50 px-2 py-0.5 rounded">
                     +251 912 345 678
                   </strong>{" "}
-                  (under name: <strong>Abyssinia Tutors Language Center</strong>).
+                  (under name: <strong>HabKids Language Center</strong>).
                 </p>
               </div>
             )}
@@ -1102,7 +1102,7 @@ export default function ParentDashboard() {
                 <p className="leading-relaxed">
                   Kindly send your payment to our Commercial Bank of Ethiopia
                   (CBE) corporate savings account under name{" "}
-                  <strong>Abyssinia Tutors Language School</strong>:<br />
+                  <strong>HabKids Language School</strong>:<br />
                   <strong className="font-extrabold text-slate-900 font-mono text-sm bg-slate-50 px-2.5 py-1 rounded block mt-1.5 w-fit">
                     Acc: 1000492811726
                   </strong>
@@ -2676,7 +2676,7 @@ export default function ParentDashboard() {
                   <p className="leading-relaxed text-[11px]">
                     Deposit or wire transfer your tuition fee directly to CBE
                     corporate account name{" "}
-                    <strong>Abyssinia Tutors Language School</strong>:<br />
+                    <strong>HabKids Language School</strong>:<br />
                     <strong className="font-extrabold text-slate-900 font-mono bg-slate-50 px-2.5 py-0.5 rounded mt-1 inline-block">
                       ID: 1000492811726
                     </strong>
@@ -3805,7 +3805,7 @@ export default function ParentDashboard() {
                                   <p className="leading-relaxed text-[11px]">
                                     Deposit or wire transfer your subscription
                                     fee directly to CBE corporate account name{" "}
-                                    <strong>Abyssinia Tutors Language School</strong>:
+                                    <strong>HabKids Language School</strong>:
                                     <br />
                                     <strong className="font-extrabold text-slate-900 font-mono bg-slate-50 px-2.5 py-0.5 rounded mt-1 inline-block">
                                       ID: 1000492811726

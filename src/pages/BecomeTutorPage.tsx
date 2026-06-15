@@ -75,7 +75,7 @@ export default function BecomeTutorPage() {
   const navigate = useNavigate();
   
   const [logoUrl, setLogoUrl] = useState('/logo_option_one.png');
-  const [academyName, setAcademyName] = useState('Abyssinia Tutors');
+  const [academyName, setAcademyName] = useState('HabKids');
 
   useEffect(() => {
     const unsubscribe = subscribeToSettings((data) => {
@@ -757,7 +757,7 @@ export default function BecomeTutorPage() {
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-500 py-10 px-6 border-t border-slate-800 shrink-0 mt-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-medium tracking-wide">
-          <p>© 2026 Abyssinia Tutors. All pedagogical content is property of Abyssinia Tutors.</p>
+          <p>© 2026 HabKids. All pedagogical content is property of HabKids.</p>
         </div>
       </footer>
     </div>

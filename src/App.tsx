@@ -25,7 +25,7 @@ import TutorCalendar from './pages/Tutor/TutorCalendar';
 import TutorStudents from './pages/Tutor/TutorStudents';
 import ParentDashboard from './pages/Parent/ParentDashboard';
 
-import LinguKidApp from './lingukid/App';
+import HabKidsApp from './lingukid/App';
 import ErrorBoundary from './components/ErrorBoundary';
 
 const ProtectedRoute = ({ children, allowedRoles }: { children: React.ReactNode, allowedRoles?: string[] }) => {
@@ -56,7 +56,7 @@ export default function App() {
         <AuthProvider>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/geez-hub" element={<LinguKidApp />} />
+            <Route path="/geez-hub" element={<HabKidsApp />} />
             <Route path="/book-trial" element={<BookingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />

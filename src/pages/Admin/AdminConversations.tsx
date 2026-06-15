@@ -311,7 +311,7 @@ export default function AdminConversations() {
                 <Shield size={20} className="text-slate-400 mx-auto" />
                 <h4 className="text-xs font-bold text-slate-800">Secure Consultation Line</h4>
                 <p className="text-[10px] text-slate-500 leading-relaxed">
-                  Welcome to the communications panel. You are replying on behalf of <span className="font-semibold text-primary">Abyssinia Tutors Operations</span>. Parents see responses immediately in their dashboard.
+                  Welcome to the communications panel. You are replying on behalf of <span className="font-semibold text-primary">HabKids Operations</span>. Parents see responses immediately in their dashboard.
                 </p>
               </div>
 

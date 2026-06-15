@@ -509,7 +509,7 @@ export const lessons_21_24: LessonDefinition[] = [
     topic: "Review & Celebration",
     theme: "Gold Graduation",
     phase: "Phase 5: Culture, Animals & Celebrations",
-    subheading: "LinguKid Star Champion! Today we celebrate all 24 lessons of your amazing Amharic quest with songs, fun quizzes, and your gold certificate!",
+    subheading: "HabKids Star Champion! Today we celebrate all 24 lessons of your amazing Amharic quest with songs, fun quizzes, and your gold certificate!",
     imageUrl: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80",
     objectives: [
       "Recap greetings, family terms, and names.",

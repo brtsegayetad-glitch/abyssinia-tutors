@@ -121,7 +121,7 @@ export default function BrandLogo({ logoUrl = '', className = 'w-full h-full' }:
       <svg 
         viewBox="0 0 100 100" 
         className={`${className} select-none`} 
-        aria-label="LinguKid Friendly Logo Concept"
+        aria-label="HabKids Friendly Logo Concept"
       >
         <defs>
           <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">

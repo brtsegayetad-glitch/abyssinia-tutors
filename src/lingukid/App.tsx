@@ -559,7 +559,7 @@ export default function App({ onBackToHome }: AppProps) {
       {/* Main Footer credentials block */}
       <footer id="app-footer-bar" className="bg-white border-t border-zinc-200 mt-12 py-6 text-center text-xs space-y-1.5 font-mono text-zinc-500">
         <p className="font-semibold text-zinc-700">Ge'ez Learning Hub &copy; 2026. All rights reserved.</p>
-        <p>Abyssinia Tutors Class Series • Offline Sandboxed Integration</p>
+        <p>HabKids Class Series • Offline Sandboxed Integration</p>
       </footer>
 
     </div>

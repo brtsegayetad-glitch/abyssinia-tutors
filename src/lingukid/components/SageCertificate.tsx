@@ -94,7 +94,7 @@ export default function SageCertificate({ progress }: SageCertificateProps) {
             Academic Credentials & Sage Certification
           </h3>
           <p className="text-xs text-zinc-500 max-w-2xl">
-            Abyssinia Tutors structures your child's Ge'ez and Amharic learning path following standard international language acquisition guidelines, translating gamified XP into accredited global certificates.
+            HabKids structures your child's Ge'ez and Amharic learning path following standard international language acquisition guidelines, translating gamified XP into accredited global certificates.
           </p>
         </div>
 
@@ -213,7 +213,7 @@ export default function SageCertificate({ progress }: SageCertificateProps) {
             {/* Right Signator */}
             <div className="text-center">
               <span className="text-[14px] font-serif text-zinc-800 italic block">
-                Abyssinia Tutors
+                HabKids
               </span>
               <div className="h-[1px] bg-zinc-300 w-2/3 mx-auto my-1" />
               <span className="text-[8px] sm:text-[10px] uppercase font-mono block text-zinc-400 font-bold leading-none">
@@ -318,7 +318,7 @@ export default function SageCertificate({ progress }: SageCertificateProps) {
             <strong className="text-zinc-800">Progression-Locked Tiers:</strong> The High Sage Certificate remains locked and unreachable until students successfully cross the threshold of <strong>1,000 XP</strong> of academic work.
           </li>
           <li>
-            <strong className="text-zinc-800">Digital Registry ID:</strong> Each certificate bears a deterministic credential identifier hash key (e.g., <code className="bg-zinc-150 px-1 rounded font-mono text-[10px] text-zinc-800">{certificateId}</code>) which Abyssinia Tutors retains for official global registration.
+            <strong className="text-zinc-800">Digital Registry ID:</strong> Each certificate bears a deterministic credential identifier hash key (e.g., <code className="bg-zinc-150 px-1 rounded font-mono text-[10px] text-zinc-800">{certificateId}</code>) which HabKids retains for official global registration.
           </li>
         </ul>
       </div>

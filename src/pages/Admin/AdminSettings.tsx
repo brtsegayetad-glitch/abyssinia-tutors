@@ -23,7 +23,7 @@ export default function AdminSettings() {
     standardPrice: 160,
     proPrice: 240,
     masteryPrice: 320,
-    academyName: 'Abyssinia Tutors',
+    academyName: 'HabKids',
     supportEmail: 'info@abyssiniatutors.com',
     supportPhone: '+1 (555) 019-2834',
     welcomeMotto: 'Expanding heritage language tutoring and curriculum worldwide',
@@ -51,7 +51,7 @@ export default function AdminSettings() {
           standardPrice: typeof data.standardPrice === 'number' ? data.standardPrice : 160,
           proPrice: typeof data.proPrice === 'number' ? data.proPrice : 240,
           masteryPrice: typeof data.masteryPrice === 'number' ? data.masteryPrice : 320,
-          academyName: data.academyName || 'Abyssinia Tutors',
+          academyName: data.academyName || 'HabKids',
           supportEmail: data.supportEmail || 'info@abyssiniatutors.com',
           supportPhone: data.supportPhone || '+1 (555) 019-2834',
           welcomeMotto: data.welcomeMotto || 'Expanding heritage language tutoring and curriculum worldwide',
@@ -108,7 +108,7 @@ export default function AdminSettings() {
           </div>
           <div>
             <h1 className="text-3xl font-bold text-slate-950 tracking-tight font-sans">
-              {isAdmin ? "Global Platform Configuration" : "Abyssinia Tutors Platform Information"}
+              {isAdmin ? "Global Platform Configuration" : "HabKids Platform Information"}
             </h1>
             <p className="text-slate-400 text-sm mt-1">
               {isAdmin 
@@ -252,7 +252,7 @@ export default function AdminSettings() {
                 type="text"
                 value={formSettings.academyName}
                 onChange={(e) => setFormSettings({...formSettings, academyName: e.target.value})}
-                placeholder="Abyssinia Tutors"
+                placeholder="HabKids"
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/10 transition-all outline-none font-medium text-slate-850 disabled:opacity-75 disabled:cursor-not-allowed"
               />
             </div>
@@ -554,7 +554,7 @@ export default function AdminSettings() {
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                    Concept ሀ — LinguKid Friendly
+                    Concept ሀ — HabKids Friendly
                   </h3>
                   <p className="text-[11px] text-slate-500 font-medium leading-relaxed mt-1">
                     Features the Ethiopic letter <strong>ሀ ('He' for Beginner alphabet)</strong> designed as a friendly child mascot with smart glasses and an elegant green/gold academic ribbon. Highly child-safe!

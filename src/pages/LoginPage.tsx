@@ -109,7 +109,7 @@ export default function LoginPage() {
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
               <span className="text-primary font-serif text-3xl font-black">A</span>
             </div>
-            <span className="font-serif text-2xl font-bold text-white tracking-tight">Abyssinia Tutors</span>
+            <span className="font-serif text-2xl font-bold text-white tracking-tight">HabKids</span>
           </Link>
           
           <div className="relative z-10">

@@ -67,7 +67,7 @@ export default function BookingPage() {
   const { user, signUpWithEmail, signInWithEmail, signInWithGoogle } = useAuth();
   
   const [logoUrl, setLogoUrl] = useState('/logo_option_one.png');
-  const [academyName, setAcademyName] = useState('Abyssinia Tutors');
+  const [academyName, setAcademyName] = useState('HabKids');
 
   useEffect(() => {
     const unsubscribe = subscribeToSettings((data) => {
@@ -462,7 +462,7 @@ export default function BookingPage() {
                 <div className="space-y-4 pt-2 animate-in fade-in duration-300">
                   <div className="flex items-center justify-between border-b pb-1">
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      Available Native Abyssinia Tutors
+                      Available Native HabKids
                     </p>
                     <span className="text-[9px] text-indigo-600 font-bold font-sans">100% Native Speakers</span>
                   </div>
